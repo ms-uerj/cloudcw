@@ -32,3 +32,33 @@ h1 {
 #closeButton {
   margin: 15px 6px 6px;
 }
+
+#c1 {color:#ffffff; font-family:Arial, Helvetica, sans-serif;}
+#c2 {color:#CC0000; font-family:Arial, Helvetica, sans-serif;}
+#c3 {color:#009933; font-family:Arial, Helvetica, sans-serif;}
+#c4 {color:#9933CC; font-family:Arial, Helvetica, sans-serif;}
+#c5 {color:#0099FF; font-family:Arial, Helvetica, sans-serif;}
+#c6 {color:#FF6600; font-family:Arial, Helvetica, sans-serif;}
+#c7 {color:#FFCC00; font-family:Arial, Helvetica, sans-serif;}
+#c8 {color:#003399; font-family:Arial, Helvetica, sans-serif;}
+#c9 {color:#666666; font-family:Arial, Helvetica, sans-serif;}
+#c10 {color:#CC99FF; font-family:Arial, Helvetica, sans-serif;}
+#c11 {color:#FF0000; font-family:Arial, Helvetica, sans-serif;}
+#c12 {color:#FF9999; font-family:Arial, Helvetica, sans-serif;}
+#c13 {color:#00FF33; font-family:Arial, Helvetica, sans-serif;}
+#c14 {color:#00CCCC; font-family:Arial, Helvetica, sans-serif;}
+#c15 {color:#CC3399; font-family:Arial, Helvetica, sans-serif;}
+
+ul {margin: 0;padding: 0;list-style: none;width: 120px;}
+
+ul li {position: relative;}
+
+li ul {position: absolute;left: 119px;top: 0;display: none;}
+
+ul li a {display: block;text-decoration:none; font-family:Arial, Helvetica, sans-serif; font-size: 11px; color: #ffffff ;background: #000000;padding: 5px; border-bottom: 0;border-left: 8px solid #999999; border-right: 3px solid #999999; margin-bottom:1px;}
+
+ul {margin: 0;padding: 0;list-style: none;width: 120px;}
+
+li:hover ul ul, li.over ul ul {display:none;}
+
+li:hover ul, li li:hover ul, li.over ul, li li.over ul {display: block;}

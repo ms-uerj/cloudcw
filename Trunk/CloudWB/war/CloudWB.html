@@ -8,13 +8,47 @@
 
     <title>Cloud Construtor de WebSites</title>
 
-    <script type="text/javascript" language="javascript" src="cloudwb/cloudwb.nocache.js"></script>
+    <script type="text/javascript" language="javascript" src="cloudwb/cloudwb.nocache.js">
+
+   <!--
+    over = function(){
+	  var sfEls = document.getElementById("nav").getElementsByTagName("LI");
+	  for (var i=0; i<sfEls.length; i++){
+		sfEls[i].onmouseover=function(){
+		  this.className+=" over";
+		}
+		sfEls[i].onmouseout=function(){
+		  this.className=this.className.replace(new RegExp(" over\\b"), "");
+		}
+	  }
+    }
+    if (window.attachEvent) window.attachEvent("onload", over);
+
+   //-->
+   </script>
   </head>
 
   <body>
 
     <h1>Cloud WB</h1>
-    <div id="form" align=center>Formulário</div>
+    <div id="form" align=center>
+    
+    <div align="left">
+     <ul id="nav"> 
+	     <li><a href="#"><SPAN id="c1" onMouseOver="id='c2';" onMouseOut="id='c1';">Home</SPAN></a>
+
+	     <li><a href="#"><SPAN id="c1" onMouseOver="id='c2';" onMouseOut="id='c1';">Casos de uso</SPAN></a>
+
+	     <li><a href="#"><SPAN id="c1" onMouseOver="id='c2';" onMouseOut="id='c1';">Criar site</SPAN></a>
+
+	     <li><a href="#"><SPAN id="c1" onMouseOver="id='c2';" onMouseOut="id='c1';">Suporte</SPAN></a>
+
+	     <li><a href="#"><SPAN id="c1" onMouseOver="id='c2';" onMouseOut="id='c1';">Contato</SPAN></a>
+     </ul>
+    </div>
+
+    Formulário
+    </div>
     
     <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
 
