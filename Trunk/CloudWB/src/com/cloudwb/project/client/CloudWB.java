@@ -28,8 +28,8 @@ public class CloudWB implements EntryPoint {
 		// Create a tab panel
 		TabPanel tabPanel = new TabPanel();
 
-		// Set the width to 400 pixels
-		tabPanel.setWidth("400px");
+		// Set the width to 600 pixels
+		tabPanel.setWidth("800px");
 
 		// Adiciona Tab Principal
 		HTML homeText = new HTML("Informacoes gerais sobre o site<br>"+
@@ -46,10 +46,10 @@ public class CloudWB implements EntryPoint {
 		HTML layoutText = new HTML("Escolha o Layout das paginas:<br>"+
 				"<FORM METHOD=POST NAME=layout>" +
 				"<P>Opcoes de layout:</P>" +
-				"<P><INPUT TYPE=CHECKBOX NAME=op1>opcao 1" +
-				"<INPUT TYPE=CHECKBOX NAME=op2>opcao 2</P>" +
-				"<P><INPUT TYPE=CHECKBOX NAME=op3>opcao 3" +
-				"<INPUT TYPE=CHECKBOX NAME=op4>opcao 4</P><P>" +
+				"<P><INPUT TYPE=CHECKBOX NAME=op1>opcao 1 <IMG SRC='estrutura1.gif'></INPUT>" +
+				"<INPUT TYPE=CHECKBOX NAME=op2>opcao 2 <IMG SRC='estrutura2.gif'></INPUT> </P>" +
+				"<P><INPUT TYPE=CHECKBOX NAME=op3>opcao 3 <IMG SRC='estrutura3.gif'></INPUT>" +
+				"<INPUT TYPE=CHECKBOX NAME=op4>opcao 4 <IMG SRC='estrutura4.gif'> </P><P></INPUT>" +
 				"<INPUT TYPE=SUBMIT VALUE=SEGUIR ONCLICK=\"Javascript:alert('O form sera enviado!');\">" +
 				"<INPUT TYPE=RESET VALUE=LIMPAR></P>");
 		tabPanel.add(layoutText, "ESTRUTURA DO SITE");
@@ -57,7 +57,7 @@ public class CloudWB implements EntryPoint {
 		// Adiciona Tab Template
 		HTML templatText = new HTML("Escolha de um Template<br>"+
 				"<FORM METHOD=POST NAME=templante>" +
-				"<P>Opcoes de templante:</P>" +
+				"<P>Opcoes de template:</P>" +
 				"<P><INPUT TYPE=CHECKBOX NAME=op1>opcao 1" +
 				"<INPUT TYPE=CHECKBOX NAME=op2>opcao 2</P>" +
 				"<P><INPUT TYPE=CHECKBOX NAME=op3>opcao 3" +
