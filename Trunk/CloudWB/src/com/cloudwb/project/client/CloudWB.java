@@ -46,10 +46,10 @@ public class CloudWB implements EntryPoint {
 		HTML layoutText = new HTML("Escolha o Layout das paginas:<br>"+
 				"<FORM METHOD=POST NAME=layout>" +
 				"<P>Opcoes de layout:</P>" +
-				"<P><INPUT TYPE=CHECKBOX NAME=op1>opcao 1 <IMG SRC='estrutura1.gif'></INPUT>" +
-				"<INPUT TYPE=CHECKBOX NAME=op2>opcao 2 <IMG SRC='estrutura2.gif'></INPUT> </P>" +
-				"<P><INPUT TYPE=CHECKBOX NAME=op3>opcao 3 <IMG SRC='estrutura3.gif'></INPUT>" +
-				"<INPUT TYPE=CHECKBOX NAME=op4>opcao 4 <IMG SRC='estrutura4.gif'> </P><P></INPUT>" +
+				"<P><INPUT TYPE=RADIO BUTTON NAME=op1>opcao 1 <IMG SRC='estrutura1.gif'></INPUT>" +
+				"<INPUT TYPE=RADIO BUTTON NAME=op2>opcao 2 <IMG SRC='estrutura2.gif'></INPUT> </P>" +
+				"<P><INPUT TYPE=RADIO BUTTON NAME=op3>opcao 3 <IMG SRC='estrutura3.gif'></INPUT>" +
+				"<INPUT TYPE=RADIO BUTTON NAME=op4>opcao 4 <IMG SRC='estrutura4.gif'> </P><P></INPUT>" +
 				"<INPUT TYPE=SUBMIT VALUE=SEGUIR ONCLICK=\"Javascript:alert('O form sera enviado!');\">" +
 				"<INPUT TYPE=RESET VALUE=LIMPAR></P>");
 		tabPanel.add(layoutText, "ESTRUTURA DO SITE");
