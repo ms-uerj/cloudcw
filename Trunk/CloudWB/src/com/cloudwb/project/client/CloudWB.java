@@ -38,9 +38,21 @@ public class CloudWB implements EntryPoint {
 				"<P>Titulo: <INPUT TYPE=TEXT NAME=tituloSite SIZE=20 MAXLENGTH=8></P>" +
 				"<P>Banner: <INPUT TYPE=TEXT NAME=nomeSite SIZE=20 MAXLENGTH=8>" +
 				"<INPUT TYPE=SUBMIT VALUE=upload ONCLICK=\"Javascript:alert('buscando imagem!');\"></P>" +
-				"<INPUT TYPE=SUBMIT VALUE=SEGUIR ONCLICK=\"Javascript:alert('O form sera enviado!');\">" +
-				"<INPUT TYPE=RESET VALUE=LIMPAR></P>");
-		tabPanel.add(homeText, "DADOS PRINCIPAIS");
+				"<INPUT TYPE=SUBMIT VALUE=Confirmar ONCLICK=\"Javascript:alert('O form sera enviado!');\">" +
+				"<INPUT TYPE=RESET VALUE=Limpar></P>");
+		tabPanel.add(homeText, "Dados Principais");
+		
+		// Adiciona Tab Módulo
+		HTML modulText = new HTML("Formulario para a escolha dos modulos"+
+				"<FORM METHOD=POST NAME=modulo>" +
+				"<P>Opcoes de modulos:</P>" +
+				"<P><INPUT TYPE=CHECKBOX NAME=op1>Graduacao" +
+				"<INPUT TYPE=CHECKBOX NAME=op2>Pos-graduacao</P>" +
+				"<P><INPUT TYPE=CHECKBOX NAME=op3>Mestrado" +
+				"<INPUT TYPE=CHECKBOX NAME=op4>Doutorado</P><P>" +
+				"<INPUT TYPE=SUBMIT VALUE=Confirmar ONCLICK=\"Javascript:alert('O form sera enviado!');\">" +
+				"<INPUT TYPE=RESET VALUE=Limpar></P>");
+		tabPanel.add(modulText, "Modulos");
 		
 		// Adiciona Tab Layout
 		HTML layoutText = new HTML("Escolha o Layout das paginas:<br>"+
@@ -50,12 +62,11 @@ public class CloudWB implements EntryPoint {
 				"<INPUT TYPE=RADIO BUTTON NAME=op2>opcao 2 <IMG SRC='estrutura2.gif'></INPUT> </P>" +
 				"<P><INPUT TYPE=RADIO BUTTON NAME=op3>opcao 3 <IMG SRC='estrutura3.gif'></INPUT>" +
 				"<INPUT TYPE=RADIO BUTTON NAME=op4>opcao 4 <IMG SRC='estrutura4.gif'> </P><P></INPUT>" +
-				"<INPUT TYPE=SUBMIT VALUE=SEGUIR ONCLICK=\"Javascript:alert('O form sera enviado!');\">" +
-				"<INPUT TYPE=RESET VALUE=LIMPAR></P>");
-		tabPanel.add(layoutText, "ESTRUTURA DO SITE");
+				"<INPUT TYPE=SUBMIT VALUE=Confirmar ONCLICK=\"Javascript:alert('O form sera enviado!');\">");
+		tabPanel.add(layoutText, "Layout");
 
 		// Adiciona Tab Template
-		HTML templatText = new HTML("Escolha de um Template<br>"+
+		/*HTML templatText = new HTML("Escolha de um Template<br>"+
 				"<FORM METHOD=POST NAME=templante>" +
 				"<P>Opcoes de template:</P>" +
 				"<P><INPUT TYPE=CHECKBOX NAME=op1>opcao 1" +
@@ -64,21 +75,16 @@ public class CloudWB implements EntryPoint {
 				"<INPUT TYPE=CHECKBOX NAME=op4>opcao 4</P><P>" +
 				"<INPUT TYPE=SUBMIT VALUE=SEGUIR ONCLICK=\"Javascript:alert('O form sera enviado!');\">" +
 				"<INPUT TYPE=RESET VALUE=LIMPAR></P>");
-		tabPanel.add(templatText, "TEMPLATE");
+		tabPanel.add(templatText, "TEMPLATE");*/
 		
-		// Adiciona Tab Módulo
-		HTML modulText = new HTML("Formulario para a escolha dos modulos"+
-				"<FORM METHOD=POST NAME=nodulo>" +
-				"<P>Opcoes de modulos:</P>" +
-				"<P><INPUT TYPE=CHECKBOX NAME=op1>Graduacao" +
-				"<INPUT TYPE=CHECKBOX NAME=op2>Pos-graduacao</P>" +
-				"<P><INPUT TYPE=CHECKBOX NAME=op3>Mestrado" +
-				"<INPUT TYPE=CHECKBOX NAME=op4>Doutorado</P><P>" +
-				"<INPUT TYPE=SUBMIT VALUE=SEGUIR ONCLICK=\"Javascript:alert('O form sera enviado!');\">" +
-				"<INPUT TYPE=RESET VALUE=LIMPAR></P>");
-		tabPanel.add(modulText, "MODULOS");
+		// Adiciona Tab Final
+		HTML templatText = new HTML("<P>Finalizando o projeto:</P>" +
+				"<FORM METHOD=POST NAME=templante>" +
+				"<INPUT TYPE=SUBMIT VALUE=Visualiza ONCLICK=\"Javascript:alert('Exibindo rascunho!');\">" +
+				"<INPUT TYPE=SUBMIT VALUE=Criar ONCLICK=\"Javascript:alert('A página será criada!');\">");
+		tabPanel.add(templatText, "Visualizar");
 		
-
+		
 		// Atribui viibilidade para as tabs e adiciona ao painel da página
 		tabPanel.selectTab(0);
 		addPanel.add(tabPanel);
