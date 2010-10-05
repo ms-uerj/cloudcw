@@ -35,8 +35,8 @@ public class PaginaCliente {
   	return moduloSite[i];    	
   }
 
-  public void setModuloSite(){
-	
+  public void setModuloSite(int i, int opc){
+	moduloSite[i] = opc;
   }
   
   public int getLayoutSite(){
