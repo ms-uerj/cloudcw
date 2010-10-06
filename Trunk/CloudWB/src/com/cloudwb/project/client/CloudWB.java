@@ -5,6 +5,8 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
+import com.google.gwt.user.client.ui.ClickListener;
+import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -14,9 +16,13 @@ import com.google.gwt.user.client.ui.TabPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.Widget;
 
-public class CloudWB implements EntryPoint, ClickHandler {
+public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 
+	//instância de PaginaCliente
+	private PaginaCliente pagCliente = new PaginaCliente();
+	
 	private VerticalPanel mainPanel = new VerticalPanel();
 	private FlexTable stocksFlexTable = new FlexTable();
 	private HorizontalPanel addPanel = new HorizontalPanel();
@@ -47,21 +53,22 @@ public class CloudWB implements EntryPoint, ClickHandler {
 	
 	public void onModuleLoad() {
 		
-		//instância de PaginaCliente
-		PaginaCliente pagCliente = new PaginaCliente();
+		uploadBanner.addClickHandler(this);
+		guardaDadosPrinc.addClickHandler(this);
+		limpaDadosPrinc.addClickHandler(this);
 		
 		// Assemble Main panel.
 		mainPanel.add(stocksFlexTable);
 		mainPanel.add(addPanel);
 		mainPanel.add(lastUpdatedLabel);
-
 		
 		// Associate the Main panel with the HTML host page.
 		RootPanel.get("form").add(mainPanel);
 
 		// Create a tab panel
 		TabPanel tabPanel = new TabPanel();
-
+		//initWidget(tabPanel);
+		
 		// Set the width to 600 pixels
 		tabPanel.setWidth("800px");
 		
@@ -105,9 +112,18 @@ public class CloudWB implements EntryPoint, ClickHandler {
 	}
 
 	@Override
-	public void onClick(ClickEvent event) {
-		
-	}
-
-
+	 public void onClick(ClickEvent event) {
+	   Widget sender = (Widget) event.getSource();
+       if (sender == uploadBanner) {
+    	 
+       } else if (sender == guardaDadosPrinc) {
+         pagCliente.setNomeSite(caixaNomeSite.getValue());
+         pagCliente.setTituloSite(caixaTituloSite.getValue());
+         pagCliente.setBannerSite(caixaBannerSite.getValue());
+	   } else if (sender == limpaDadosPrinc) {
+		 caixaNomeSite.setValue(" ");
+		 caixaTituloSite.setValue(" ");
+		 caixaBannerSite.setValue(" ");
+	   }
+	 }
 }
