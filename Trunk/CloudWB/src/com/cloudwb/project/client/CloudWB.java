@@ -1,13 +1,13 @@
 package com.cloudwb.project.client;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
+//import com.google.gwt.event.dom.client.ClickEvent;
+//import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.ClickListener;
-import com.google.gwt.user.client.ui.Composite;
+//import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -20,7 +20,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 @SuppressWarnings("deprecation")
-public class CloudWB extends Composite implements EntryPoint, ClickHandler{
+public class CloudWB implements EntryPoint{
 
 	//instância de PaginaCliente
 	private PaginaCliente pagCliente = new PaginaCliente();
@@ -38,7 +38,7 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 	private TextBox caixaBannerSite = new TextBox();
 	
 	private Button guardaModulos;
-	private Button limpaModulos = new Button("Limpar");
+	private Button limpaModulos;
 	private CheckBox checkOpc1 = new CheckBox();
 	private CheckBox checkOpc2 = new CheckBox();
 	private CheckBox checkOpc3 = new CheckBox();
@@ -58,8 +58,11 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 		limpaDadosPrinc = new Button("Limpar", new ClickListener() {
 		  public void onClick(Widget sender) {
 			  caixaNomeSite.setValue(" ");
+			  pagCliente.setNomeSite("");
 			  caixaTituloSite.setValue(" ");
-			  caixaBannerSite.setValue(" ");     
+			  pagCliente.setTituloSite("");
+			  caixaBannerSite.setValue(" ");
+			  pagCliente.setBannerSite("");
 		  }});
 		
 		guardaDadosPrinc = new Button("Guardar", new ClickListener() {
@@ -106,16 +109,16 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 	      public void onClick(Widget sender) {
 			String dados = new String("Nome do Site: " +
 					pagCliente.getNomeSite() +
-					"\nTitulo da Página: " +
+					"\nTitulo da Pagina: " +
 					pagCliente.getTituloSite()+
 					"\nBanner: "+
 					pagCliente.getBannerSite());
 	    	Window.alert(dados);
 		}});
 		
-		uploadBanner.addClickHandler(this);
-		guardaDadosPrinc.addClickHandler(this);
-		limpaDadosPrinc.addClickHandler(this);
+		//uploadBanner.addClickHandler(this);
+		//guardaDadosPrinc.addClickHandler(this);
+		//limpaDadosPrinc.addClickHandler(this);
 		
 		// Assemble Main panel.
 		mainPanel.add(stocksFlexTable);
@@ -210,14 +213,44 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 		tabPanel.add(VPanelModulo, "Modulos");
 		
 		// Adiciona Tab Layout
-		HTML layoutText = new HTML("Escolha o Layout das paginas:<br>"+
-				"<P>Opcoes de layout:</P>" +
-				"<P>" + radioOpc1 + " <IMG SRC='estrutura1.gif'> </P>" +
-				"<P>" + radioOpc2 + " <IMG SRC='estrutura2.gif'> </P>" +
-				"<P>" + radioOpc3 + " <IMG SRC='estrutura3.gif'> </P>" +
-				"<P>" + radioOpc4 + " <IMG SRC='estrutura4.gif'> </P><P></INPUT>" +
-				guardaLayout);
-		tabPanel.add(layoutText, "Layout");
+		VerticalPanel VPanelLayout = new VerticalPanel();
+		
+		HorizontalPanel HPanelOpcao1 = new HorizontalPanel();
+		HorizontalPanel HPanelOpcao2 = new HorizontalPanel();
+		HorizontalPanel HPanelOpcao3 = new HorizontalPanel();
+		HorizontalPanel HPanelOpcao4 = new HorizontalPanel();
+		HorizontalPanel HPanelButtLay = new HorizontalPanel();
+		
+		HTML HTMLChamadaLayout = new HTML("Escolha o Layout das paginas:<br>");
+		HTML HTMLChamadaOpcLay = new HTML("<P>Opcoes de layout:</P>");
+		HTML HTMLImagemOp1 = new HTML("<IMG SRC='estrutura1.gif'> </P>");
+		HTML HTMLImagemOp2 = new HTML("<IMG SRC='estrutura2.gif'> </P>");
+		HTML HTMLImagemOp3 = new HTML("<IMG SRC='estrutura3.gif'> </P>");
+		HTML HTMLImagemOp4 = new HTML("<IMG SRC='estrutura4.gif'> </P>");
+		
+		HPanelOpcao1.add(radioOpc1);
+		HPanelOpcao1.add(HTMLImagemOp1);
+		
+		HPanelOpcao2.add(radioOpc2);
+		HPanelOpcao2.add(HTMLImagemOp2);
+		
+		HPanelOpcao3.add(radioOpc3);
+		HPanelOpcao3.add(HTMLImagemOp3);
+		
+		HPanelOpcao4.add(radioOpc4);
+		HPanelOpcao4.add(HTMLImagemOp4);
+		
+		HPanelButtLay.add(guardaLayout);
+
+		VPanelLayout.add(HTMLChamadaLayout);
+		VPanelLayout.add(HTMLChamadaOpcLay);
+		VPanelLayout.add(HPanelOpcao1);
+		VPanelLayout.add(HPanelOpcao2);
+		VPanelLayout.add(HPanelOpcao3);
+		VPanelLayout.add(HPanelOpcao4);
+		VPanelLayout.add(HPanelButtLay);
+		
+		tabPanel.add(VPanelLayout, "Layout");
 
 		// Adiciona Tab Final
 		VerticalPanel VPanelVisual = new VerticalPanel();
@@ -241,25 +274,10 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 		addPanel.add(tabPanel);
 	}
 
-	@Override
+	/*@Override
 	public void onClick(ClickEvent event) {
 		// TODO Auto-generated method stub
 		
-	}
+	}*/
 
-	//@Override
-	 /*public void onClick(ClickEvent event) {
-	   Widget sender = (Widget) event.getSource();
-       if (sender == uploadBanner) {
-    	 
-       } else if (sender == guardaDadosPrinc) {
-         pagCliente.setNomeSite(caixaNomeSite.getValue());
-         pagCliente.setTituloSite(caixaTituloSite.getValue());
-         pagCliente.setBannerSite(caixaBannerSite.getValue());
-	   } else if (sender == limpaDadosPrinc) {
-		 caixaNomeSite.setValue(" ");
-		 caixaTituloSite.setValue(" ");
-		 caixaBannerSite.setValue(" ");
-	   }
-	 }*/
 }
