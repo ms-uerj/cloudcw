@@ -3,6 +3,7 @@ package com.cloudwb.project.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.ClickListener;
@@ -18,6 +19,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+@SuppressWarnings("deprecation")
 public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 
 	//instância de PaginaCliente
@@ -28,9 +30,9 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 	private HorizontalPanel addPanel = new HorizontalPanel();
 	private Label lastUpdatedLabel = new Label();
 	
-	private Button uploadBanner = new Button("Upload");
-	private Button guardaDadosPrinc = new Button("Guardar");
-	private Button limpaDadosPrinc = new Button("Limpar");
+	private Button uploadBanner;
+	private Button guardaDadosPrinc;
+	private Button limpaDadosPrinc;
 	private TextBox caixaNomeSite = new TextBox();
 	private TextBox caixaTituloSite = new TextBox();
 	private TextBox caixaBannerSite = new TextBox();
@@ -53,6 +55,29 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 	
 	public void onModuleLoad() {
 		
+		limpaDadosPrinc = new Button("Limpar", new ClickListener() {
+		  public void onClick(Widget sender) {
+			  Window.alert("Teste");
+			  caixaNomeSite.setValue(" ");
+			  caixaTituloSite.setValue(" ");
+			  caixaBannerSite.setValue(" ");     
+		  }});
+		
+		guardaDadosPrinc = new Button("Guarda", new ClickListener() {
+	      public void onClick(Widget sender) {
+	    	Window.alert("Pegou info");
+			pagCliente.setNomeSite(caixaNomeSite.getValue());
+			pagCliente.setTituloSite(caixaTituloSite.getValue());
+			pagCliente.setBannerSite(caixaBannerSite.getValue());     
+	      }
+	    });
+		
+		uploadBanner = new Button("Upload", new ClickListener() {
+		      public void onClick(Widget sender) {
+		    	Window.alert("Buscando Banner");
+		      }
+		    });
+		
 		uploadBanner.addClickHandler(this);
 		guardaDadosPrinc.addClickHandler(this);
 		limpaDadosPrinc.addClickHandler(this);
@@ -61,6 +86,8 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 		mainPanel.add(stocksFlexTable);
 		mainPanel.add(addPanel);
 		mainPanel.add(lastUpdatedLabel);
+		
+		
 		
 		// Associate the Main panel with the HTML host page.
 		RootPanel.get("form").add(mainPanel);
@@ -73,14 +100,35 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 		tabPanel.setWidth("800px");
 		
 		// Adiciona Tab Principal
-		HTML homeText = new HTML("Informacoes gerais sobre o site<br>"+
-				"<P>Nome do Site:" + caixaNomeSite + "</P>" +
-				"<P>Titulo: " + caixaTituloSite +"</P>" +
-				"<P>Banner: " + caixaBannerSite +
-				 uploadBanner + "<br><br>"+ "      " +
-				 guardaDadosPrinc + "      "+ limpaDadosPrinc);
-		tabPanel.add(homeText, "Dados Principais");
+		VerticalPanel princDados = new VerticalPanel();
+		HorizontalPanel nomeSiteHPanel = new HorizontalPanel();
+		HorizontalPanel tituloSiteHPanel = new HorizontalPanel();
+		HorizontalPanel bannerSiteHPanel = new HorizontalPanel();
+		HorizontalPanel bottPrincHPanel = new HorizontalPanel();
+		
+		HTML chamada = new HTML("Informacoes gerais sobre o site<br>");
+		HTML nomeSiteHTML = new HTML ("<P>Nome do Site:");
+		HTML tituloSiteHTML = new HTML ("<P>Titulo: ");
+		HTML bannerSiteHTML = new HTML ("<P>Banner: ");
 
+		nomeSiteHPanel.add(nomeSiteHTML);
+		nomeSiteHPanel.add(caixaNomeSite);
+		tituloSiteHPanel.add(tituloSiteHTML);
+		tituloSiteHPanel.add(caixaTituloSite);
+		bannerSiteHPanel.add(bannerSiteHTML);
+		bannerSiteHPanel.add(caixaBannerSite);
+		bannerSiteHPanel.add(uploadBanner);
+		bottPrincHPanel.add(guardaDadosPrinc);
+		bottPrincHPanel.add(limpaDadosPrinc);
+		princDados.add(chamada);
+		princDados.add(nomeSiteHPanel);
+		princDados.add(tituloSiteHPanel);
+		princDados.add(bannerSiteHPanel);
+		princDados.add(bottPrincHPanel);
+		
+		
+		tabPanel.add(princDados, "Dados Principais");
+		
 		// Adiciona Tab Módulo
 		HTML modulText = new HTML("Formulario para a escolha dos modulos"+
 				"<P>Opcoes de modulos:</P>" +
@@ -112,7 +160,13 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 	}
 
 	@Override
-	 public void onClick(ClickEvent event) {
+	public void onClick(ClickEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	//@Override
+	 /*public void onClick(ClickEvent event) {
 	   Widget sender = (Widget) event.getSource();
        if (sender == uploadBanner) {
     	 
@@ -125,5 +179,5 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 		 caixaTituloSite.setValue(" ");
 		 caixaBannerSite.setValue(" ");
 	   }
-	 }
+	 }*/
 }
