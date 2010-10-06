@@ -1,13 +1,10 @@
 package com.cloudwb.project.client;
 
 import com.google.gwt.core.client.EntryPoint;
-//import com.google.gwt.event.dom.client.ClickEvent;
-//import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.ClickListener;
-//import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -29,31 +26,54 @@ public class CloudWB implements EntryPoint{
 	private FlexTable stocksFlexTable = new FlexTable();
 	private HorizontalPanel addPanel = new HorizontalPanel();
 	private Label lastUpdatedLabel = new Label();
-	
-	private Button uploadBanner;
+
 	private Button guardaDadosPrinc;
 	private Button limpaDadosPrinc;
+	private Button uploadBanner;
+	private Button guardaModulos;
+	private Button limpaModulos;
+	private Button guardaLayout;
+	private Button visualizaPagina;
+	private Button criaPagina;
+	
 	private TextBox caixaNomeSite = new TextBox();
 	private TextBox caixaTituloSite = new TextBox();
 	private TextBox caixaBannerSite = new TextBox();
 	
-	private Button guardaModulos;
-	private Button limpaModulos;
 	private CheckBox checkOpc1 = new CheckBox();
 	private CheckBox checkOpc2 = new CheckBox();
 	private CheckBox checkOpc3 = new CheckBox();
 	private CheckBox checkOpc4 = new CheckBox();
-	
-	private Button guardaLayout = new Button("Guardar");
+
 	private RadioButton radioOpc1 = new RadioButton("opcao");
 	private RadioButton radioOpc2 = new RadioButton("opcao");
 	private RadioButton radioOpc3 = new RadioButton("opcao");
 	private RadioButton radioOpc4 = new RadioButton("opcao");
 	
-	private Button visualizaPagina;
-	private Button criaPagina = new Button("Criar");
+	// Create a tab panel
+	private TabPanel tabPanel = new TabPanel();
 	
 	public void onModuleLoad() {
+		
+		// Assemble Main panel.
+		mainPanel.add(stocksFlexTable);
+		mainPanel.add(addPanel);
+		mainPanel.add(lastUpdatedLabel);
+
+		// Associate the Main panel with the HTML host page.
+		RootPanel.get("form").add(mainPanel);
+
+		// Set the width to 600 pixels
+		tabPanel.setWidth("800px");
+		
+		guardaDadosPrinc = new Button("Guardar", new ClickListener() {
+		  public void onClick(Widget sender) {
+			pagCliente.setNomeSite(caixaNomeSite.getValue());
+			pagCliente.setTituloSite(caixaTituloSite.getValue());
+			pagCliente.setBannerSite(caixaBannerSite.getValue());
+			tabPanel.selectTab(1);
+		  }
+		});
 		
 		limpaDadosPrinc = new Button("Limpar", new ClickListener() {
 		  public void onClick(Widget sender) {
@@ -65,14 +85,6 @@ public class CloudWB implements EntryPoint{
 			  pagCliente.setBannerSite("");
 		  }});
 		
-		guardaDadosPrinc = new Button("Guardar", new ClickListener() {
-	      public void onClick(Widget sender) {
-			pagCliente.setNomeSite(caixaNomeSite.getValue());
-			pagCliente.setTituloSite(caixaTituloSite.getValue());
-			pagCliente.setBannerSite(caixaBannerSite.getValue());     
-	      }
-	    });
-		
 		uploadBanner = new Button("Upload", new ClickListener() {
 		  public void onClick(Widget sender) {
 		    Window.alert("Buscando Banner");
@@ -82,18 +94,19 @@ public class CloudWB implements EntryPoint{
 		guardaModulos = new Button("Guardar", new ClickListener() {
 	      public void onClick(Widget sender) {
 	    	if (checkOpc1.getValue() == true){
-			  pagCliente.setModuloSite(1, 1);
+			  pagCliente.setGraduacao(1);
 	    	}
 	    	if (checkOpc2.getValue() == true){
-			  pagCliente.setModuloSite(2, 1);
+			  pagCliente.setPosGraduacao(1);
 		    }
 	    	if (checkOpc3.getValue() == true){
-			  pagCliente.setModuloSite(3, 1);
+			  pagCliente.setMestrado(1);
 			}
 	    	if (checkOpc4.getValue() == true){
-			  pagCliente.setModuloSite(4, 1);
+			  pagCliente.setDoutorado(1);
 			}
-		  }
+		    tabPanel.selectTab(2);
+	      }
 	    });
 		
 		limpaModulos = new Button("Limpar", new ClickListener() {
@@ -105,6 +118,13 @@ public class CloudWB implements EntryPoint{
 		  }
 	    });
 		
+		guardaLayout = new Button("Guardar", new ClickListener() {
+		  public void onClick(Widget sender) {
+			//Implementar
+			tabPanel.selectTab(3);
+		  }
+		});
+		
 		visualizaPagina = new Button("Visualizar", new ClickListener() {
 	      public void onClick(Widget sender) {
 			String dados = new String("Nome do Site: " +
@@ -112,30 +132,21 @@ public class CloudWB implements EntryPoint{
 					"\nTitulo da Pagina: " +
 					pagCliente.getTituloSite()+
 					"\nBanner: "+
-					pagCliente.getBannerSite());
+					pagCliente.getBannerSite() +
+					"\nGraduacao: " + ((pagCliente.getGraduacao() == 1)? "Sim":"Nao") +
+					"\nPos-Graduacao: " + ((pagCliente.getPosGraduacao() == 1)? "Sim":"Nao") +
+					"\nMestrado: " + ((pagCliente.getMestrado() == 1)? "Sim":"Nao") +
+					"\nDoutorado: " + ((pagCliente.getDoutorado() == 1)? "Sim":"Nao")
+					);
+			
 	    	Window.alert(dados);
 		}});
 		
-		//uploadBanner.addClickHandler(this);
-		//guardaDadosPrinc.addClickHandler(this);
-		//limpaDadosPrinc.addClickHandler(this);
-		
-		// Assemble Main panel.
-		mainPanel.add(stocksFlexTable);
-		mainPanel.add(addPanel);
-		mainPanel.add(lastUpdatedLabel);
-		
-		
-		
-		// Associate the Main panel with the HTML host page.
-		RootPanel.get("form").add(mainPanel);
-
-		// Create a tab panel
-		TabPanel tabPanel = new TabPanel();
-		//initWidget(tabPanel);
-		
-		// Set the width to 600 pixels
-		tabPanel.setWidth("800px");
+		criaPagina = new Button("Criar", new ClickListener() {
+		  public void onClick(Widget sender) {
+			//Implementar
+		  }
+		});
 		
 		// Montagem da Tab principal (Montando o quebra-cabeças)
 		VerticalPanel VPanelPrincDados = new VerticalPanel();
@@ -273,11 +284,5 @@ public class CloudWB implements EntryPoint{
 		tabPanel.selectTab(0);
 		addPanel.add(tabPanel);
 	}
-
-	/*@Override
-	public void onClick(ClickEvent event) {
-		// TODO Auto-generated method stub
-		
-	}*/
 
 }
