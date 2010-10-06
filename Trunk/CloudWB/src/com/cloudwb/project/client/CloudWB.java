@@ -37,7 +37,7 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 	private TextBox caixaTituloSite = new TextBox();
 	private TextBox caixaBannerSite = new TextBox();
 	
-	private Button guardaModulos = new Button("Guardar");
+	private Button guardaModulos;
 	private Button limpaModulos = new Button("Limpar");
 	private CheckBox checkOpc1 = new CheckBox();
 	private CheckBox checkOpc2 = new CheckBox();
@@ -50,22 +50,20 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 	private RadioButton radioOpc3 = new RadioButton("opcao");
 	private RadioButton radioOpc4 = new RadioButton("opcao");
 	
-	private Button visualizaPagina = new Button("Visualizar");
+	private Button visualizaPagina;
 	private Button criaPagina = new Button("Criar");
 	
 	public void onModuleLoad() {
 		
 		limpaDadosPrinc = new Button("Limpar", new ClickListener() {
 		  public void onClick(Widget sender) {
-			  Window.alert("Teste");
 			  caixaNomeSite.setValue(" ");
 			  caixaTituloSite.setValue(" ");
 			  caixaBannerSite.setValue(" ");     
 		  }});
 		
-		guardaDadosPrinc = new Button("Guarda", new ClickListener() {
+		guardaDadosPrinc = new Button("Guardar", new ClickListener() {
 	      public void onClick(Widget sender) {
-	    	Window.alert("Pegou info");
 			pagCliente.setNomeSite(caixaNomeSite.getValue());
 			pagCliente.setTituloSite(caixaTituloSite.getValue());
 			pagCliente.setBannerSite(caixaBannerSite.getValue());     
@@ -73,10 +71,47 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 	    });
 		
 		uploadBanner = new Button("Upload", new ClickListener() {
-		      public void onClick(Widget sender) {
-		    	Window.alert("Buscando Banner");
-		      }
-		    });
+		  public void onClick(Widget sender) {
+		    Window.alert("Buscando Banner");
+		  }
+		});
+		
+		guardaModulos = new Button("Guardar", new ClickListener() {
+	      public void onClick(Widget sender) {
+	    	if (checkOpc1.getValue() == true){
+			  pagCliente.setModuloSite(1, 1);
+	    	}
+	    	if (checkOpc2.getValue() == true){
+			  pagCliente.setModuloSite(2, 1);
+		    }
+	    	if (checkOpc3.getValue() == true){
+			  pagCliente.setModuloSite(3, 1);
+			}
+	    	if (checkOpc4.getValue() == true){
+			  pagCliente.setModuloSite(4, 1);
+			}
+		  }
+	    });
+		
+		limpaModulos = new Button("Limpar", new ClickListener() {
+		  public void onClick(Widget sender) {
+			checkOpc1.setValue(false);
+			checkOpc2.setValue(false);
+			checkOpc3.setValue(false);
+			checkOpc4.setValue(false);
+		  }
+	    });
+		
+		visualizaPagina = new Button("Visualizar", new ClickListener() {
+	      public void onClick(Widget sender) {
+			String dados = new String("Nome do Site: " +
+					pagCliente.getNomeSite() +
+					"\nTitulo da Página: " +
+					pagCliente.getTituloSite()+
+					"\nBanner: "+
+					pagCliente.getBannerSite());
+	    	Window.alert(dados);
+		}});
 		
 		uploadBanner.addClickHandler(this);
 		guardaDadosPrinc.addClickHandler(this);
@@ -99,45 +134,80 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 		// Set the width to 600 pixels
 		tabPanel.setWidth("800px");
 		
-		// Adiciona Tab Principal
-		VerticalPanel princDados = new VerticalPanel();
-		HorizontalPanel nomeSiteHPanel = new HorizontalPanel();
-		HorizontalPanel tituloSiteHPanel = new HorizontalPanel();
-		HorizontalPanel bannerSiteHPanel = new HorizontalPanel();
-		HorizontalPanel bottPrincHPanel = new HorizontalPanel();
+		// Montagem da Tab principal (Montando o quebra-cabeças)
+		VerticalPanel VPanelPrincDados = new VerticalPanel();
 		
-		HTML chamada = new HTML("Informacoes gerais sobre o site<br>");
-		HTML nomeSiteHTML = new HTML ("<P>Nome do Site:");
-		HTML tituloSiteHTML = new HTML ("<P>Titulo: ");
-		HTML bannerSiteHTML = new HTML ("<P>Banner: ");
+		HorizontalPanel HPanelNomeSite = new HorizontalPanel();
+		HorizontalPanel HPanelTituloSite = new HorizontalPanel();
+		HorizontalPanel HPanelBannerSite = new HorizontalPanel();
+		HorizontalPanel HPanelBottPrinc = new HorizontalPanel();
+		
+		HTML HTMLChamadaPrinc = new HTML("Informacoes gerais sobre o site<br>");
+		HTML HTMLNomeSite = new HTML ("<P>Nome do Site:");
+		HTML HTMLTituloSite = new HTML ("<P>Titulo: ");
+		HTML HTMLBannerSite = new HTML ("<P>Banner: ");
 
-		nomeSiteHPanel.add(nomeSiteHTML);
-		nomeSiteHPanel.add(caixaNomeSite);
-		tituloSiteHPanel.add(tituloSiteHTML);
-		tituloSiteHPanel.add(caixaTituloSite);
-		bannerSiteHPanel.add(bannerSiteHTML);
-		bannerSiteHPanel.add(caixaBannerSite);
-		bannerSiteHPanel.add(uploadBanner);
-		bottPrincHPanel.add(guardaDadosPrinc);
-		bottPrincHPanel.add(limpaDadosPrinc);
-		princDados.add(chamada);
-		princDados.add(nomeSiteHPanel);
-		princDados.add(tituloSiteHPanel);
-		princDados.add(bannerSiteHPanel);
-		princDados.add(bottPrincHPanel);
+		HPanelNomeSite.add(HTMLNomeSite);
+		HPanelNomeSite.add(caixaNomeSite);
 		
+		HPanelTituloSite.add(HTMLTituloSite);
+		HPanelTituloSite.add(caixaTituloSite);
 		
-		tabPanel.add(princDados, "Dados Principais");
+		HPanelBannerSite.add(HTMLBannerSite);
+		HPanelBannerSite.add(caixaBannerSite);
+		HPanelBannerSite.add(uploadBanner);
+		
+		HPanelBottPrinc.add(guardaDadosPrinc);
+		HPanelBottPrinc.add(limpaDadosPrinc);
+		
+		VPanelPrincDados.add(HTMLChamadaPrinc);
+		VPanelPrincDados.add(HPanelNomeSite);
+		VPanelPrincDados.add(HPanelTituloSite);
+		VPanelPrincDados.add(HPanelBannerSite);
+		VPanelPrincDados.add(HPanelBottPrinc);
+		
+		tabPanel.add(VPanelPrincDados, "Dados Principais");
 		
 		// Adiciona Tab Módulo
-		HTML modulText = new HTML("Formulario para a escolha dos modulos"+
-				"<P>Opcoes de modulos:</P>" +
-				"<P>" + checkOpc1 + "Graduacao" +
-				"<P>" + checkOpc2 + "Pos-graduacao</P>" +
-				"<P>" + checkOpc3 + "Mestrado" +
-				"<P>" + checkOpc4 + "Doutorado</P><P>" +
-				guardaModulos +" "+ limpaModulos);
-		tabPanel.add(modulText, "Modulos");
+		VerticalPanel VPanelModulo = new VerticalPanel();
+		
+		HorizontalPanel HPanelGraduacao = new HorizontalPanel();
+		HorizontalPanel HPanelPosGraduacao = new HorizontalPanel();
+		HorizontalPanel HPanelMestrado = new HorizontalPanel();
+		HorizontalPanel HPanelDoutorado = new HorizontalPanel();
+		HorizontalPanel HPanelButtMod = new HorizontalPanel();
+		
+		HTML HTMLChamadaMod = new HTML("Formulario para a escolha dos modulos");
+		HTML HTMLChamadaOpcao = new HTML("<P>Opcoes de modulos:</P>");
+		HTML HTMLGraduacao = new HTML("Graduacao");
+		HTML HTMLPosGraduacao = new HTML("Pos-graduacao");
+		HTML HTMLMestrado = new HTML("Mestrado");
+		HTML HTMLDoutorado = new HTML("Doutorado");
+		
+		HPanelGraduacao.add(checkOpc1);
+		HPanelGraduacao.add(HTMLGraduacao);
+		
+		HPanelPosGraduacao.add(checkOpc2);
+		HPanelPosGraduacao.add(HTMLPosGraduacao);
+		
+		HPanelMestrado.add(checkOpc3);
+		HPanelMestrado.add(HTMLMestrado);
+		
+		HPanelDoutorado.add(checkOpc4);
+		HPanelDoutorado.add(HTMLDoutorado);
+		
+		HPanelButtMod.add(guardaModulos);
+		HPanelButtMod.add(limpaModulos);
+		
+		VPanelModulo.add(HTMLChamadaMod);
+		VPanelModulo.add(HTMLChamadaOpcao);
+		VPanelModulo.add(HPanelGraduacao);
+		VPanelModulo.add(HPanelPosGraduacao);
+		VPanelModulo.add(HPanelMestrado);
+		VPanelModulo.add(HPanelDoutorado);
+		VPanelModulo.add(HPanelButtMod);
+		
+		tabPanel.add(VPanelModulo, "Modulos");
 		
 		// Adiciona Tab Layout
 		HTML layoutText = new HTML("Escolha o Layout das paginas:<br>"+
@@ -150,9 +220,21 @@ public class CloudWB extends Composite implements EntryPoint, ClickHandler{
 		tabPanel.add(layoutText, "Layout");
 
 		// Adiciona Tab Final
-		HTML templatText = new HTML("<P>Finalizando o projeto:</P>" +
-				visualizaPagina +" "+ criaPagina );
-		tabPanel.add(templatText, "Visualizar");
+		VerticalPanel VPanelVisual = new VerticalPanel();
+		
+		HorizontalPanel HPanelChamadaVisu = new HorizontalPanel();
+		HorizontalPanel HPanelButtVisu = new HorizontalPanel();
+		
+		HTML HTMLChamadaVisu = new HTML("<P>Finalizando o projeto:</P>");
+		
+		HPanelChamadaVisu.add(HTMLChamadaVisu);
+		HPanelButtVisu.add(visualizaPagina);
+		HPanelButtVisu.add(criaPagina);
+		
+		VPanelVisual.add(HPanelChamadaVisu);
+		VPanelVisual.add(HPanelButtVisu);
+		
+		tabPanel.add(VPanelVisual, "Visualizar");
 		
 		// Atribui viibilidade para as tabs e adiciona ao painel da página
 		tabPanel.selectTab(0);
