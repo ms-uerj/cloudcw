@@ -72,27 +72,10 @@ public class CloudWB implements EntryPoint {
 
 		guardaDadosPrinc = new Button("Guardar", new ClickListener() {
 			public void onClick(Widget sender) {
-				/*
-				 * String alertaDadosPrinc = new String(); String nulo = new
-				 * String();
-				 * 
-				 * if (nulo.compareTo(caixaNomeSite.getValue()) == 0) {
-				 * alertaDadosPrinc.concat("Preencha o Nome do Site!\n"); } if
-				 * (nulo.compareTo(caixaTituloSite.getValue()) == 0) {
-				 * alertaDadosPrinc.concat("Preencha o Titulo do Site!\n"); } if
-				 * (nulo.compareTo(caixaBannerSite.getValue()) == 0) {
-				 * alertaDadosPrinc.concat("Preencha o Banner do Site!\n"); }
-				 * 
-				 * if (nulo.compareTo(alertaDadosPrinc) == 0){
-				 * Window.alert(alertaDadosPrinc);
-				 */
 				pagCliente.setNomeSite(caixaNomeSite.getValue());
 				pagCliente.setTituloSite(caixaTituloSite.getValue());
 				pagCliente.setBannerSite(caixaBannerSite.getValue());
 				tabPanel.selectTab(1);
-				/*
-				 * }else{ Window.alert(alertaDadosPrinc); }
-				 */
 			}
 		});
 
@@ -190,7 +173,7 @@ public class CloudWB implements EntryPoint {
 
 		criaPagina = new Button("Criar", new ClickListener() {
 			public void onClick(Widget sender) {
-				// Implementar
+				Window.alert("Criando Pagina!");
 			}
 		});
 
