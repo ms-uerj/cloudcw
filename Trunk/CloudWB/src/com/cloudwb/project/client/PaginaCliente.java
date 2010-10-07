@@ -10,6 +10,12 @@ public class PaginaCliente {
 	private int doutorado;
 	private int layoutSite;
 
+	PaginaCliente() {
+		nomeSite = new String("Nao");
+		tituloSite = new String("Nao");
+		bannerSite = new String("Nao");
+	}
+
 	public String getNomeSite() {
 		return nomeSite;
 	}
