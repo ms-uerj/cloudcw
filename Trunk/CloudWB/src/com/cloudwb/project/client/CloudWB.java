@@ -10,11 +10,11 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RadioButton;
-import com.google.gwt.user.client.ui.TabPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.DecoratedTabPanel;
 
 @SuppressWarnings("deprecation")
 public class CloudWB implements EntryPoint {
@@ -51,7 +51,7 @@ public class CloudWB implements EntryPoint {
 	private RadioButton radioOpc4 = new RadioButton("opcao");
 
 	// Create a tab panel
-	private TabPanel tabPanel = new TabPanel();
+	private DecoratedTabPanel tabPanel = new DecoratedTabPanel();
 
 	public void onModuleLoad() {
 
@@ -148,7 +148,7 @@ public class CloudWB implements EntryPoint {
 					pagCliente.setLayoutSite(4);
 					tabPanel.selectTab(3);
 				} else
-					Window.alert("Escola um Layout!");
+					Window.alert("Escolha um Layout!");
 
 			}
 		});
@@ -179,7 +179,6 @@ public class CloudWB implements EntryPoint {
 
 		// Montagem da Tab principal (Montando o quebra-cabeças)
 		VerticalPanel VPanelPrincDados = new VerticalPanel();
-
 		HorizontalPanel HPanelNomeSite = new HorizontalPanel();
 		HorizontalPanel HPanelTituloSite = new HorizontalPanel();
 		HorizontalPanel HPanelBannerSite = new HorizontalPanel();
@@ -309,7 +308,7 @@ public class CloudWB implements EntryPoint {
 
 		tabPanel.add(VPanelVisual, "Visualizar");
 
-		// Atribui viibilidade para as tabs e adiciona ao painel da página
+		// Atribui visibilidade para as tabs e adiciona ao painel da página
 		tabPanel.selectTab(0);
 		addPanel.add(tabPanel);
 	}
