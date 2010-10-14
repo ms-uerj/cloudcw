@@ -71,113 +71,50 @@ public class CloudWB implements EntryPoint {
 		
 		guardaDadosPrincButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event){
-				pagCliente.setNomeSite(caixaNomeSite.getValue());
-				pagCliente.setTituloSite(caixaTituloSite.getValue());
-				pagCliente.setBannerSite(caixaBannerSite.getValue());
-				tabPanel.selectTab(1);				
+				guardaDadosPrinc();				
 			} 
 		});
 		
 		limpaDadosPrincButton.addClickHandler(new ClickHandler(){
 			public void onClick(ClickEvent event){
-				caixaNomeSite.setValue("");
-				pagCliente.setNomeSite("");
-				caixaTituloSite.setValue("");
-				pagCliente.setTituloSite("");
-				caixaBannerSite.setValue("");
-				pagCliente.setBannerSite("");	
+				limpaDadosPrinc();	
 			}
 		});
 		
 		uploadBannerButton.addClickHandler(new ClickHandler(){
 			public void onClick(ClickEvent event){
-				Window.alert("Buscando Banner");
+				uploadBanner();
 			}
 		});
 		
 		guardaModulosButton.addClickHandler(new ClickHandler(){
 			public void onClick(ClickEvent event){
-				int verificadorModulo = 0;
-				if (checkOpc1.getValue() == true) {
-					pagCliente.setGraduacao(1);
-					verificadorModulo = 1;
-				}
-				if (checkOpc2.getValue() == true) {
-					pagCliente.setPosGraduacao(1);
-					verificadorModulo = 1;
-				}
-				if (checkOpc3.getValue() == true) {
-					pagCliente.setMestrado(1);
-					verificadorModulo = 1;
-				}
-				if (checkOpc4.getValue() == true) {
-					pagCliente.setDoutorado(1);
-					verificadorModulo = 1;
-				}
-
-				if (verificadorModulo == 0) {
-					Window.alert("Escolha os Modulos!");
-				} else {
-					tabPanel.selectTab(2);
-				}
+				guardaModulos();
 			}
 		});
 
 		limpaModulosButton.addClickHandler(new ClickHandler(){
 			public void onClick(ClickEvent event){
-				checkOpc1.setValue(false);
-				checkOpc2.setValue(false);
-				checkOpc3.setValue(false);
-				checkOpc4.setValue(false);
-				
-				pagCliente.setGraduacao(0);
-				pagCliente.setPosGraduacao(0);
-				pagCliente.setMestrado(0);
-				pagCliente.setDoutorado(0);
+				limpaModulos();
 			}
 		});
 			
 
 		guardaLayoutButton.addClickHandler(new ClickHandler(){
 			public void onClick(ClickEvent event){
-				if (radioOpc1.getValue() == true) {
-					pagCliente.setLayoutSite(1);
-					tabPanel.selectTab(3);
-				} else if (radioOpc2.getValue() == true) {
-					pagCliente.setLayoutSite(2);
-					tabPanel.selectTab(3);
-				} else if (radioOpc3.getValue() == true) {
-					pagCliente.setLayoutSite(3);
-					tabPanel.selectTab(3);
-				} else if (radioOpc4.getValue() == true) {
-					pagCliente.setLayoutSite(4);
-					tabPanel.selectTab(3);
-				} else
-					Window.alert("Escolha um Layout!");
+				guardaLayout();
 			}
 		});
 
 		visualizaPaginaButton.addClickHandler(new ClickHandler(){
 			public void onClick(ClickEvent event){
-				String dados = new String("Nome do Site: "
-											+ pagCliente.getNomeSite() + "\nTitulo da Pagina: "
-											+ pagCliente.getTituloSite() + "\nBanner: "
-											+ pagCliente.getBannerSite() + "\nGraduacao: "
-											+ ((pagCliente.getGraduacao() == 1) ? "Sim" : "Nao")
-											+ "\nPos-Graduacao: "
-											+ ((pagCliente.getPosGraduacao() == 1) ? "Sim" : "Nao")
-											+ "\nMestrado: "
-											+ ((pagCliente.getMestrado() == 1) ? "Sim" : "Nao")
-											+ "\nDoutorado: "
-											+ ((pagCliente.getDoutorado() == 1) ? "Sim" : "Nao")
-											+ "\nLayout num: " + pagCliente.getLayoutSite());
-				Window.alert(dados);
+				visualizaPagina();
 			}
 		});
 
 		criaPaginaButton.addClickHandler(new ClickHandler(){
 			public void onClick(ClickEvent event){ 
-				Window.alert("Criando Pagina!");
+				criaPagina();
 			}
 		});
 
@@ -315,5 +252,104 @@ public class CloudWB implements EntryPoint {
 		// Atribui visibilidade para as tabs e adiciona ao painel da página
 		tabPanel.selectTab(0);
 		addPanel.add(tabPanel);
+	}
+	
+	//metodos que executam as ações chamadas pelos botões
+	
+	private void guardaDadosPrinc(){
+		pagCliente.setNomeSite(caixaNomeSite.getValue());
+		pagCliente.setTituloSite(caixaTituloSite.getValue());
+		pagCliente.setBannerSite(caixaBannerSite.getValue());
+		tabPanel.selectTab(1);
+	}
+	
+	private void limpaDadosPrinc(){
+		caixaNomeSite.setValue("");
+		pagCliente.setNomeSite("Nao");
+		
+		caixaTituloSite.setValue("");
+		pagCliente.setTituloSite("Nao");
+		
+		caixaBannerSite.setValue("");
+		pagCliente.setBannerSite("Nao");	
+	}
+	
+	private void uploadBanner(){
+		Window.alert("Buscando Banner");	
+	}
+	
+	private void guardaModulos(){
+		int verificadorModulo = 0;
+		if (checkOpc1.getValue() == true) {
+			pagCliente.setGraduacao(1);
+			verificadorModulo = 1;
+		}
+		if (checkOpc2.getValue() == true) {
+			pagCliente.setPosGraduacao(1);
+			verificadorModulo = 1;
+		}
+		if (checkOpc3.getValue() == true) {
+			pagCliente.setMestrado(1);
+			verificadorModulo = 1;
+		}
+		if (checkOpc4.getValue() == true) {
+			pagCliente.setDoutorado(1);
+			verificadorModulo = 1;
+		}
+
+		if (verificadorModulo == 0) {
+			Window.alert("Escolha os Modulos!");
+		} else {
+			tabPanel.selectTab(2);
+		}
+	}
+	
+	private void limpaModulos(){
+		checkOpc1.setValue(false);
+		checkOpc2.setValue(false);
+		checkOpc3.setValue(false);
+		checkOpc4.setValue(false);
+		
+		pagCliente.setGraduacao(0);
+		pagCliente.setPosGraduacao(0);
+		pagCliente.setMestrado(0);
+		pagCliente.setDoutorado(0);
+	}
+	
+	private void guardaLayout(){
+		if (radioOpc1.getValue() == true) {
+			pagCliente.setLayoutSite(1);
+			tabPanel.selectTab(3);
+		} else if (radioOpc2.getValue() == true) {
+			pagCliente.setLayoutSite(2);
+			tabPanel.selectTab(3);
+		} else if (radioOpc3.getValue() == true) {
+			pagCliente.setLayoutSite(3);
+			tabPanel.selectTab(3);
+		} else if (radioOpc4.getValue() == true) {
+			pagCliente.setLayoutSite(4);
+			tabPanel.selectTab(3);
+		} else
+			Window.alert("Escolha um Layout!");
+	}
+	
+	private void visualizaPagina(){
+		String dados = new String("Nome do Site: "
+				+ pagCliente.getNomeSite() + "\nTitulo da Pagina: "
+				+ pagCliente.getTituloSite() + "\nBanner: "
+				+ pagCliente.getBannerSite() + "\nGraduacao: "
+				+ ((pagCliente.getGraduacao() == 1) ? "Sim" : "Nao")
+				+ "\nPos-Graduacao: "
+				+ ((pagCliente.getPosGraduacao() == 1) ? "Sim" : "Nao")
+				+ "\nMestrado: "
+				+ ((pagCliente.getMestrado() == 1) ? "Sim" : "Nao")
+				+ "\nDoutorado: "
+				+ ((pagCliente.getDoutorado() == 1) ? "Sim" : "Nao")
+				+ "\nLayout num: " + pagCliente.getLayoutSite());
+		Window.alert(dados);
+	}
+	
+	private void criaPagina(){
+		Window.alert("Criando Pagina!");
 	}
 }
