@@ -262,10 +262,10 @@ public class CloudWB implements EntryPoint {
 
 		HTML HTMLChamadaLayout = new HTML("Escolha o Layout das paginas:<br>");
 		HTML HTMLChamadaOpcLay = new HTML("<P>Opcoes de layout:</P>");
-		HTML HTMLImagemOp1 = new HTML("<IMG SRC='estrutura1.gif'> </P>");
-		HTML HTMLImagemOp2 = new HTML("<IMG SRC='estrutura2.gif'> </P>");
-		HTML HTMLImagemOp3 = new HTML("<IMG SRC='estrutura3.gif'> </P>");
-		HTML HTMLImagemOp4 = new HTML("<IMG SRC='estrutura4.gif'> </P>");
+		HTML HTMLImagemOp1 = new HTML("<IMG SRC='images/estrutura1.gif'> </P>");
+		HTML HTMLImagemOp2 = new HTML("<IMG SRC='images/estrutura2.gif'> </P>");
+		HTML HTMLImagemOp3 = new HTML("<IMG SRC='images/estrutura3.gif'> </P>");
+		HTML HTMLImagemOp4 = new HTML("<IMG SRC='images/estrutura4.gif'> </P>");
 
 		HPanelOpcao1.add(radioOpc1);
 		HPanelOpcao1.add(HTMLImagemOp1);
