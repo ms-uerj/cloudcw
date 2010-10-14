@@ -1,10 +1,11 @@
 package com.cloudwb.project.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
-import com.google.gwt.user.client.ui.ClickListener;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -13,10 +14,8 @@ import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.client.ui.DecoratedTabPanel;
 
-@SuppressWarnings("deprecation")
 public class CloudWB implements EntryPoint {
 
 	// instância de PaginaCliente
@@ -27,14 +26,14 @@ public class CloudWB implements EntryPoint {
 	private HorizontalPanel addPanel = new HorizontalPanel();
 	private Label lastUpdatedLabel = new Label();
 
-	private Button guardaDadosPrinc;
-	private Button limpaDadosPrinc;
-	private Button uploadBanner;
-	private Button guardaModulos;
-	private Button limpaModulos;
-	private Button guardaLayout;
-	private Button visualizaPagina;
-	private Button criaPagina;
+	private Button guardaDadosPrincButton  = new Button("Guardar");
+	private Button limpaDadosPrincButton  = new Button("Limpar");
+	private Button uploadBannerButton  = new Button("Upload");
+	private Button guardaModulosButton  = new Button("Guardar");
+	private Button limpaModulosButton  = new Button("Limpar");
+	private Button guardaLayoutButton  = new Button("Guardar");
+	private Button visualizaPaginaButton  = new Button("Visualizar");
+	private Button criaPaginaButton  = new Button("Criar");
 
 	private TextBox caixaNomeSite = new TextBox();
 	private TextBox caixaTituloSite = new TextBox();
@@ -69,35 +68,35 @@ public class CloudWB implements EntryPoint {
 
 		// Set the width to 600 pixels
 		tabPanel.setWidth("800px");
-
-		guardaDadosPrinc = new Button("Guardar", new ClickListener() {
-			public void onClick(Widget sender) {
+		
+		guardaDadosPrincButton.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event){
 				pagCliente.setNomeSite(caixaNomeSite.getValue());
 				pagCliente.setTituloSite(caixaTituloSite.getValue());
 				pagCliente.setBannerSite(caixaBannerSite.getValue());
-				tabPanel.selectTab(1);
-			}
+				tabPanel.selectTab(1);				
+			} 
 		});
-
-		limpaDadosPrinc = new Button("Limpar", new ClickListener() {
-			public void onClick(Widget sender) {
+		
+		limpaDadosPrincButton.addClickHandler(new ClickHandler(){
+			public void onClick(ClickEvent event){
 				caixaNomeSite.setValue("");
 				pagCliente.setNomeSite("");
 				caixaTituloSite.setValue("");
 				pagCliente.setTituloSite("");
 				caixaBannerSite.setValue("");
-				pagCliente.setBannerSite("");
+				pagCliente.setBannerSite("");	
 			}
 		});
-
-		uploadBanner = new Button("Upload", new ClickListener() {
-			public void onClick(Widget sender) {
+		
+		uploadBannerButton.addClickHandler(new ClickHandler(){
+			public void onClick(ClickEvent event){
 				Window.alert("Buscando Banner");
 			}
 		});
-
-		guardaModulos = new Button("Guardar", new ClickListener() {
-			public void onClick(Widget sender) {
+		
+		guardaModulosButton.addClickHandler(new ClickHandler(){
+			public void onClick(ClickEvent event){
 				int verificadorModulo = 0;
 				if (checkOpc1.getValue() == true) {
 					pagCliente.setGraduacao(1);
@@ -124,17 +123,18 @@ public class CloudWB implements EntryPoint {
 			}
 		});
 
-		limpaModulos = new Button("Limpar", new ClickListener() {
-			public void onClick(Widget sender) {
+		limpaModulosButton.addClickHandler(new ClickHandler(){
+			public void onClick(ClickEvent event){
 				checkOpc1.setValue(false);
 				checkOpc2.setValue(false);
 				checkOpc3.setValue(false);
 				checkOpc4.setValue(false);
 			}
 		});
+			
 
-		guardaLayout = new Button("Guardar", new ClickListener() {
-			public void onClick(Widget sender) {
+		guardaLayoutButton.addClickHandler(new ClickHandler(){
+			public void onClick(ClickEvent event){
 				if (radioOpc1.getValue() == true) {
 					pagCliente.setLayoutSite(1);
 					tabPanel.selectTab(3);
@@ -149,30 +149,29 @@ public class CloudWB implements EntryPoint {
 					tabPanel.selectTab(3);
 				} else
 					Window.alert("Escolha um Layout!");
-
 			}
 		});
 
-		visualizaPagina = new Button("Visualizar", new ClickListener() {
-			public void onClick(Widget sender) {
+		visualizaPaginaButton.addClickHandler(new ClickHandler(){
+			public void onClick(ClickEvent event){
 				String dados = new String("Nome do Site: "
-						+ pagCliente.getNomeSite() + "\nTitulo da Pagina: "
-						+ pagCliente.getTituloSite() + "\nBanner: "
-						+ pagCliente.getBannerSite() + "\nGraduacao: "
-						+ ((pagCliente.getGraduacao() == 1) ? "Sim" : "Nao")
-						+ "\nPos-Graduacao: "
-						+ ((pagCliente.getPosGraduacao() == 1) ? "Sim" : "Nao")
-						+ "\nMestrado: "
-						+ ((pagCliente.getMestrado() == 1) ? "Sim" : "Nao")
-						+ "\nDoutorado: "
-						+ ((pagCliente.getDoutorado() == 1) ? "Sim" : "Nao")
-						+ "\nLayout num: " + pagCliente.getLayoutSite());
+											+ pagCliente.getNomeSite() + "\nTitulo da Pagina: "
+											+ pagCliente.getTituloSite() + "\nBanner: "
+											+ pagCliente.getBannerSite() + "\nGraduacao: "
+											+ ((pagCliente.getGraduacao() == 1) ? "Sim" : "Nao")
+											+ "\nPos-Graduacao: "
+											+ ((pagCliente.getPosGraduacao() == 1) ? "Sim" : "Nao")
+											+ "\nMestrado: "
+											+ ((pagCliente.getMestrado() == 1) ? "Sim" : "Nao")
+											+ "\nDoutorado: "
+											+ ((pagCliente.getDoutorado() == 1) ? "Sim" : "Nao")
+											+ "\nLayout num: " + pagCliente.getLayoutSite());
 				Window.alert(dados);
 			}
 		});
 
-		criaPagina = new Button("Criar", new ClickListener() {
-			public void onClick(Widget sender) {
+		criaPaginaButton.addClickHandler(new ClickHandler(){
+			public void onClick(ClickEvent event){ 
 				Window.alert("Criando Pagina!");
 			}
 		});
@@ -197,10 +196,10 @@ public class CloudWB implements EntryPoint {
 
 		HPanelBannerSite.add(HTMLBannerSite);
 		HPanelBannerSite.add(caixaBannerSite);
-		HPanelBannerSite.add(uploadBanner);
+		HPanelBannerSite.add(uploadBannerButton);
 
-		HPanelBottPrinc.add(guardaDadosPrinc);
-		HPanelBottPrinc.add(limpaDadosPrinc);
+		HPanelBottPrinc.add(guardaDadosPrincButton);
+		HPanelBottPrinc.add(limpaDadosPrincButton);
 
 		VPanelPrincDados.add(HTMLChamadaPrinc);
 		VPanelPrincDados.add(HPanelNomeSite);
@@ -238,8 +237,8 @@ public class CloudWB implements EntryPoint {
 		HPanelDoutorado.add(checkOpc4);
 		HPanelDoutorado.add(HTMLDoutorado);
 
-		HPanelButtMod.add(guardaModulos);
-		HPanelButtMod.add(limpaModulos);
+		HPanelButtMod.add(guardaModulosButton);
+		HPanelButtMod.add(limpaModulosButton);
 
 		VPanelModulo.add(HTMLChamadaMod);
 		VPanelModulo.add(HTMLChamadaOpcao);
@@ -279,7 +278,7 @@ public class CloudWB implements EntryPoint {
 		HPanelOpcao4.add(radioOpc4);
 		HPanelOpcao4.add(HTMLImagemOp4);
 
-		HPanelButtLay.add(guardaLayout);
+		HPanelButtLay.add(guardaLayoutButton);
 
 		VPanelLayout.add(HTMLChamadaLayout);
 		VPanelLayout.add(HTMLChamadaOpcLay);
@@ -300,8 +299,8 @@ public class CloudWB implements EntryPoint {
 		HTML HTMLChamadaVisu = new HTML("<P>Finalizando o projeto:</P>");
 
 		HPanelChamadaVisu.add(HTMLChamadaVisu);
-		HPanelButtVisu.add(visualizaPagina);
-		HPanelButtVisu.add(criaPagina);
+		HPanelButtVisu.add(visualizaPaginaButton);
+		HPanelButtVisu.add(criaPaginaButton);
 
 		VPanelVisual.add(HPanelChamadaVisu);
 		VPanelVisual.add(HPanelButtVisu);
@@ -312,5 +311,4 @@ public class CloudWB implements EntryPoint {
 		tabPanel.selectTab(0);
 		addPanel.add(tabPanel);
 	}
-
 }
