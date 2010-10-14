@@ -129,6 +129,11 @@ public class CloudWB implements EntryPoint {
 				checkOpc2.setValue(false);
 				checkOpc3.setValue(false);
 				checkOpc4.setValue(false);
+				
+				pagCliente.setGraduacao(0);
+				pagCliente.setPosGraduacao(0);
+				pagCliente.setMestrado(0);
+				pagCliente.setDoutorado(0);
 			}
 		});
 			
