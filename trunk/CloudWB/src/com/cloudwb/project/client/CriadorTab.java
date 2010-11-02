@@ -42,7 +42,7 @@ public class CriadorTab {
 	public PaginaCliente pagCliente = new PaginaCliente();
 
 	// Construtor da Classe
-	public CriadorTab(final DecoratedTabPanel extTabPanel) {
+	public CriadorTab(final DecoratedTabPanel extTabPanel, final HorizontalPanel princPanel) {
 
 		// Zera campos
 		caixaNomeSite.setValue("");
@@ -102,7 +102,7 @@ public class CriadorTab {
 		// Método que executa a função do botão 'Criar' tab Visualizar
 		criaPaginaButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				criaPagina();
+				criaPagina(extTabPanel, princPanel);
 			}
 		});
 	}
@@ -352,8 +352,9 @@ public class CriadorTab {
 		Window.alert(dados);
 	}
 
-	private void criaPagina() {
-		Window.alert("Criando Pagina!");
+	private void criaPagina(DecoratedTabPanel tabPanel, HorizontalPanel addPanel) {
+		GeradorArquivos criadorSite = new GeradorArquivos(pagCliente);
 	}
 
 }
+

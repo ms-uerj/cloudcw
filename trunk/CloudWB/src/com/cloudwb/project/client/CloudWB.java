@@ -26,7 +26,7 @@ public class CloudWB implements EntryPoint {
 		mainPanel.add(lastUpdatedLabel);
 
 		// Instância de CriadorTab
-		CriadorTab montadorTab = new CriadorTab(tabPanel);
+		CriadorTab montadorTab = new CriadorTab(tabPanel, addPanel);
 		
 		// Associate the Main panel with the HTML host page.
 		RootPanel.get("form").add(mainPanel);
