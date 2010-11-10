@@ -3,7 +3,6 @@ package com.cloudwb.project.server;
 import java.io.File;
 import java.io.IOException;
 import com.cloudwb.project.client.GreetingService;
-import com.cloudwb.project.shared.FieldVerifier;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
