@@ -502,12 +502,10 @@ public class CriadorTab {
 		Diretorio diretorio = new Diretorio(pagCliente);
 		diretorio.cria_Diretorio();
 
-		Compactador comp = new Compactador();
-		comp.compactar("pagina_cliente.rar");
-		
 		Window.alert("Pagina criada!");
 
-		
+		Compactador comp = new Compactador();
+		comp.compactar("pagina_cliente.rar");
 				
 		/*
 		 * if (manipuladorServer == null) { manipuladorServer =

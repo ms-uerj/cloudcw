@@ -35,30 +35,24 @@ public class Diretorio {
 		
 		//cria as páginas dos módulos, se assim escolhido pelo usuário
 		if(a == 1){
-			File file1 = new File("pag_cliente/graduacao");	
+			File file1 = new File("pag_cliente");	
 			file1.mkdirs();
 			
-			try {    
-		        BufferedWriter bw = new BufferedWriter( new FileWriter( "pag_cliente/graduacao/Home.html" ));
+	        String caminho = "pag_cliente/home.html";
+	        String texto = "<html><head><title></title></head><body><h1>Hello World</h1><div class='mainnav'><ul><li><a href='#'>Home</a></li><li><a href='#'>News</a></li><li><a href='#'>Photos</a></li><li><a href='#'>Videos</a></li><li><a href='#'>Downloads</a></li><li><a href='#'>Contact</a></li></ul></div><!--mainnav--></body></html>";
+	        
+	        try {    
+		        BufferedWriter bw = new BufferedWriter( new FileWriter( caminho ));
 		        
-		        String linha = "<html><head><title></title></head><body><h1>Hello World</h1><div class='mainnav'><ul><li><a href='#'>Home</a></li><li><a href='#'>News</a></li><li><a href='#'>Photos</a></li><li><a href='#'>Videos</a></li><li><a href='#'>Downloads</a></li><li><a href='#'>Contact</a></li></ul></div><!--mainnav--></body></html>";	        		
-
-		        bw.write( linha, 0, linha.length() );  
+		        bw.write(texto, 0, texto.length() );  
 
 		        bw.close();
 
 		    }catch (IOException exc){
 		          exc.printStackTrace();  
 		    }
+
 		}
-		
-		try {
-			BufferedWriter bw = new BufferedWriter( new FileWriter( "pag_cliente/oi.txt" ));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		if(b == 1){
 			File file2 = new File("pag_cliente/pos-graduacao");	
 			file2.mkdirs();
