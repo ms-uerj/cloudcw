@@ -51,6 +51,14 @@ public class Diretorio {
 		          exc.printStackTrace();  
 		    }
 		}
+		
+		try {
+			BufferedWriter bw = new BufferedWriter( new FileWriter( "pag_cliente/oi.txt" ));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		if(b == 1){
 			File file2 = new File("pag_cliente/pos-graduacao");	
 			file2.mkdirs();

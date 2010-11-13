@@ -8,19 +8,20 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-//import java.util.zip.ZipEntry;
 import org.apache.tools.zip.ZipEntry;
 import org.apache.tools.zip.ZipOutputStream;
 //import java.util.zip.ZipOutputStream;
+//import java.util.zip.ZipEntry;
 
 public class Compactador {   
-  
+      
    // ------------------------------------------------ Constantes   
    static final int TAMANHO_BUFFER = 2048; // 2kb  
   
   
    // ------------------------------------------------ Métodos públicos   
-   public void compactar (String arqSaida) {   
+   public void compactar (String arqSaida) {
+	   
       int i, cont;   
       byte[] dados = new byte[TAMANHO_BUFFER];   
       String arquivos[];   
@@ -31,12 +32,23 @@ public class Compactador {
       ZipOutputStream saida = null;   
       ZipEntry entry = null;  
         
+      System.out.println("Aki 2");
+            
       try {   
-         destino = new FileOutputStream(arqSaida);   
-         saida = new ZipOutputStream(new BufferedOutputStream(destino));  
-         f = new File("."); // Todos os arquivos da pasta onde a classe está
+         destino = new FileOutputStream(arqSaida);	System.out.println("Aki 3");  //imprime até aqui!
+         
+         f = new File("pag_cliente");  
+         System.out.println(f.getAbsolutePath());
+         
+         saida = new ZipOutputStream(new BufferedOutputStream(destino));
+         
+         
+         
+
+         System.out.println("Aki 4"); 
          
          //f = new File("../../../../../war/pag_cliente");
+
          arquivos = f.list();  
            
          for (i = 0; i < arquivos.length; i++) {   
