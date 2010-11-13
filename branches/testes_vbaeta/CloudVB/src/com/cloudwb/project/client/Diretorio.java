@@ -35,32 +35,33 @@ public class Diretorio {
 		
 		//cria as páginas dos módulos, se assim escolhido pelo usuário
 		if(a == 1){
-			File file1 = new File("pag_cliente");	
+			File file1 = new File("pag_cliente/graduacao");	
 			file1.mkdirs();
 			
-	        String caminho = "pag_cliente/home.html";
-	        String texto = "<html><head><title></title></head><body><h1>Hello World</h1><div class='mainnav'><ul><li><a href='#'>Home</a></li><li><a href='#'>News</a></li><li><a href='#'>Photos</a></li><li><a href='#'>Videos</a></li><li><a href='#'>Downloads</a></li><li><a href='#'>Contact</a></li></ul></div><!--mainnav--></body></html>";
-	        
-	        try {    
-		        BufferedWriter bw = new BufferedWriter( new FileWriter( caminho ));
+			try {    
+		        BufferedWriter bw = new BufferedWriter( new FileWriter( "pag_cliente/graduacao/Home.html" ));
 		        
-		        bw.write(texto, 0, texto.length() );  
+		        String linha = "<html><head><title></title></head><body><h1>Hello World</h1><div class='mainnav'><ul><li><a href='#'>Home</a></li><li><a href='#'>News</a></li><li><a href='#'>Photos</a></li><li><a href='#'>Videos</a></li><li><a href='#'>Downloads</a></li><li><a href='#'>Contact</a></li></ul></div><!--mainnav--></body></html>";	        		
+
+		        bw.write( linha, 0, linha.length() );  
 
 		        bw.close();
 
 		    }catch (IOException exc){
 		          exc.printStackTrace();  
 		    }
-
 		}
+
 		if(b == 1){
 			File file2 = new File("pag_cliente/pos-graduacao");	
 			file2.mkdirs();
 		}
+		
 		if(c == 1){
 			File file3 = new File("pag_cliente/mestrado");	
 			file3.mkdirs();
 		}
+		
 		if(d == 1){
 			File file4 = new File("pag_cliente/doutorado");	
 			file4.mkdirs();
