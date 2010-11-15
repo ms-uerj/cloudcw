@@ -82,15 +82,15 @@ public class PaginaLayout_01 {
 	}
 	if (CriadorTab.pagCliente.getPosGraduacao() == 1){
 		codigoHTML_Home = codigoHTML_Home + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-        "<a href=''>Pós-graduacao</a></font></p>";
+        "<a href='pos_graduacao.html'>Pós-graduacao</a></font></p>";
 	}
 	if (CriadorTab.pagCliente.getMestrado() == 1){
 		codigoHTML_Home = codigoHTML_Home + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-        "<a href=''>Mestrado</a></font></p>";
+        "<a href='mestrado.html'>Mestrado</a></font></p>";
 	}
 	if (CriadorTab.pagCliente.getDoutorado() == 1){
 		codigoHTML_Home = codigoHTML_Home + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-        "<a href=''>Doutorado</a></font></p>";
+        "<a href='doutorado.html'>Doutorado</a></font></p>";
 	}
 	                            
 	                            
@@ -217,15 +217,15 @@ public class PaginaLayout_01 {
 		}
 		if (CriadorTab.pagCliente.getPosGraduacao() == 1){
 			codigoHTML_Graduacao = codigoHTML_Graduacao + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-	        "<a href=''>Pós-graduacao</a></font></p>";
+	        "<a href='pos_graduacao.html'>Pós-graduacao</a></font></p>";
 		}
 		if (CriadorTab.pagCliente.getMestrado() == 1){
 			codigoHTML_Graduacao = codigoHTML_Graduacao + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-	        "<a href=''>Mestrado</a></font></p>";
+	        "<a href='mestrado.html'>Mestrado</a></font></p>";
 		}
 		if (CriadorTab.pagCliente.getDoutorado() == 1){
 			codigoHTML_Graduacao = codigoHTML_Graduacao + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-	        "<a href=''>Doutorado</a></font></p>";
+	        "<a href='doutorado.html'>Doutorado</a></font></p>";
 		}
 		                            
 		                            
@@ -351,15 +351,15 @@ public class PaginaLayout_01 {
 		}
 		if (CriadorTab.pagCliente.getPosGraduacao() == 1){
 			codigoHTML_posGraduacao = codigoHTML_posGraduacao + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-	        "<a href=''>Pós-graduacao</a></font></p>";
+	        "<a href='pos_graduacao.html'>Pós-graduacao</a></font></p>";
 		}
 		if (CriadorTab.pagCliente.getMestrado() == 1){
 			codigoHTML_posGraduacao = codigoHTML_posGraduacao + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-	        "<a href=''>Mestrado</a></font></p>";
+	        "<a href='mestrado.html'>Mestrado</a></font></p>";
 		}
 		if (CriadorTab.pagCliente.getDoutorado() == 1){
 			codigoHTML_posGraduacao = codigoHTML_posGraduacao + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-	        "<a href=''>Doutorado</a></font></p>";
+	        "<a href='doutorado.html'>Doutorado</a></font></p>";
 		}
 		                            
 		                            
@@ -485,15 +485,15 @@ public class PaginaLayout_01 {
 	}
 	if (CriadorTab.pagCliente.getPosGraduacao() == 1){
 		codigoHTML_Mestrado = codigoHTML_Mestrado + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-        "<a href=''>Pós-graduacao</a></font></p>";
+        "<a href='pos_graduacao.html'>Pós-graduacao</a></font></p>";
 	}
 	if (CriadorTab.pagCliente.getMestrado() == 1){
 		codigoHTML_Mestrado = codigoHTML_Mestrado + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-        "<a href=''>Mestrado</a></font></p>";
+        "<a href='mestrado.html'>Mestrado</a></font></p>";
 	}
 	if (CriadorTab.pagCliente.getDoutorado() == 1){
 		codigoHTML_Mestrado = codigoHTML_Mestrado + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-        "<a href=''>Doutorado</a></font></p>";
+        "<a href='doutorado.html'>Doutorado</a></font></p>";
 	}
 	                            
 	                            
@@ -619,15 +619,15 @@ public static void escreveHTML_Doutorado(){
 		}
 		if (CriadorTab.pagCliente.getPosGraduacao() == 1){
 			codigoHTML_Doutorado = codigoHTML_Doutorado + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-	        "<a href=''>Pós-graduacao</a></font></p>";
+	        "<a href='pos_graduacao.html'>Pós-graduacao</a></font></p>";
 		}
 		if (CriadorTab.pagCliente.getMestrado() == 1){
 			codigoHTML_Doutorado = codigoHTML_Doutorado + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-	        "<a href=''>Mestrado</a></font></p>";
+	        "<a href='mestrado.html'>Mestrado</a></font></p>";
 		}
 		if (CriadorTab.pagCliente.getDoutorado() == 1){
 			codigoHTML_Doutorado = codigoHTML_Doutorado + "<p><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><b><font face='Arial, Helvetica, sans-serif'>&raquo;</font></b></font><font face='Arial, Helvetica, sans-serif' size='2'> "+
-	        "<a href=''>Doutorado</a></font></p>";
+	        "<a href='doutorado.html'>Doutorado</a></font></p>";
 		}
 		                            
 		                            

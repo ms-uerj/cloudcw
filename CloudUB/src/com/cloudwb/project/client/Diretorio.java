@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import com.google.gwt.user.client.Window;
 
 public class Diretorio {
@@ -184,12 +183,16 @@ public class Diretorio {
 		        	
 		        	bw_Doutorado.write(textoHTML_Doutorado, 0,textoHTML_Doutorado.length() );
 		        	bw_Doutorado.close();
-	        	}     	       	
+	        	}
+	        	
+	        	
 	    }
 		catch (IOException exc){
 	          exc.printStackTrace();  
 	    }
-	    Window.alert("Pagina criada com sucesso!");
+	    
+		Window.alert("Pagina criada com sucesso!");
+		com.google.gwt.user.client.Window.open("pagina_cliente/" + folderLayout + "/index.html","","");
 	}
 	
 }

@@ -31,7 +31,8 @@ public class CriadorTab {
 	
 	//encapsulando o botão de visualizar pagina dentro de um link.		
 	final HTML HTMLlink_visu = new HTML("<a href='pag_cliente/home.html' target='_blank'>"+visualizaPaginaButton+"</a>");
-
+	
+	
 	private TextBox caixaNomeSite = new TextBox();
 	private TextBox caixaTituloSite = new TextBox();
 	private TextBox caixaBannerSite = new TextBox();
