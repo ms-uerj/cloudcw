@@ -4,6 +4,7 @@ public class PaginaCliente {
 	private String nomeSite;
 	private String tituloSite;
 	private String bannerSite;
+	private String descricaoSite;
 	private int graduacao;
 	private int posGraduacao;
 	private int mestrado;
@@ -22,6 +23,7 @@ public class PaginaCliente {
 		nomeSite = new String("Nao");
 		tituloSite = new String("Nao");
 		bannerSite = new String("Nao");
+		descricaoSite = new String("Nao");
 	}
 
 	public String getNomeSite() {
@@ -38,6 +40,14 @@ public class PaginaCliente {
 
 	public void setTituloSite(String titulo) {
 		tituloSite = titulo;
+	}
+	
+	public String getDescricaoSite() {
+		return descricaoSite;
+	}
+
+	public void setDescricaoSite(String descricao) {
+		descricaoSite = descricao;
 	}
 
 	public String getBannerSite() {
