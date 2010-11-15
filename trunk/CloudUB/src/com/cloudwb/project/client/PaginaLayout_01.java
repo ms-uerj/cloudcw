@@ -1,5 +1,7 @@
 package com.cloudwb.project.client;
 
+import java.nio.charset.Charset;
+
 public class PaginaLayout_01 {	
 
 	
@@ -9,6 +11,7 @@ public class PaginaLayout_01 {
 	private static String codigoHTML_Mestrado = "";
 	private static String codigoHTML_Doutorado = "";
 	
+	static Charset charset = Charset.forName("UTF-8"); 
 	
 	public static void escreveHTML_Home(){	
 	
@@ -16,7 +19,7 @@ public class PaginaLayout_01 {
 	"<html>"+
 	"<head>"+
 	"<title>Web Site</title>"+
-	"<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>"+
+	"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"+
 	    "<style type='text/css'>"+
 	        ".style1"+
 	        "{"+
@@ -35,9 +38,9 @@ public class PaginaLayout_01 {
 	              "<tr>"+
 	                "<td class='style1'><font face='Arial, Helvetica, sans-serif' size='4'><b><font size='5'> "+
 	                  "&nbsp; <img src='images/logo.gif' width='50' height='50' align='absmiddle'> "+
-	                  CriadorTab.pagCliente.getTituloSite() + "</font></b></font></td>"+
+	                  charset.encode( CriadorTab.pagCliente.getTituloSite()) + "</font></b></font></td>"+
 	                "<td width='50%'> "+
-	                  "<div align='right'></font>" + CriadorTab.pagCliente.getNomeSite()+ 
+	                  "<div align='right'></font>" + charset.encode(CriadorTab.pagCliente.getNomeSite())+ 
 	                    "</div>"+
 	                "</td>"+
 	              "</tr>"+
