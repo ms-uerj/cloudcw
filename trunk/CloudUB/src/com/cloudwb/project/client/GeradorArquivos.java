@@ -8,6 +8,7 @@ public class GeradorArquivos {
 
 	HTML htmlIndex;
 	
+	@SuppressWarnings("deprecation")
 	public GeradorArquivos(PaginaCliente pgCliente, DecoratedTabPanel tabPanelVisualizaPagina){
 		VerticalPanel vPanelVisualizaPagina = new VerticalPanel();
 		htmlIndex = new HTML("<TABLE ALIGN=CENTER BGCOLOR=BLACK WIDTH=80% CELLSPACING=1 BORDER=1>"+
