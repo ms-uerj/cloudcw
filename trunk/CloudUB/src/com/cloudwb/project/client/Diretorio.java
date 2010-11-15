@@ -71,37 +71,125 @@ public class Diretorio {
 		}		
 	}
 	
-	public static void testeEscrita(){
+	public static void criaPaginas(){
 		
-		String textoHTML = "";
+		String textoHTML_Home = "";
+		String textoHTML_Graduacao = "";
+		String textoHTML_posGraduaco = "";
+		String textoHTML_Mestrado = "";
+		String textoHTML_Doutorado = "";
+		String folderLayout = "";
 		
-		File folder = new File("pagina_cliente");
-		folder.mkdir();
-		folder = new File("pagina_cliente/layout_01");
-		folder.mkdir();
-		folder = new File("pagina_cliente/layout_02");
-		folder.mkdir();
-		String stringArquivoHTML = "index.html";
-		folder = new File(stringArquivoHTML);
+		File folderCliente = new File("pagina_cliente");
+		folderCliente.mkdir();
 		
 		try {    
-	        BufferedWriter bw = new BufferedWriter( new FileWriter( "pagina_cliente/layout_01/" + stringArquivoHTML ));
-	        BufferedWriter bw2 = new BufferedWriter( new FileWriter( "pagina_cliente/layout_01/" + "graduacao.html" ));
 	        
-	        if (CriadorTab.pagCliente.getLayoutSite() == 1){
-	        	PaginaLayout_01.escreveHTML();
-	        	textoHTML = PaginaLayout_01.geraCodigoHTML();
-	        }
-	        	        
-	        bw.write( textoHTML, 0,textoHTML.length() ); 
-	        bw.close();
-	        bw2.write(textoHTML, 0,textoHTML.length() );
-	        bw2.close();
-
-	    }catch (IOException exc){
+			if (CriadorTab.pagCliente.getLayoutSite() == 1){
+				
+				folderLayout = "layout_01";
+				
+				BufferedWriter bw_Home = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +  "/index.html" ));
+								
+				folderCliente = new File("pagina_cliente/" + folderLayout);
+				folderCliente.mkdir();
+				
+	        	PaginaLayout_01.escreveHTML_Home();
+	        	textoHTML_Home = PaginaLayout_01.geraCodigoHTML_Home();
+	        	
+	        	bw_Home.write( textoHTML_Home, 0,textoHTML_Home.length() ); 
+		        bw_Home.close();		        
+			}
+			
+			if (CriadorTab.pagCliente.getLayoutSite() == 2){
+				
+				folderLayout = "layout_02";
+				
+				BufferedWriter bw_Home = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +  "/index.html" ));
+								
+				folderCliente = new File("pagina_cliente/" + folderLayout);
+				folderCliente.mkdir();
+				
+	        	PaginaLayout_01.escreveHTML_Home();
+	        	textoHTML_Home = PaginaLayout_01.geraCodigoHTML_Home();
+	        	
+	        	bw_Home.write( textoHTML_Home, 0,textoHTML_Home.length() ); 
+		        bw_Home.close();		        
+			}
+			
+			if (CriadorTab.pagCliente.getLayoutSite() == 3){
+				
+				folderLayout = "layout_03";
+				
+				BufferedWriter bw_Home = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +  "/index.html" ));
+								
+				folderCliente = new File("pagina_cliente/" + folderLayout);
+				folderCliente.mkdir();
+				
+	        	PaginaLayout_01.escreveHTML_Home();
+	        	textoHTML_Home = PaginaLayout_01.geraCodigoHTML_Home();
+	        	
+	        	bw_Home.write( textoHTML_Home, 0,textoHTML_Home.length() ); 
+		        bw_Home.close();		        
+			}
+			
+			if (CriadorTab.pagCliente.getLayoutSite() == 4){
+				
+				folderLayout = "layout_04";
+				
+				BufferedWriter bw_Home = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +  "/index.html" ));
+								
+				folderCliente = new File("pagina_cliente/" + folderLayout);
+				folderCliente.mkdir();
+				
+	        	PaginaLayout_01.escreveHTML_Home();
+	        	textoHTML_Home = PaginaLayout_01.geraCodigoHTML_Home();
+	        	
+	        	bw_Home.write( textoHTML_Home, 0,textoHTML_Home.length() ); 
+		        bw_Home.close();		        
+			}
+	         
+	        	
+	        	if (CriadorTab.pagCliente.getGraduacao() == 1){
+	        		BufferedWriter bw_Graducao = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +   "/graduacao.html" ));
+	        		PaginaLayout_01.escreveHTML_Graduacao();
+		        	textoHTML_Graduacao = PaginaLayout_01.geraCodigoHTML_Graduacao();
+		        	
+		        	bw_Graducao.write(textoHTML_Graduacao, 0,textoHTML_Graduacao.length() );
+			        bw_Graducao.close();
+	        	}
+	        	
+	        	if (CriadorTab.pagCliente.getPosGraduacao() == 1){
+	        		BufferedWriter bw_posGraducao = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +  "/pos_graduacao.html" ));
+	        		PaginaLayout_01.escreveHTML_posGraduacao();
+	        		textoHTML_posGraduaco = PaginaLayout_01.geraCodigoHTML_posGraduacao();
+		        	
+		        	bw_posGraducao.write(textoHTML_posGraduaco, 0,textoHTML_posGraduaco.length() );
+		        	bw_posGraducao.close();
+	        	}
+	        	
+	        	if (CriadorTab.pagCliente.getMestrado() == 1){
+	        		BufferedWriter bw_Mestrado = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +   "/mestrado.html" ));
+	        		PaginaLayout_01.escreveHTML_Mestrado();
+		        	textoHTML_Mestrado = PaginaLayout_01.geraCodigoHTML_Mestrado();
+		        	
+		        	bw_Mestrado.write(textoHTML_Mestrado, 0,textoHTML_Mestrado.length() );
+		        	bw_Mestrado.close();
+	        	}
+	        	
+	        	if (CriadorTab.pagCliente.getDoutorado() == 1){
+	        		BufferedWriter bw_Doutorado = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +   "/doutorado.html" ));
+	        		PaginaLayout_01.escreveHTML_Doutorado();	        		
+		        	textoHTML_Doutorado = PaginaLayout_01.geraCodigoHTML_Doutorado();
+		        	
+		        	bw_Doutorado.write(textoHTML_Doutorado, 0,textoHTML_Doutorado.length() );
+		        	bw_Doutorado.close();
+	        	}     	       	
+	    }
+		catch (IOException exc){
 	          exc.printStackTrace();  
 	    }
-	    Window.alert("Páginca criada com sucesso!");
+	    Window.alert("Pagina criada com sucesso!");
 	}
 	
 }
