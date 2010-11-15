@@ -61,7 +61,7 @@ public class CriadorTab {
 	private RadioButton radioOpc3 = new RadioButton("opcao");
 	private RadioButton radioOpc4 = new RadioButton("opcao");
 
-	public PaginaCliente pagCliente = new PaginaCliente();
+	public static PaginaCliente pagCliente = new PaginaCliente();
 	public GreetingServiceAsync manipuladorServer = GWT
 			.create(GreetingService.class);
 
@@ -126,7 +126,8 @@ public class CriadorTab {
 		// Método que executa a função do botão 'Criar' tab Visualizar
 		criaPaginaButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				criaPagina();
+				//criaPagina();
+				Diretorio.testeEscrita();
 			}
 		});
 	}
@@ -339,7 +340,7 @@ public class CriadorTab {
 
 	@SuppressWarnings("deprecation")
 	private void guardaDadosPrinc(DecoratedTabPanel tabPanel) {
-		pagCliente.setNomeSite(caixaNomeSite.getValue());
+		pagCliente.setNomeSite(caixaNomeSite.getValue().toString());
 		pagCliente.setTituloSite(caixaTituloSite.getValue());
 		pagCliente.setBannerSite(caixaBannerSite.getValue());
 		tabPanel.selectTab(1);
@@ -359,7 +360,8 @@ public class CriadorTab {
 	private void uploadBanner() {
 		Window.alert("Buscando Banner");
 	}
-
+	
+	
 	@SuppressWarnings("deprecation")
 	private void guardaModulos(DecoratedTabPanel tabPanel) {
 		
