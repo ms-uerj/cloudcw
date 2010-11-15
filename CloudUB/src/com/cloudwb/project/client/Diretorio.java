@@ -96,6 +96,18 @@ public class Diretorio {
 	        	PaginaLayout_01.escreveHTML_Home();
 	        	textoHTML_Home = PaginaLayout_01.geraCodigoHTML_Home();
 	        	
+	        	PaginaLayout_01.escreveHTML_Graduacao();
+	        	textoHTML_Graduacao = PaginaLayout_01.geraCodigoHTML_Graduacao();
+	        	
+	        	PaginaLayout_01.escreveHTML_posGraduacao();
+        		textoHTML_posGraduaco = PaginaLayout_01.geraCodigoHTML_posGraduacao();
+        		
+        		PaginaLayout_01.escreveHTML_Mestrado();
+	        	textoHTML_Mestrado = PaginaLayout_01.geraCodigoHTML_Mestrado();
+	        	
+	        	PaginaLayout_01.escreveHTML_Doutorado();	        		
+	        	textoHTML_Doutorado = PaginaLayout_01.geraCodigoHTML_Doutorado();
+	        	
 	        	bw_Home.write( textoHTML_Home, 0,textoHTML_Home.length() ); 
 		        bw_Home.close();		        
 			}
@@ -109,8 +121,20 @@ public class Diretorio {
 				folderCliente = new File("pagina_cliente/" + folderLayout);
 				folderCliente.mkdir();			
 				
-	        	PaginaLayout_02.escreveHTML_Home();
+				PaginaLayout_02.escreveHTML_Home();
 	        	textoHTML_Home = PaginaLayout_02.geraCodigoHTML_Home();
+	        	
+	        	PaginaLayout_02.escreveHTML_Graduacao();
+	        	textoHTML_Graduacao = PaginaLayout_02.geraCodigoHTML_Graduacao();
+	        	
+	        	PaginaLayout_02.escreveHTML_posGraduacao();
+        		textoHTML_posGraduaco = PaginaLayout_02.geraCodigoHTML_posGraduacao();
+        		
+        		PaginaLayout_02.escreveHTML_Mestrado();
+	        	textoHTML_Mestrado = PaginaLayout_02.geraCodigoHTML_Mestrado();
+	        	
+	        	PaginaLayout_02.escreveHTML_Doutorado();	        		
+	        	textoHTML_Doutorado = PaginaLayout_02.geraCodigoHTML_Doutorado();
 	        	
 	        	bw_Home.write( textoHTML_Home, 0,textoHTML_Home.length() ); 
 		        bw_Home.close();		        
@@ -151,17 +175,13 @@ public class Diretorio {
 	        	
 	        	if (CriadorTab.pagCliente.getGraduacao() == 1){
 	        		BufferedWriter bw_Graducao = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +   "/graduacao.html" ));
-	        		PaginaLayout_01.escreveHTML_Graduacao();
-		        	textoHTML_Graduacao = PaginaLayout_01.geraCodigoHTML_Graduacao();
-		        	
+	        				        	
 		        	bw_Graducao.write(textoHTML_Graduacao, 0,textoHTML_Graduacao.length() );
 			        bw_Graducao.close();
 	        	}
 	        	
 	        	if (CriadorTab.pagCliente.getPosGraduacao() == 1){
-	        		BufferedWriter bw_posGraducao = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +  "/pos_graduacao.html" ));
-	        		PaginaLayout_01.escreveHTML_posGraduacao();
-	        		textoHTML_posGraduaco = PaginaLayout_01.geraCodigoHTML_posGraduacao();
+	        		BufferedWriter bw_posGraducao = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +  "/pos_graduacao.html" ));	        		
 		        	
 		        	bw_posGraducao.write(textoHTML_posGraduaco, 0,textoHTML_posGraduaco.length() );
 		        	bw_posGraducao.close();
@@ -169,18 +189,14 @@ public class Diretorio {
 	        	
 	        	if (CriadorTab.pagCliente.getMestrado() == 1){
 	        		BufferedWriter bw_Mestrado = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +   "/mestrado.html" ));
-	        		PaginaLayout_01.escreveHTML_Mestrado();
-		        	textoHTML_Mestrado = PaginaLayout_01.geraCodigoHTML_Mestrado();
-		        	
+	        				        	
 		        	bw_Mestrado.write(textoHTML_Mestrado, 0,textoHTML_Mestrado.length() );
 		        	bw_Mestrado.close();
 	        	}
 	        	
 	        	if (CriadorTab.pagCliente.getDoutorado() == 1){
 	        		BufferedWriter bw_Doutorado = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +   "/doutorado.html" ));
-	        		PaginaLayout_01.escreveHTML_Doutorado();	        		
-		        	textoHTML_Doutorado = PaginaLayout_01.geraCodigoHTML_Doutorado();
-		        	
+	        				        	
 		        	bw_Doutorado.write(textoHTML_Doutorado, 0,textoHTML_Doutorado.length() );
 		        	bw_Doutorado.close();
 	        	}
