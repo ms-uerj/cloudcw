@@ -107,10 +107,10 @@ public class Diretorio {
 				BufferedWriter bw_Home = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +  "/index.html" ));
 								
 				folderCliente = new File("pagina_cliente/" + folderLayout);
-				folderCliente.mkdir();
+				folderCliente.mkdir();			
 				
-	        	PaginaLayout_01.escreveHTML_Home();
-	        	textoHTML_Home = PaginaLayout_01.geraCodigoHTML_Home();
+	        	PaginaLayout_02.escreveHTML_Home();
+	        	textoHTML_Home = PaginaLayout_02.geraCodigoHTML_Home();
 	        	
 	        	bw_Home.write( textoHTML_Home, 0,textoHTML_Home.length() ); 
 		        bw_Home.close();		        
