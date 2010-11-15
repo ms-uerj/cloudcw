@@ -131,7 +131,17 @@ public class CriadorTab {
 		criaPaginaButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				//criaPagina();
-				Diretorio.criaPaginas();
+				if (pagCliente.getLayoutSite() == 0){
+					Window.alert("Voce ainda nao escolheu nenhum layout!");
+				}
+				else{
+					if (pagCliente.getLayoutSite() == 3 || pagCliente.getLayoutSite() == 4){
+						Window.alert("Desculpe, esse layout ainda nao esta funcionando!");
+					}else{
+						Diretorio.criaPaginas();
+					}
+					
+				}								
 			}
 		});
 	}
