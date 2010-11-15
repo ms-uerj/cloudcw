@@ -9,7 +9,7 @@ public class PaginaCliente {
 	private int posGraduacao;
 	private int mestrado;
 	private int doutorado;
-	private int layoutSite;
+	private int layoutSite = 0;
 	private String tituloGraduacao;
 	private String tituloPosGraduacao;
 	private String tituloMestrado;
