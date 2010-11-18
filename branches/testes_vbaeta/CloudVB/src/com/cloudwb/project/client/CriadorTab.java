@@ -9,6 +9,7 @@ import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.DecoratedTabPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
@@ -29,11 +30,12 @@ public class CriadorTab {
 	private Button criaPaginaButton = new Button("Criar e Exportar");
 	
 	//encapsulando o botão de visualizar pagina dentro de um link.		
-	final HTML HTMLlink_visu = new HTML("<a href='pag_cliente/home.html' target='_blank'>"+visualizaPaginaButton+"</a>");
+	final HTML HTMLlink_visu = new HTML("<a href='pagina_cliente/layout_01/index.html' target='_blank'>"+visualizaPaginaButton+"</a>");
 
 	private TextBox caixaNomeSite = new TextBox();
 	private TextBox caixaTituloSite = new TextBox();
 	private TextBox caixaBannerSite = new TextBox();
+	private TextArea caixaDescricaoSite = new TextArea();
 
 	private Tree treeModulos = new Tree();
 	private TreeItem treeItemGraduacao = new TreeItem("Graduacao");
@@ -73,6 +75,7 @@ public class CriadorTab {
 		caixaNomeSite.setValue("");
 		caixaTituloSite.setValue("");
 		caixaBannerSite.setValue("");
+		caixaDescricaoSite.setValue("");
 
 		/* Atribui funções para os botões */
 		// Método que executa a função do botão 'Guardar' tab Principal
@@ -127,7 +130,7 @@ public class CriadorTab {
 		criaPaginaButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				//criaPagina();
-				Diretorio.testeEscrita();
+				Diretorio.criaPaginas();
 			}
 		});
 	}
@@ -140,30 +143,58 @@ public class CriadorTab {
 		HorizontalPanel hPanelNomeSite = new HorizontalPanel();
 		HorizontalPanel hPanelTituloSite = new HorizontalPanel();
 		HorizontalPanel hPanelBannerSite = new HorizontalPanel();
+		HorizontalPanel hPanelDescricaoSite = new HorizontalPanel();
 		HorizontalPanel hPanelBottPrinc = new HorizontalPanel();
+		HorizontalPanel hPanelBlank1 = new HorizontalPanel();
+		HorizontalPanel hPanelBlank2 = new HorizontalPanel();
+		HorizontalPanel hPanelBlank3 = new HorizontalPanel();
+		HorizontalPanel hPanelBlank4 = new HorizontalPanel();
+		HorizontalPanel hPanelBlank5 = new HorizontalPanel();
 
-		HTML hTMLChamadaPrinc = new HTML("Informacoes gerais sobre o site<br>");
-		HTML hTMLNomeSite = new HTML("<P>Nome do Site:");
-		HTML hTMLTituloSite = new HTML("<P>Titulo: ");
-		HTML hTMLBannerSite = new HTML("<P>Banner: ");
+		HTML pulaLinha1 = new HTML("<br>");
+		HTML pulaLinha2 = new HTML("<br>");
+		HTML pulaLinha3 = new HTML("<br>");
+		HTML pulaLinha4 = new HTML("<br>");
+		HTML pulaLinha5 = new HTML("<br>");
+		Label chamadaPrincLabel = new Label("Informacoes gerais sobre o site");
+		Label tituloSiteLabel = new Label("Titulo:  ");
+		Label bannerSiteLabel = new Label("Banner:  ");
+		Label descricaoSiteLabel = new Label("Descricao:  ");
+		Label nomeSite = new Label("Nome do Site:  ");
 
-		hPanelNomeSite.add(hTMLNomeSite);
-		hPanelNomeSite.add(caixaNomeSite);
-
-		hPanelTituloSite.add(hTMLTituloSite);
+		hPanelNomeSite.add(nomeSite);
+		hPanelNomeSite.add(caixaNomeSite);		
+		
+		hPanelTituloSite.add(tituloSiteLabel);
 		hPanelTituloSite.add(caixaTituloSite);
 
-		hPanelBannerSite.add(hTMLBannerSite);
+		hPanelDescricaoSite.add(descricaoSiteLabel);
+		caixaDescricaoSite.setPixelSize(300, 100);
+		hPanelDescricaoSite.add(caixaDescricaoSite);
+		
+		hPanelBannerSite.add(bannerSiteLabel);
 		hPanelBannerSite.add(caixaBannerSite);
-		hPanelBannerSite.add(uploadBannerButton);
+		hPanelBannerSite.add(uploadBannerButton);		
 
 		hPanelBottPrinc.add(guardaDadosPrincButton);
 		hPanelBottPrinc.add(limpaDadosPrincButton);
+		
+		hPanelBlank1.add(pulaLinha1);
+		hPanelBlank2.add(pulaLinha2);
+		hPanelBlank3.add(pulaLinha3);
+		hPanelBlank4.add(pulaLinha4);
+		hPanelBlank5.add(pulaLinha5);
 
-		vPanelPrincDados.add(hTMLChamadaPrinc);
+		vPanelPrincDados.add(chamadaPrincLabel);
+		vPanelPrincDados.add(hPanelBlank1);
 		vPanelPrincDados.add(hPanelNomeSite);
+		vPanelPrincDados.add(hPanelBlank2);
 		vPanelPrincDados.add(hPanelTituloSite);
+		vPanelPrincDados.add(hPanelBlank3);
+		vPanelPrincDados.add(hPanelDescricaoSite);
+		vPanelPrincDados.add(hPanelBlank4);
 		vPanelPrincDados.add(hPanelBannerSite);
+		vPanelPrincDados.add(hPanelBlank5);
 		vPanelPrincDados.add(hPanelBottPrinc);
 
 		return vPanelPrincDados;
@@ -343,6 +374,7 @@ public class CriadorTab {
 		pagCliente.setNomeSite(caixaNomeSite.getValue().toString());
 		pagCliente.setTituloSite(caixaTituloSite.getValue());
 		pagCliente.setBannerSite(caixaBannerSite.getValue());
+		pagCliente.setDescricaoSite(caixaDescricaoSite.getValue());
 		tabPanel.selectTab(1);
 	}
 
@@ -352,6 +384,9 @@ public class CriadorTab {
 
 		caixaTituloSite.setValue("");
 		pagCliente.setTituloSite("Nao");
+		
+		caixaDescricaoSite.setValue("");
+		pagCliente.setDescricaoSite("Nao");
 
 		caixaBannerSite.setValue("");
 		pagCliente.setBannerSite("Nao");
@@ -499,7 +534,7 @@ public class CriadorTab {
 		diretorio.cria_Diretorio();
 	}
 
-	private void criaPagina() {
+	/*private void criaPagina() {
 
 		Diretorio diretorio = new Diretorio(pagCliente);
 		diretorio.cria_Diretorio();
@@ -507,7 +542,7 @@ public class CriadorTab {
 		Compactador comp = new Compactador();
 		comp.compactar("pagina_cliente.rar");
 		
-		Window.alert("Pagina criada!");
+		Window.alert("Pagina criada!");*/
 
 		
 				
@@ -523,4 +558,3 @@ public class CriadorTab {
 		 * }; manipuladorServer.greetServer(null, callback);
 		 */
 	}
-}
