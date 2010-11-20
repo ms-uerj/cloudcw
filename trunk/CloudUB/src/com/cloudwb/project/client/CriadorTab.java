@@ -17,8 +17,399 @@ import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
+
+
+
+import com.google.gwt.user.client.ui.FileUpload;
+import com.smartgwt.client.types.Alignment;
+import com.smartgwt.client.types.ImageStyle;
+import com.smartgwt.client.types.MultipleAppearance;
+import com.smartgwt.client.types.Side;
+import com.smartgwt.client.widgets.Button;
+import com.smartgwt.client.widgets.Canvas;
+import com.smartgwt.client.widgets.IButton;
+import com.smartgwt.client.widgets.Img;
+import com.smartgwt.client.widgets.ImgButton;
+import com.smartgwt.client.widgets.events.ClickEvent;
+import com.smartgwt.client.widgets.events.ClickHandler;
+import com.smartgwt.client.widgets.form.DynamicForm;
+import com.smartgwt.client.widgets.form.ValuesManager;
+import com.smartgwt.client.widgets.form.fields.CheckboxItem;
+import com.smartgwt.client.widgets.form.fields.ComboBoxItem;
+import com.smartgwt.client.widgets.form.fields.FormItemIcon;
+import com.smartgwt.client.widgets.form.fields.RadioGroupItem;
+import com.smartgwt.client.widgets.form.fields.SelectItem;
+import com.smartgwt.client.widgets.form.fields.TextAreaItem;
+import com.smartgwt.client.widgets.form.fields.TextItem;
+import com.smartgwt.client.widgets.layout.HLayout;
+import com.smartgwt.client.widgets.layout.VLayout;
+import com.smartgwt.client.widgets.tab.Tab;
+import com.smartgwt.client.widgets.tab.TabSet;
+
+
 public class CriadorTab {
-	
+
+	public VLayout criaTabForm(){
+		
+			final ValuesManager vm = new ValuesManager();  
+		 
+			//tabset
+	        final TabSet tabSetPrincipal = new TabSet();  
+	        tabSetPrincipal.setWidth(600);  
+	        tabSetPrincipal.setHeight(500);
+	        tabSetPrincipal.setTabBarPosition(Side.BOTTOM); 
+	        
+	        //tab
+	        Tab tabDP = new Tab();  
+	        tabDP.setTitle("Dados Principais");  
+	          
+	        //form
+	        final DynamicForm dynFormDP = new DynamicForm();  
+	        dynFormDP.setID("dynFormDP");  
+	        dynFormDP.setValuesManager(vm);
+	        dynFormDP.setIsGroup(true);
+	        //dynFormDP.setAlign();							TODO olhar esse metodo align
+	        dynFormDP.setGroupTitle("Caracteristicas Gerais do Website");
+	        
+	        //itens form
+	        
+	        FormItemIcon iconDuvida = new FormItemIcon();  
+	        iconDuvida.setSrc("help.png");  
+	          
+	        TextItem txtItemNomeInstituicao = new TextItem();  
+	        txtItemNomeInstituicao.setName("txtItemNomeInstituicao");  
+	        txtItemNomeInstituicao.setTitle("<nobr>Nome da Instituicao</nobr>");
+	        txtItemNomeInstituicao.setIcons(iconDuvida);
+	        
+	        TextItem txtItemTitulo = new TextItem();  
+	        txtItemTitulo.setName("txtItemTitulo");  
+	        txtItemTitulo.setTitle("Titulo do Website");
+	        txtItemTitulo.setIcons(iconDuvida);
+
+	        TextAreaItem txtAreaDescricao = new TextAreaItem();  
+	        txtAreaDescricao.setName("txtAreaDescricao");  
+	        txtAreaDescricao.setTitle("Descricao do Website");
+	        txtAreaDescricao.setHint("Escreva aqui uma visao geral do que seu Website oferece, para que os motores de busca como Google, Bing e Yahoo possam localizar melhor o seu site.");
+	          
+	        TextItem txtItemKeyWords = new TextItem();  
+	        txtItemKeyWords.setName("txtItemKeyWords");  
+	        txtItemKeyWords.setTitle("Palavras-Chave");
+	        txtItemKeyWords.setHint("Palavras relacionadas ao seu Instituto, utilizadas pelos motores de busca como Google, Bing e Yahoo para localizar seu site.");
+	        
+	        TextItem txtItemFooter = new TextItem();  
+	        txtItemFooter.setName("txtItemFooter");  
+	        txtItemFooter.setTitle("Nota do Footer");
+	        txtItemFooter.setIcons(iconDuvida);  
+	        
+	        TextItem txtItemFavicon = new TextItem();  
+	        txtItemFavicon.setName("txtItemFavicon");  
+	        txtItemFavicon.setTitle("Icone do Website");
+	        
+	        //colocando os itens no formulario
+	        dynFormDP.setItems(txtItemNomeInstituicao,txtItemTitulo,txtAreaDescricao,txtItemKeyWords,txtItemFooter,txtItemFavicon);
+	        
+	        //add formulario na aba DP
+	        tabDP.setPane(dynFormDP);  
+	        
+	  
+	        
+	        //nova tab
+	        Tab tabModulos = new Tab();  
+	        tabModulos.setTitle("Modulos");  
+	          
+	        //form Modulos
+	        final DynamicForm dynFormMod = new DynamicForm();  
+	        dynFormMod.setID("dynFormMod");  
+	        dynFormMod.setValuesManager(vm);
+	        dynFormMod.setIsGroup(true);
+	        dynFormMod.setWidth(570);
+	        dynFormMod.setGroupTitle("Configuracao / Escolha dos Modulos");
+	        
+	        //itens form Modulos
+	        CheckboxItem ChBoxGraduacao = new CheckboxItem();  
+	        ChBoxGraduacao.setName("ChBoxGraduacao"); 
+	        ChBoxGraduacao.setTitle("Graduacao"); 
+	        ChBoxGraduacao.setHint("<nobr>Esse modulo possiblita que seu site tenha uma pagina</nobr> dedicada a Graduacao");
+
+	        CheckboxItem ChBoxPos = new CheckboxItem();  
+	        ChBoxPos.setName("ChBoxPos");  
+	        ChBoxPos.setTitle("Pos-Graduacao");  
+	        ChBoxPos.setHint("<nobr>Esse modulo possiblita que seu site tenha uma pagina</nobr> dedicada a Pos-Graduacao");
+
+	        CheckboxItem ChBoxMestrado = new CheckboxItem();  
+	        ChBoxMestrado.setName("ChBoxMestrado");  
+	        ChBoxMestrado.setTitle("Mestrado");  
+	        ChBoxMestrado.setHint("<nobr>Esse modulo possiblita que seu site tenha uma pagina</nobr> dedicada ao Mestrado");
+	        
+	        CheckboxItem ChBoxDoutorado = new CheckboxItem();  
+	        ChBoxDoutorado.setName("ChBoxDoutorado");  
+	        ChBoxDoutorado.setTitle("Doutorado");
+	        ChBoxDoutorado.setHint("<nobr>Esse modulo possiblita que seu site tenha uma pagina</nobr> dedicada ao Doutorado");
+	        
+	        CheckboxItem ChBoxArquivos = new CheckboxItem();  
+	        ChBoxArquivos.setName("ChBoxAraquivos");  
+	        ChBoxArquivos.setTitle("Arquivos");
+	        ChBoxArquivos.setHint("<nobr>Nesse modulo ficarao disponiveis para download os arquivos</nobr> relacionados ao seu Instituto, como por exemplo, teses e artigos");
+
+	        //adicionando os itens no formulario
+	        dynFormMod.setFields(ChBoxGraduacao,ChBoxPos,ChBoxMestrado,ChBoxDoutorado,ChBoxArquivos);
+	        tabModulos.setPane(dynFormMod);
+          
+//TODO fazer um metodo que chame cada tab	       
+//TODO colocar um icone para cada aba
+	        
+	        
+	        //nova tab
+	        Tab tabTemplate = new Tab();  
+	        tabTemplate.setTitle("Template");
+	        
+	        //criacao de dois VLayouts para comportar a parte de cima e a de baixo da aba
+	        VLayout vLayoutTemplate1 = new VLayout();
+	        vLayoutTemplate1.setWidth(590);
+	        
+	        //criando componentes do VlayoutTemplate1
+	        final DynamicForm dynFormTemplate = new DynamicForm();  
+	        dynFormTemplate.setID("dynFormTemplate");  
+	        dynFormTemplate.setValuesManager(vm);
+	        dynFormTemplate.setIsGroup(true);
+	        dynFormTemplate.setWidth(590);
+	        dynFormTemplate.setGroupTitle("Selecione um dos templates na lista abaixo ou crie seu proprio template");
+	        
+	        RadioGroupItem radioTemplate = new RadioGroupItem();  
+	        radioTemplate.setTitle("");
+	        radioTemplate.setValueMap("Template Personalizado", "Template Padrao");
+	        
+	        final SelectItem selectItemTemplate = new SelectItem();
+	        selectItemTemplate.setTitle("Templates");
+	        selectItemTemplate.setMultiple(false);    
+	        selectItemTemplate.setValueMap("Classico", "Moderno", "Dark");  
+
+	        //add os itens no formulario1
+	        dynFormTemplate.setFields(radioTemplate,selectItemTemplate);    
+	        
+	        //criando o formulario2
+	        final DynamicForm dynFormTemplate2 = new DynamicForm();  
+	        dynFormTemplate2.setID("dynFormTemplate2");  
+	        dynFormTemplate2.setValuesManager(vm);
+	        dynFormTemplate2.setIsGroup(true);
+	        dynFormTemplate2.setHeight(240);
+	        dynFormTemplate2.setWidth(340);
+	        dynFormTemplate2.setGroupTitle("Pre-Visualizacao");
+	        
+	        Canvas canvas1 = new Canvas();
+	        
+	        String caminho1 = "Crysis.jpg";  
+	        Img imgPre = new Img(caminho1, 320, 240);  
+	        imgPre.setImageType(ImageStyle.STRETCH);  
+	        imgPre.setBorder("1px solid gray");  
+	        imgPre.setLeft(10);
+	        imgPre.setTop(10);
+	        
+	        canvas1.addChild(imgPre);
+	        
+	        //add img ao formulario2
+	        dynFormTemplate2.addChild(canvas1);
+
+	        //criando o formulario3
+	        final DynamicForm dynFormTemplate3 = new DynamicForm();  
+	        dynFormTemplate3.setID("dynFormTemplate3");  
+	        dynFormTemplate3.setValuesManager(vm);
+	        dynFormTemplate3.setIsGroup(true);
+	        dynFormTemplate3.setWidth(590);
+	        dynFormTemplate3.setGroupTitle("Cores");
+	        
+	        //criando itens do form3
+	        RadioGroupItem radioTemplateCores = new RadioGroupItem();  
+	        radioTemplateCores.setTitle("Escolha uma cor");
+	        radioTemplateCores.setValueMap("Preto","Branco","Cinza");
+	        
+	        //add itens ao form3
+	        dynFormTemplate3.setFields(radioTemplateCores);
+	        
+	        //add formulario, formulario2 e formulario3 no VLayout
+	        vLayoutTemplate1.addMember(dynFormTemplate);
+	        vLayoutTemplate1.addMember(dynFormTemplate2);
+	        vLayoutTemplate1.addMember(dynFormTemplate3);
+	        
+	        //add o VLayoutTemplate na aba template
+	        tabTemplate.setPane(vLayoutTemplate1);
+
+	        
+	        //nova tab
+	        Tab tabCustomTemplate = new Tab();  
+	        tabCustomTemplate.setTitle("Customizacao do Template");
+
+	        //criacao do VLayout que abrigara os forms
+	        VLayout vLayoutCT = new VLayout();
+	        
+	        //criacao do HLayout que abrigara os forms
+	        HLayout hLayoutCT1 = new HLayout();
+
+	        //add HLayout no VLayout
+	        vLayoutCT.addMember(hLayoutCT1);
+	        
+	        //criando o formulario1
+	        final DynamicForm dynFormCT1 = new DynamicForm();  
+	        dynFormCT1.setID("dynFormCT1");  
+	        dynFormCT1.setValuesManager(vm);
+	        dynFormCT1.setIsGroup(true);
+	        dynFormCT1.setWidth(295);
+	        dynFormCT1.setHeight(300);
+	        dynFormCT1.setGroupTitle("Frames");
+
+	        //criando as imagens que serao modificadas com o form3
+	        final Canvas canvasCT = new Canvas();
+	        
+	        String caminho2 = "Crysis.jpg";  
+	        Img imgCT = new Img(caminho2, 280, 210);  
+	        imgCT.setImageType(ImageStyle.STRETCH);  
+	        imgCT.setBorder("1px solid gray");  
+	        imgCT.setLeft(10);
+	        imgCT.setTop(30);
+	        canvasCT.addChild(imgCT);
+	        
+	        final Canvas canvas2 = new Canvas();
+        	String caminho3 = "roxo.jpg";
+        	final Img imgCT1 = new Img(caminho3, 280, 210);  
+	        imgCT1.setImageType(ImageStyle.STRETCH);  
+	        imgCT1.setBorder("1px solid gray");  
+	        imgCT1.setLeft(10);
+	        imgCT1.setTop(30);
+	        canvas2.addChild(imgCT1);
+
+	        final Canvas canvas3 = new Canvas();
+        	String caminho4 = "Crysis.jpg";
+        	final Img imgCT2 = new Img(caminho4, 280, 210);  
+	        imgCT2.setImageType(ImageStyle.STRETCH);  
+	        imgCT2.setBorder("1px solid gray");  
+	        imgCT2.setLeft(10);
+	        imgCT2.setTop(30);
+	        canvas3.addChild(imgCT2);
+
+	        final Canvas canvas4 = new Canvas();
+        	String caminho5 = "roxo.jpg";
+        	final Img imgCT3 = new Img(caminho5, 280, 210);  
+	        imgCT3.setImageType(ImageStyle.STRETCH);  
+	        imgCT3.setBorder("1px solid gray");  
+	        imgCT3.setLeft(10);
+	        imgCT3.setTop(30);
+	        canvas4.addChild(imgCT3);
+
+	        
+	        //add itens no formCT
+	        dynFormCT1.addChild(canvasCT);
+	        
+	        //criando o formulario2
+	        final DynamicForm dynFormCT2 = new DynamicForm();  
+	        dynFormCT2.setID("dynFormCT2");  
+	        dynFormCT2.setValuesManager(vm);
+	        dynFormCT2.setIsGroup(true);
+	        dynFormCT2.setWidth(295);
+	        dynFormCT2.setHeight(300);
+	        dynFormCT2.setGroupTitle("Menu de Edicao");
+
+	        //add forms no HLayout
+	        hLayoutCT1.addMember(dynFormCT1);
+	        hLayoutCT1.addMember(dynFormCT2);
+
+	        //criando botoes que mudarao as imagens e o menu
+	        Button bHeader = new Button("Header");
+	        bHeader.addClickHandler(new ClickHandler() {  
+	            public void onClick(ClickEvent event) {  
+	            	
+	            	//TODO mudar a imgem e mudar o formulario
+	            	//dynFormCT1.addChild(canvas2);
+	            	
+	            	dynFormCT1.addChild(canvasCT);
+	            		
+	            }  
+	        });  
+	        
+	        Button bCenter = new Button("Center");
+	        bCenter.addClickHandler(new ClickHandler() {  
+	            public void onClick(ClickEvent event) {  
+	            	
+	            	//TODO mudar a imgem e mudar o formulario
+	            	
+	            	dynFormCT1.addChild(canvas2);
+	            }  
+	        });
+	        
+	        Button bCenterLeft = new Button("Center-Left");
+	        bCenterLeft.addClickHandler(new ClickHandler() {  
+	            public void onClick(ClickEvent event) {  
+	            	
+	            	//TODO mudar a imgem e mudar o formulario
+	            	
+	            	dynFormCT1.addChild(canvas3);
+	            }  
+	        });
+	        
+	        Button bFooter = new Button("Footer");
+	        bFooter.addClickHandler(new ClickHandler() {  
+	            public void onClick(ClickEvent event) {  
+	            	
+	            	//TODO mudar a imgem e mudar o formulario
+	            	
+	            	dynFormCT1.addChild(canvas4);
+	            	
+	            }  
+	        });
+	        
+	        //criando HLayout para comportar os botoes
+	        HLayout HLayoutCTBotoes = new HLayout();
+	        HLayoutCTBotoes.addMember(bHeader);
+	        HLayoutCTBotoes.addMember(bCenter);
+	        HLayoutCTBotoes.addMember(bCenterLeft);
+	        HLayoutCTBotoes.addMember(bFooter);
+	        
+	        //add HLayout no VLayout
+	        vLayoutCT.addMember(HLayoutCTBotoes);
+	        
+
+	        //add VLayout na aba CT
+	        tabCustomTemplate.setPane(vLayoutCT);
+	        
+	        //nova tab
+	        Tab tabConfigModulos = new Tab();  
+	        tabConfigModulos.setTitle("Configuracao dos Modulos");
+
+	        //nova tab
+	        Tab tabFinal = new Tab();  
+	        tabFinal.setTitle("Finalizacao");
+
+	        //adicionando as abas no TabSet
+	        tabSetPrincipal.setTabs(tabDP,tabTemplate,tabCustomTemplate,tabModulos,tabConfigModulos,tabFinal);  
+	        
+	        
+	        IButton submit = new IButton();  
+	        submit.setTitle("Submit");  
+	        submit.addClickHandler(new ClickHandler() {  
+	            public void onClick(ClickEvent event) {  
+	                vm.validate();  
+	                if (dynFormDP.hasErrors()) {  
+	                    tabSetPrincipal.selectTab(1);  
+	                } else {  
+	                    tabSetPrincipal.selectTab(0);  
+	                }  
+	            }  
+	        });  
+	          
+	        VLayout vLayout = new VLayout();  
+	        vLayout.setMembersMargin(10);  
+	        vLayout.addMember(tabSetPrincipal);  
+	        vLayout.addMember(submit);  
+	  
+	       
+		return vLayout;
+	}
+
+
+
+
+
+
+/*	
 	// Componentes dos Tabs
 	private Button guardaDadosPrincButton = new Button("Guardar");
 	private Button limpaDadosPrincButton = new Button("Limpar");
@@ -568,4 +959,6 @@ public class CriadorTab {
 		 * 
 		 * }; manipuladorServer.greetServer(null, callback);
 		 */
+
+*/
 	}
