@@ -7,6 +7,7 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.DecoratedTabPanel;
+import com.smartgwt.client.widgets.layout.VLayout;
 
 public class CloudWB implements EntryPoint {
 
