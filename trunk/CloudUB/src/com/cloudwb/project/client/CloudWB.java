@@ -10,6 +10,8 @@ import com.google.gwt.user.client.ui.DecoratedTabPanel;
 
 public class CloudWB implements EntryPoint {
 
+
+/*
 	private VerticalPanel mainPanel = new VerticalPanel();
 	private FlexTable stocksFlexTable = new FlexTable();
 	private HorizontalPanel addPanel = new HorizontalPanel();
@@ -19,8 +21,15 @@ public class CloudWB implements EntryPoint {
 	private DecoratedTabPanel tabPanel = new DecoratedTabPanel();
 
 	@SuppressWarnings("deprecation")
+*/
 	public void onModuleLoad() {
 
+
+		CriadorTab criadorTab = new CriadorTab();
+		VLayout tabPrincipal = criadorTab.criaTabForm();
+		RootPanel.get("form").add(tabPrincipal);
+
+/*
 		// Assemble Main panel.
 		mainPanel.add(stocksFlexTable);
 		mainPanel.add(addPanel);
@@ -50,5 +59,6 @@ public class CloudWB implements EntryPoint {
 		// Atribui visibilidade para as tabs e adiciona ao painel da página
 		tabPanel.selectTab(0);
 		addPanel.add(tabPanel);
+*/
 	}
 }
