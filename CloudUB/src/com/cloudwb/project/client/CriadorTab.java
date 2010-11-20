@@ -1,10 +1,7 @@
 package com.cloudwb.project.client;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.DecoratedTabPanel;
 import com.google.gwt.user.client.ui.HTML;
@@ -49,8 +46,10 @@ import com.smartgwt.client.widgets.tab.TabSet;
 
 public class CriadorTab {
 
+	public static PaginaCliente pagCliente = new PaginaCliente();
+	
 	public VLayout criaTabForm(){
-		
+			
 			final ValuesManager vm = new ValuesManager();  
 		 
 			//tabset
@@ -403,6 +402,7 @@ public class CriadorTab {
 	       
 		return vLayout;
 	}
+}
 
 
 
@@ -469,7 +469,7 @@ public class CriadorTab {
 		caixaBannerSite.setValue("");
 		caixaDescricaoSite.setValue("");
 
-		/* Atribui funções para os botões */
+		// Atribui funções para os botões
 		// Método que executa a função do botão 'Guardar' tab Principal
 		guardaDadosPrincButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
@@ -769,7 +769,7 @@ public class CriadorTab {
 		return vPanelVisual;
 	}
 
-	/* metodos que executam as ações chamadas pelos botões */
+	// metodos que executam as ações chamadas pelos botões 
 
 	@SuppressWarnings("deprecation")
 	private void guardaDadosPrinc(DecoratedTabPanel tabPanel) {
@@ -958,7 +958,6 @@ public class CriadorTab {
 		 * @Override public void onSuccess(String result) { }
 		 * 
 		 * }; manipuladorServer.greetServer(null, callback);
-		 */
-
 */
-	}
+
+
