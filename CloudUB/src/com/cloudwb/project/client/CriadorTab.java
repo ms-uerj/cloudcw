@@ -63,8 +63,7 @@ public class CriadorTab {
 	        tabSetPrincipal.setTabBarPosition(Side.BOTTOM); 
 	        
 	        //tab
-	        Tab tabDP = new Tab();  
-	        tabDP.setTitle("Dados Principais");  
+	        Tab tabDP = new Tab("Dados Principais","icondp.png");    
 	          
 	        //form
 	        final DynamicForm dynFormDP = new DynamicForm();  
@@ -132,8 +131,7 @@ public class CriadorTab {
 	  
 	        
 	        //nova tab
-	        Tab tabModulos = new Tab();  
-	        tabModulos.setTitle("Modulos");  
+	        Tab tabModulos = new Tab("Modulos","iconmodulos.png");  
 	        
 	        VLayout vLayoutMod = new VLayout();
 
@@ -208,8 +206,7 @@ public class CriadorTab {
 	        
 	        
 	        //nova tab
-	        Tab tabTemplate = new Tab();  
-	        tabTemplate.setTitle("Template");
+	        Tab tabTemplate = new Tab("Template","icontemplate.png");  
 	        
 	        //criacao de dois VLayouts para comportar a parte de cima e a de baixo da aba
 	        VLayout vLayoutTemplate1 = new VLayout();
@@ -297,8 +294,7 @@ public class CriadorTab {
 	        
 	        
 	        //nova tab
-	        Tab tabCustomTemplate = new Tab();  
-	        tabCustomTemplate.setTitle("Customizacao do Template");
+	        Tab tabCustomTemplate = new Tab("Customizacao do Template","iconct.png");  
 
 	        //criacao do VLayout que abrigara os forms
 	        VLayout vLayoutCT = new VLayout();
@@ -448,8 +444,7 @@ public class CriadorTab {
 	        
 	        
 	        //nova tab
-	        Tab tabConfigModulos = new Tab();  
-	        tabConfigModulos.setTitle("Configuracao dos Modulos");
+	        Tab tabConfigModulos = new Tab("Configuracao dos Modulos","iconcmod.png");  
 
 	        //vlayout principal
 	        VLayout vLayoutCMod = new VLayout();
@@ -472,8 +467,7 @@ public class CriadorTab {
 
 	        
 	        //nova tab
-	        Tab tabFinal = new Tab();  
-	        tabFinal.setTitle("Finalizacao");
+	        Tab tabFinal = new Tab("Finalizacao","iconfinal.png");  
 
 	        //vlayout principal
 	        VLayout vLayoutFinal = new VLayout();
