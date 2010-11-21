@@ -22,6 +22,8 @@ import com.smartgwt.client.types.Alignment;
 import com.smartgwt.client.types.ImageStyle;
 import com.smartgwt.client.types.MultipleAppearance;
 import com.smartgwt.client.types.Side;
+import com.smartgwt.client.util.BooleanCallback;
+import com.smartgwt.client.util.SC;
 import com.smartgwt.client.widgets.Button;
 import com.smartgwt.client.widgets.Canvas;
 import com.smartgwt.client.widgets.IButton;
@@ -52,10 +54,12 @@ public class CriadorTab {
 			
 			final ValuesManager vm = new ValuesManager();  
 		 
+			VLayout vLayoutDP = new VLayout();
+
 			//tabset
 	        final TabSet tabSetPrincipal = new TabSet();  
 	        tabSetPrincipal.setWidth(600);  
-	        tabSetPrincipal.setHeight(500);
+	        tabSetPrincipal.setHeight(600);
 	        tabSetPrincipal.setTabBarPosition(Side.BOTTOM); 
 	        
 	        //tab
@@ -67,7 +71,8 @@ public class CriadorTab {
 	        dynFormDP.setID("dynFormDP");  
 	        dynFormDP.setValuesManager(vm);
 	        dynFormDP.setIsGroup(true);
-	        //dynFormDP.setAlign();							TODO olhar esse metodo align
+	        //dynFormDP.setAlign();							
+	        //TODO olhar esse metodo align   //nao eh prioridade
 	        dynFormDP.setGroupTitle("Caracteristicas Gerais do Website");
 	        
 	        //itens form
@@ -104,18 +109,34 @@ public class CriadorTab {
 	        txtItemFavicon.setName("txtItemFavicon");  
 	        txtItemFavicon.setTitle("Icone do Website");
 	        
+	        //hlayout dos botoes
+	        HLayout hLayoutBotoesDP = new HLayout();
+	        
+	        Button ButtonSaveDP = new Button("Salvar Alteracoes");
+	        Button ButtonResetDP = new Button("Reset");
+	        
+	        //add botoes no hlayout
+	        hLayoutBotoesDP.addMember(ButtonSaveDP);
+	        hLayoutBotoesDP.addMember(ButtonResetDP);
+	        
 	        //colocando os itens no formulario
 	        dynFormDP.setItems(txtItemNomeInstituicao,txtItemTitulo,txtAreaDescricao,txtItemKeyWords,txtItemFooter,txtItemFavicon);
+
+	        //add formulario e botoes no Vlayout 
+			vLayoutDP.addMember(dynFormDP);
+			vLayoutDP.addMember(hLayoutBotoesDP);
 	        
-	        //add formulario na aba DP
-	        tabDP.setPane(dynFormDP);  
+			//add VLayoutDP na aba DP
+	        tabDP.setPane(vLayoutDP);  
 	        
 	  
 	        
 	        //nova tab
 	        Tab tabModulos = new Tab();  
 	        tabModulos.setTitle("Modulos");  
-	          
+	        
+	        VLayout vLayoutMod = new VLayout();
+
 	        //form Modulos
 	        final DynamicForm dynFormMod = new DynamicForm();  
 	        dynFormMod.setID("dynFormMod");  
@@ -123,39 +144,67 @@ public class CriadorTab {
 	        dynFormMod.setIsGroup(true);
 	        dynFormMod.setWidth(570);
 	        dynFormMod.setGroupTitle("Configuracao / Escolha dos Modulos");
-	        
+	        	        
 	        //itens form Modulos
+	        FormItemIcon iconMessage = new FormItemIcon();  
+	        iconMessage.setSrc("message.png");  
+	        
+	        
 	        CheckboxItem ChBoxGraduacao = new CheckboxItem();  
 	        ChBoxGraduacao.setName("ChBoxGraduacao"); 
-	        ChBoxGraduacao.setTitle("Graduacao"); 
+	        ChBoxGraduacao.setTitle("Graduacao");
+	        ChBoxGraduacao.setIcons(iconMessage);
 	        ChBoxGraduacao.setHint("<nobr>Esse modulo possiblita que seu site tenha uma pagina</nobr> dedicada a Graduacao");
+	        
 
 	        CheckboxItem ChBoxPos = new CheckboxItem();  
 	        ChBoxPos.setName("ChBoxPos");  
 	        ChBoxPos.setTitle("Pos-Graduacao");  
+	        ChBoxPos.setIcons(iconMessage);
 	        ChBoxPos.setHint("<nobr>Esse modulo possiblita que seu site tenha uma pagina</nobr> dedicada a Pos-Graduacao");
 
 	        CheckboxItem ChBoxMestrado = new CheckboxItem();  
 	        ChBoxMestrado.setName("ChBoxMestrado");  
-	        ChBoxMestrado.setTitle("Mestrado");  
+	        ChBoxMestrado.setTitle("Mestrado"); 
+	        ChBoxMestrado.setIcons(iconMessage);
 	        ChBoxMestrado.setHint("<nobr>Esse modulo possiblita que seu site tenha uma pagina</nobr> dedicada ao Mestrado");
 	        
 	        CheckboxItem ChBoxDoutorado = new CheckboxItem();  
 	        ChBoxDoutorado.setName("ChBoxDoutorado");  
 	        ChBoxDoutorado.setTitle("Doutorado");
+	        ChBoxDoutorado.setIcons(iconMessage);
 	        ChBoxDoutorado.setHint("<nobr>Esse modulo possiblita que seu site tenha uma pagina</nobr> dedicada ao Doutorado");
 	        
 	        CheckboxItem ChBoxArquivos = new CheckboxItem();  
 	        ChBoxArquivos.setName("ChBoxAraquivos");  
 	        ChBoxArquivos.setTitle("Arquivos");
+	        ChBoxArquivos.setIcons(iconMessage);
 	        ChBoxArquivos.setHint("<nobr>Nesse modulo ficarao disponiveis para download os arquivos</nobr> relacionados ao seu Instituto, como por exemplo, teses e artigos");
 
+// other controls-> dialog	        
+	        
 	        //adicionando os itens no formulario
 	        dynFormMod.setFields(ChBoxGraduacao,ChBoxPos,ChBoxMestrado,ChBoxDoutorado,ChBoxArquivos);
-	        tabModulos.setPane(dynFormMod);
+	        
+	        //hlayout dos botoes
+	        HLayout hLayoutBotoesMod = new HLayout();
+	        
+	        Button ButtonSaveMod = new Button("Salvar Alteracoes");
+	        Button ButtonResetMod = new Button("Reset");
+	        
+	        //add botoes no hlayout
+	        hLayoutBotoesMod.addMember(ButtonSaveMod);
+	        hLayoutBotoesMod.addMember(ButtonResetMod);
+	        
+	        //add formulario e botoes no Vlayout 
+			vLayoutMod.addMember(dynFormMod);
+			vLayoutMod.addMember(hLayoutBotoesMod);
+	        
+			//add VLayout na aba Modulos
+	        tabModulos.setPane(vLayoutMod);
           
-//TODO fazer um metodo que chame cada tab	       
-//TODO colocar um icone para cada aba
+//TODO fazer um metodo que chame cada tab  //nao eh prioridade
+//TODO colocar um icone para cada aba      //nao eh prioridade
 	        
 	        
 	        //nova tab
@@ -178,13 +227,13 @@ public class CriadorTab {
 	        radioTemplate.setTitle("");
 	        radioTemplate.setValueMap("Template Personalizado", "Template Padrao");
 	        
-	        final SelectItem selectItemTemplate = new SelectItem();
-	        selectItemTemplate.setTitle("Templates");
-	        selectItemTemplate.setMultiple(false);    
-	        selectItemTemplate.setValueMap("Classico", "Moderno", "Dark");  
-
+	        ComboBoxItem cbItemTemplate = new ComboBoxItem();  
+	        cbItemTemplate.setTitle("Template");    
+	        cbItemTemplate.setType("comboBox");  
+	        cbItemTemplate.setValueMap("Classico", "Moderno", "Dark"); 
+	        
 	        //add os itens no formulario1
-	        dynFormTemplate.setFields(radioTemplate,selectItemTemplate);    
+	        dynFormTemplate.setFields(radioTemplate,cbItemTemplate);    
 	        
 	        //criando o formulario2
 	        final DynamicForm dynFormTemplate2 = new DynamicForm();  
@@ -224,15 +273,28 @@ public class CriadorTab {
 	        
 	        //add itens ao form3
 	        dynFormTemplate3.setFields(radioTemplateCores);
+	       
+	        //hlayout dos botoes
+	        HLayout hLayoutBotoesTemplate = new HLayout();
 	        
-	        //add formulario, formulario2 e formulario3 no VLayout
+	        Button ButtonSaveTemplate = new Button("Salvar Alteracoes");
+	        Button ButtonResetTemplate = new Button("Reset");
+	        
+	        //add botoes no hlayout
+	        hLayoutBotoesTemplate.addMember(ButtonSaveTemplate);
+	        hLayoutBotoesTemplate.addMember(ButtonResetTemplate);
+
+	        //add formulario, formulario2 e formulario3 e hLayout no VLayout
 	        vLayoutTemplate1.addMember(dynFormTemplate);
 	        vLayoutTemplate1.addMember(dynFormTemplate2);
 	        vLayoutTemplate1.addMember(dynFormTemplate3);
+	        vLayoutTemplate1.addMember(hLayoutBotoesTemplate);
 	        
 	        //add o VLayoutTemplate na aba template
 	        tabTemplate.setPane(vLayoutTemplate1);
 
+
+	        
 	        
 	        //nova tab
 	        Tab tabCustomTemplate = new Tab();  
@@ -258,7 +320,6 @@ public class CriadorTab {
 
 	        //criando as imagens que serao modificadas com o form3
 	        final Canvas canvasCT = new Canvas();
-	        
 	        String caminho2 = "Crysis.jpg";  
 	        Img imgCT = new Img(caminho2, 280, 210);  
 	        imgCT.setImageType(ImageStyle.STRETCH);  
@@ -294,7 +355,6 @@ public class CriadorTab {
 	        imgCT3.setTop(30);
 	        canvas4.addChild(imgCT3);
 
-	        
 	        //add itens no formCT
 	        dynFormCT1.addChild(canvasCT);
 	        
@@ -316,11 +376,11 @@ public class CriadorTab {
 	        bHeader.addClickHandler(new ClickHandler() {  
 	            public void onClick(ClickEvent event) {  
 	            	
-	            	//TODO mudar a imgem e mudar o formulario
+	            	//TODO mudar a imgem e mudar o formulario  //complicado, talvez nao facamos desse jeito
 	            	//dynFormCT1.addChild(canvas2);
 	            	
 	            	dynFormCT1.addChild(canvasCT);
-	            		
+	            	SC.say("Clicou");
 	            }  
 	        });  
 	        
@@ -328,9 +388,10 @@ public class CriadorTab {
 	        bCenter.addClickHandler(new ClickHandler() {  
 	            public void onClick(ClickEvent event) {  
 	            	
-	            	//TODO mudar a imgem e mudar o formulario
+	            	//TODO mudar a imgem e mudar o formulario  //complicado, talvez nao facamos desse jeito
 	            	
 	            	dynFormCT1.addChild(canvas2);
+	            	SC.say("Clicou");
 	            }  
 	        });
 	        
@@ -338,9 +399,10 @@ public class CriadorTab {
 	        bCenterLeft.addClickHandler(new ClickHandler() {  
 	            public void onClick(ClickEvent event) {  
 	            	
-	            	//TODO mudar a imgem e mudar o formulario
+	            	//TODO mudar a imgem e mudar o formulario  //complicado, talvez nao facamos desse jeito
 	            	
 	            	dynFormCT1.addChild(canvas3);
+	            	SC.say("Clicou");
 	            }  
 	        });
 	        
@@ -348,9 +410,10 @@ public class CriadorTab {
 	        bFooter.addClickHandler(new ClickHandler() {  
 	            public void onClick(ClickEvent event) {  
 	            	
-	            	//TODO mudar a imgem e mudar o formulario
+	            	//TODO mudar a imgem e mudar o formulario  //complicado, talvez nao facamos desse jeito
 	            	
 	            	dynFormCT1.addChild(canvas4);
+	            	SC.say("Clicou");
 	            	
 	            }  
 	        });
@@ -364,19 +427,74 @@ public class CriadorTab {
 	        
 	        //add HLayout no VLayout
 	        vLayoutCT.addMember(HLayoutCTBotoes);
-	        
 
+	        //hlayout dos botoes
+	        HLayout hLayoutBotoesCT2 = new HLayout();
+	        
+	        Button ButtonSaveCT = new Button("Salvar Alteracoes");
+	        Button ButtonResetCT = new Button("Reset");
+	        
+	        //add botoes no hlayout
+	        hLayoutBotoesCT2.addMember(ButtonSaveCT);
+	        hLayoutBotoesCT2.addMember(ButtonResetCT);
+	        
+	        //add botoes no vlayout
+	        vLayoutCT.addMember(hLayoutBotoesCT2);
+	        
 	        //add VLayout na aba CT
 	        tabCustomTemplate.setPane(vLayoutCT);
+
+	        
+	        
 	        
 	        //nova tab
 	        Tab tabConfigModulos = new Tab();  
 	        tabConfigModulos.setTitle("Configuracao dos Modulos");
 
+	        //vlayout principal
+	        VLayout vLayoutCMod = new VLayout();
+	        
+	        //hlayout dos botoes
+	        HLayout hLayoutBotoesCMod = new HLayout();
+	        
+	        Button ButtonSaveCMod = new Button("Salvar Alteracoes");
+	        Button ButtonResetCMod = new Button("Reset");
+	        
+	        //add botoes no hlayout
+	        hLayoutBotoesCMod.addMember(ButtonSaveCMod);
+	        hLayoutBotoesCMod.addMember(ButtonResetCMod);
+	        
+	        //add botoes no vlayout
+	        vLayoutCMod.addMember(hLayoutBotoesCMod);
+	        
+	        //add VLayout na aba CT
+	        tabConfigModulos.setPane(vLayoutCMod);
+
+	        
 	        //nova tab
 	        Tab tabFinal = new Tab();  
 	        tabFinal.setTitle("Finalizacao");
 
+	        //vlayout principal
+	        VLayout vLayoutFinal = new VLayout();
+	        
+	        //hlayout dos botoes
+	        HLayout hLayoutBotoesFinal = new HLayout();
+	        
+	        Button ButtonVisuFinal = new Button("Visualizar Site");
+	        Button ButtonCriaFinal = new Button("Criar Site");
+	        
+	        //add botoes no hlayout
+	        hLayoutBotoesFinal.addMember(ButtonVisuFinal);
+	        hLayoutBotoesFinal.addMember(ButtonCriaFinal);
+	        
+	        //add botoes no vlayout
+	        vLayoutFinal.addMember(hLayoutBotoesFinal);
+	        
+	        //add VLayout na aba CT
+	        tabFinal.setPane(vLayoutFinal);
+	        
+	        
 	        //adicionando as abas no TabSet
 	        tabSetPrincipal.setTabs(tabDP,tabTemplate,tabCustomTemplate,tabModulos,tabConfigModulos,tabFinal);  
 	        
@@ -399,7 +517,228 @@ public class CriadorTab {
 	        vLayout.addMember(tabSetPrincipal);  
 	        vLayout.addMember(submit);  
 	  
-	       
+	 
+	        //metodos que executam as acoes dos botoes
+	        
+	        // Método que executa a função do botão 'Guardar' tab DP
+			ButtonSaveDP.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+					
+					 SC.ask("Deseja salvar as alteracoes?", new BooleanCallback() {  
+		                    public void execute(Boolean value) {  
+		                        if (value != null && value) {  
+		                            SC.say("Sim");  
+		                            //TODO chamar metodo de salvar informacoes na PaginaCliente
+		                        } else {  
+		                        	SC.say("Nao");  
+		                        }  
+		                    }  
+		                });  
+					 
+				}
+			});
+
+	        // Método que executa a função do botão 'Guardar' tab Template
+			ButtonSaveTemplate.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+					
+					 SC.ask("Deseja salvar as alteracoes?", new BooleanCallback() {  
+		                    public void execute(Boolean value) {  
+		                        if (value != null && value) {  
+		                            SC.say("Sim");  
+		                            //TODO chamar metodo de salvar informacoes na PaginaCliente
+		                        } else {  
+		                        	SC.say("Nao");  
+		                        }  
+		                    }  
+		                });  
+					 
+				}
+			});
+
+	        // Método que executa a função do botão 'Guardar' tab Custom Template
+			ButtonSaveCT.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+					
+					 SC.ask("Deseja salvar as alteracoes?", new BooleanCallback() {  
+		                    public void execute(Boolean value) {  
+		                        if (value != null && value) {  
+		                            SC.say("Sim");  
+		                            //TODO chamar metodo de salvar informacoes na PaginaCliente
+		                        } else {  
+		                        	SC.say("Nao");  
+		                        }  
+		                    }  
+		                });  
+					 
+				}
+			});
+
+			// Método que executa a função do botão 'Guardar' tab Modulos
+			ButtonSaveMod.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+					
+					 SC.ask("Deseja salvar as alteracoes?", new BooleanCallback() {  
+		                    public void execute(Boolean value) {  
+		                        if (value != null && value) {  
+		                            SC.say("Sim");  
+		                            //TODO chamar metodo de salvar informacoes na PaginaCliente
+		                        } else {  
+		                        	SC.say("Nao");  
+		                        }  
+		                    }  
+		                });  
+					 
+				}
+			});
+			
+	        // Método que executa a função do botão 'Guardar' tab Custom. Modulos
+			ButtonSaveCMod.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+					
+					 SC.ask("Deseja salvar as alteracoes?", new BooleanCallback() {  
+		                    public void execute(Boolean value) {  
+		                        if (value != null && value) {  
+		                            SC.say("Sim");  
+		                            //TODO chamar metodo de salvar informacoes na PaginaCliente
+		                        } else {  
+		                        	SC.say("Nao");  
+		                        }  
+		                    }  
+		                });  
+					 
+				}
+			});
+
+	        // Método que executa a função do botão 'Visualizar Site' tab Final
+			ButtonVisuFinal.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+					
+					 SC.ask("Confirma a visualizacao do site?", new BooleanCallback() {  
+		                    public void execute(Boolean value) {  
+		                        if (value != null && value) {  
+		                            SC.say("Sim");  
+		                            //TODO chamar metodo de visualizar site
+		                        } else {  
+		                        	SC.say("Nao");  
+		                        }  
+		                    }  
+		                });  
+					 
+				}
+			});
+
+			 //comeco dos metodos de reset
+			
+			
+			// Método que executa a função do botão 'Resetar' tab DP
+			ButtonResetDP.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+					
+					 SC.ask("Deseja limpar os dados do formulario?", new BooleanCallback() {  
+		                    public void execute(Boolean value) {  
+		                        if (value != null && value) {  
+		                            SC.say("Sim");  
+		                            //TODO chamar metodo de resetar o form
+		                        } else {  
+		                        	SC.say("Nao");  
+		                        }  
+		                    }  
+		                });  
+					 
+				}
+			});
+
+			// Método que executa a função do botão 'Resetar' tab Template
+			ButtonResetTemplate.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+					
+					 SC.ask("Deseja limpar os dados do formulario?", new BooleanCallback() {  
+		                    public void execute(Boolean value) {  
+		                        if (value != null && value) {  
+		                            SC.say("Sim");  
+		                            //TODO chamar metodo de resetar o form
+		                        } else {  
+		                        	SC.say("Nao");  
+		                        }  
+		                    }  
+		                });  
+					 
+				}
+			});
+			
+			// Método que executa a função do botão 'Resetar' tab Custom. Template
+			ButtonResetCT.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+					
+					 SC.ask("Deseja limpar os dados do formulario?", new BooleanCallback() {  
+		                    public void execute(Boolean value) {  
+		                        if (value != null && value) {  
+		                            SC.say("Sim");  
+		                            //TODO chamar metodo de resetar o form
+		                        } else {  
+		                        	SC.say("Nao");  
+		                        }  
+		                    }  
+		                });  
+					 
+				}
+			});
+			
+			// Método que executa a função do botão 'Resetar' tab Modulos
+			ButtonResetMod.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+					
+					 SC.ask("Deseja limpar os dados do formulario?", new BooleanCallback() {  
+		                    public void execute(Boolean value) {  
+		                        if (value != null && value) {  
+		                            SC.say("Sim");  
+		                            //TODO chamar metodo de resetar o form
+		                        } else {  
+		                        	SC.say("Nao");  
+		                        }  
+		                    }  
+		                });  
+					 
+				}
+			});
+			
+			// Método que executa a função do botão 'Resetar' tab Custom Modulos
+			ButtonResetCMod.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+					
+					 SC.ask("Deseja limpar os dados do formulario?", new BooleanCallback() {  
+		                    public void execute(Boolean value) {  
+		                        if (value != null && value) {  
+		                            SC.say("Sim");  
+		                            //TODO chamar metodo de resetar o form
+		                        } else {  
+		                        	SC.say("Nao");  
+		                        }  
+		                    }  
+		                });  
+					 
+				}
+			});
+			
+			// Método que executa a função do botão 'Criar Site' tab Final
+			ButtonCriaFinal.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+					
+					 SC.ask("Confirma a criacao do site?", new BooleanCallback() {  
+		                    public void execute(Boolean value) {  
+		                        if (value != null && value) {  
+		                            SC.say("Sim");  
+		                            //TODO chamar metodo de criar site
+		                        } else {  
+		                        	SC.say("Nao");  
+		                        }  
+		                    }  
+		                });  
+					 
+				}
+			});
+			
 		return vLayout;
 	}
 }
