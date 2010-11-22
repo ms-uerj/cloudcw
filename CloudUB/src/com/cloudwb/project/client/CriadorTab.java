@@ -1,9 +1,12 @@
 package com.cloudwb.project.client;
 
+import java.util.LinkedHashMap;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.DecoratedTabPanel;
+import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
@@ -35,8 +38,10 @@ import com.smartgwt.client.widgets.form.DynamicForm;
 import com.smartgwt.client.widgets.form.ValuesManager;
 import com.smartgwt.client.widgets.form.fields.CheckboxItem;
 import com.smartgwt.client.widgets.form.fields.ComboBoxItem;
+import com.smartgwt.client.widgets.form.fields.DateItem;
 import com.smartgwt.client.widgets.form.fields.FormItemIcon;
 import com.smartgwt.client.widgets.form.fields.RadioGroupItem;
+import com.smartgwt.client.widgets.form.fields.SectionItem;
 import com.smartgwt.client.widgets.form.fields.SelectItem;
 import com.smartgwt.client.widgets.form.fields.TextAreaItem;
 import com.smartgwt.client.widgets.form.fields.TextItem;
@@ -140,7 +145,7 @@ public class CriadorTab {
 	        dynFormMod.setID("dynFormMod");  
 	        dynFormMod.setValuesManager(vm);
 	        dynFormMod.setIsGroup(true);
-	        dynFormMod.setWidth(570);
+	        //dynFormMod.setWidth(570);
 	        dynFormMod.setGroupTitle("Configuracao / Escolha dos Modulos");
 	        	        
 	        //itens form Modulos
@@ -449,6 +454,95 @@ public class CriadorTab {
 	        //vlayout principal
 	        VLayout vLayoutCMod = new VLayout();
 	        
+	        //formulario graduacao
+	        final DynamicForm dynFormCModG = new DynamicForm();    
+	        dynFormCModG.setID("dynFormCModG");  
+	        dynFormCModG.setValuesManager(vm);
+	        dynFormCModG.setIsGroup(true);
+	        dynFormCModG.setGroupTitle("Graduacao");
+	        
+	        //formulario pos-graduacao
+	        final DynamicForm dynFormCModPG = new DynamicForm();    
+	        dynFormCModPG.setID("dynFormCModPG");  
+	        dynFormCModPG.setValuesManager(vm);
+	        dynFormCModPG.setIsGroup(true);
+	        dynFormCModPG.setGroupTitle("Pos-Graduacao");
+	        
+	        //formulario mestrado
+	        final DynamicForm dynFormCModM = new DynamicForm();    
+	        dynFormCModM.setID("dynFormCModM");  
+	        dynFormCModM.setValuesManager(vm);
+	        dynFormCModM.setIsGroup(true);
+	        dynFormCModM.setGroupTitle("Mestrado");
+	        
+	        //formulario Doutorado
+	        final DynamicForm dynFormCModD = new DynamicForm();    
+	        dynFormCModD.setID("dynFormCModD");  
+	        dynFormCModD.setValuesManager(vm);
+	        dynFormCModD.setIsGroup(true);
+	        dynFormCModD.setGroupTitle("Doutorado");
+
+	        
+	        
+	        //itens do formulario de graduacao
+	        ComboBoxItem cbItemCursosG = new ComboBoxItem();
+	        cbItemCursosG.setTitle("Selecione um curso");  
+	        cbItemCursosG.setType("comboBox");
+	        cbItemCursosG.setValueMap("Administracao","Ciencias Atuariais","Comunicacao Social","Desenho Industrial","Direito","Educacao Fisica","Enfermagem","Engenharia Civil","Informatica","Letras","Medicina","Nutricao","Pedagogia","Quimica","Turismo"); 
+	        
+	        TextAreaItem txtAreaDescricaoCursoG = new TextAreaItem();    
+	        txtAreaDescricaoCursoG.setTitle("Descricao do Curso");
+	        txtAreaDescricaoCursoG.setHint("Escreva aqui a descricao do seu curso.");
+	        
+	        //add itens no formulario
+	        dynFormCModG.setFields(cbItemCursosG,txtAreaDescricaoCursoG);
+
+	        
+	        
+	        //itens do formulario de pos graduacao
+	        ComboBoxItem cbItemCursosPG = new ComboBoxItem();
+	        cbItemCursosPG.setTitle("Selecione um curso");  
+	        cbItemCursosPG.setType("comboBox");
+	        cbItemCursosPG.setValueMap("Administracaoo","Ciencias Atuariais","Comunicacao Social","Desenho Industrial","Direito","Educacao Fisica","Enfermagem","Engenharia Civil","Informatica","Letras","Medicina","Nutricao","Pedagogia","Quimica","Turismo"); 
+	        
+	        TextAreaItem txtAreaDescricaoCursoPG = new TextAreaItem();    
+	        txtAreaDescricaoCursoPG.setTitle("Descricao do Curso");
+	        txtAreaDescricaoCursoPG.setHint("Escreva aqui a descricao do seu curso.");
+	        
+	        //add itens no formulario
+	        dynFormCModPG.setFields(cbItemCursosPG,txtAreaDescricaoCursoPG);
+	        
+	        
+	        
+	        //itens do formulario de mestrado
+	        ComboBoxItem cbItemCursosM = new ComboBoxItem();
+	        cbItemCursosM.setTitle("Selecione um curso");  
+	        cbItemCursosM.setType("comboBox");
+	        cbItemCursosM.setValueMap("Administracaoo","Ciencias Atuariais","Comunicacao Social","Desenho Industrial","Direito","Educacao Fisica","Enfermagem","Engenharia Civil","Informatica","Letras","Medicina","Nutricao","Pedagogia","Quimica","Turismo"); 
+	        
+	        TextAreaItem txtAreaDescricaoCursoM = new TextAreaItem();    
+	        txtAreaDescricaoCursoM.setTitle("Descricao do Curso");
+	        txtAreaDescricaoCursoM.setHint("Escreva aqui a descricao do seu curso.");
+	        
+	        //add itens no formulario
+	        dynFormCModM.setFields(cbItemCursosM,txtAreaDescricaoCursoM);
+	        
+	        
+	        
+	        //itens do formulario de doutorado
+	        ComboBoxItem cbItemCursosD = new ComboBoxItem();
+	        cbItemCursosD.setTitle("Selecione um curso");  
+	        cbItemCursosD.setType("comboBox");
+	        cbItemCursosD.setValueMap("Administracaoo","Ciencias Atuariais","Comunicacao Social","Desenho Industrial","Direito","Educacao Fisica","Enfermagem","Engenharia Civil","Informatica","Letras","Medicina","Nutricao","Pedagogia","Quimica","Turismo"); 
+	        
+	        TextAreaItem txtAreaDescricaoCursoD = new TextAreaItem();    
+	        txtAreaDescricaoCursoD.setTitle("Descricao do Curso");
+	        txtAreaDescricaoCursoD.setHint("Escreva aqui a descricao do seu curso.");
+	        
+	        //add itens no formulario
+	        dynFormCModD.setFields(cbItemCursosD,txtAreaDescricaoCursoD);
+	        
+	        
 	        //hlayout dos botoes
 	        HLayout hLayoutBotoesCMod = new HLayout();
 	        
@@ -459,12 +553,17 @@ public class CriadorTab {
 	        hLayoutBotoesCMod.addMember(ButtonSaveCMod);
 	        hLayoutBotoesCMod.addMember(ButtonResetCMod);
 	        
-	        //add botoes no vlayout
+	        //add itens no vlayout
+	        vLayoutCMod.addMember(dynFormCModG);
+	        vLayoutCMod.addMember(dynFormCModPG);
+	        vLayoutCMod.addMember(dynFormCModM);
+	        vLayoutCMod.addMember(dynFormCModD);
 	        vLayoutCMod.addMember(hLayoutBotoesCMod);
 	        
 	        //add VLayout na aba CT
 	        tabConfigModulos.setPane(vLayoutCMod);
-
+	        
+	        
 	        
 	        //nova tab
 	        Tab tabFinal = new Tab("Finalizacao","iconfinal.png");  
@@ -1292,5 +1391,3 @@ public class CriadorTab {
 		 * 
 		 * }; manipuladorServer.greetServer(null, callback);
 */
-
-
