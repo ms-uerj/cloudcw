@@ -1,5 +1,6 @@
 package com.cloudwb.project.client;
 
+import com.google.gwt.user.client.Window;
 import com.smartgwt.client.types.Alignment;
 import com.smartgwt.client.types.ImageStyle;
 import com.smartgwt.client.types.Side;
@@ -14,6 +15,10 @@ import com.smartgwt.client.widgets.ImgButton;
 import com.smartgwt.client.widgets.Label;
 import com.smartgwt.client.widgets.events.ClickEvent;
 import com.smartgwt.client.widgets.events.ClickHandler;
+import com.smartgwt.client.widgets.form.fields.events.ChangeEvent;
+import com.smartgwt.client.widgets.form.fields.events.ChangeHandler;
+import com.smartgwt.client.widgets.form.fields.events.ChangedEvent;
+import com.smartgwt.client.widgets.form.fields.events.ChangedHandler;
 import com.smartgwt.client.widgets.form.fields.events.IconClickEvent;
 import com.smartgwt.client.widgets.form.DynamicForm;
 import com.smartgwt.client.widgets.form.ValuesManager;
@@ -26,6 +31,7 @@ import com.smartgwt.client.widgets.form.fields.RadioGroupItem;
 import com.smartgwt.client.widgets.form.fields.SectionItem;
 import com.smartgwt.client.widgets.form.fields.SelectItem;
 import com.smartgwt.client.widgets.form.fields.SelectOtherItem;
+import com.smartgwt.client.widgets.form.fields.StaticTextItem;
 import com.smartgwt.client.widgets.form.fields.TextAreaItem;
 import com.smartgwt.client.widgets.form.fields.TextItem;
 import com.smartgwt.client.widgets.form.fields.events.IconClickHandler;
@@ -73,12 +79,36 @@ public class CriadorTab {
 	        txtItemNomeInstituicao.setName("txtItemNomeInstituicao");  
 	        txtItemNomeInstituicao.setTitle("<nobr>Nome da Instituicao</nobr>");
 	        txtItemNomeInstituicao.setIcons(iconDuvida);
+	        txtItemNomeInstituicao.addIconClickHandler(new IconClickHandler() {
+
+				@Override
+				public void onIconClick(IconClickEvent event) {
+					
+					SC.say("Exemplo: <br/><br/>Universidade do Estado do Rio de Janeiro");
+					
+				}  
+                
+
+            });  
+
 	        
 	        TextItem txtItemTitulo = new TextItem();  
 	        txtItemTitulo.setName("txtItemTitulo");  
 	        txtItemTitulo.setTitle("Titulo do Website");
 	        txtItemTitulo.setIcons(iconDuvida);
+	        txtItemTitulo.addIconClickHandler(new IconClickHandler() {
 
+				@Override
+				public void onIconClick(IconClickEvent event) {
+					
+					SC.say("Exemplo: <br/><br/>Universidade do Estado do Rio de Janeiro");
+					
+				}  
+                
+
+            });  
+
+	        
 	        TextAreaItem txtAreaDescricao = new TextAreaItem();
 	        txtAreaDescricao.setName("txtAreaDescricao");  
 	        txtAreaDescricao.setTitle("Descricao do Website");
@@ -93,6 +123,18 @@ public class CriadorTab {
 	        txtItemFooter.setName("txtItemFooter");  
 	        txtItemFooter.setTitle("Nota do Footer");
 	        txtItemFooter.setIcons(iconDuvida);  
+	        txtItemFooter.addIconClickHandler(new IconClickHandler() {
+
+				@Override
+				public void onIconClick(IconClickEvent event) {
+					
+					SC.say("Exemplo: <br/><br/>Universidade do Estado do Rio de Janeiro - Copyright - Todos os direitos reservados 2010");
+					
+				}  
+                
+
+            });  
+
 	        
 	        TextItem txtItemFavicon = new TextItem();  
 	        txtItemFavicon.setName("txtItemFavicon");  
@@ -135,43 +177,38 @@ public class CriadorTab {
 	        dynFormMod.setGroupTitle("Configuracao / Escolha dos Modulos");
 	        	        
 	        //itens form Modulos
-	        FormItemIcon iconMessage = new FormItemIcon();  
-	        iconMessage.setSrc("message.png");  
-	        
 	        
 	        CheckboxItem ChBoxGraduacao = new CheckboxItem();  
-	        ChBoxGraduacao.setName("ChBoxGraduacao"); 
+	        ChBoxGraduacao.setName("ChBoxGraduacao");
+	        ChBoxGraduacao.setWidth(115);
 	        ChBoxGraduacao.setTitle("Graduacao");
-	        ChBoxGraduacao.setIcons(iconMessage);
-	        ChBoxGraduacao.setHint("<nobr>Esse modulo possiblita que seu site tenha uma pagina</nobr> dedicada a Graduacao");
+	        ChBoxGraduacao.setHint("Esse modulo possiblita que seu site tenha uma pagina dedicada a Graduacao");
 	        
 
 	        CheckboxItem ChBoxPos = new CheckboxItem();  
 	        ChBoxPos.setName("ChBoxPos");  
-	        ChBoxPos.setTitle("Pos-Graduacao");  
-	        ChBoxPos.setIcons(iconMessage);
-	        ChBoxPos.setHint("<nobr>Esse modulo possiblita que seu site tenha uma pagina</nobr> dedicada a Pos-Graduacao");
+	        ChBoxPos.setWidth(115);
+	        ChBoxPos.setTitle("Pos-Graduacao");
+	        ChBoxPos.setHint("Esse modulo possiblita que seu site tenha uma pagina dedicada a Pos-Graduacao");
 
 	        CheckboxItem ChBoxMestrado = new CheckboxItem();  
-	        ChBoxMestrado.setName("ChBoxMestrado");  
+	        ChBoxMestrado.setName("ChBoxMestrado"); 
+	        ChBoxMestrado.setWidth(115);
 	        ChBoxMestrado.setTitle("Mestrado"); 
-	        ChBoxMestrado.setIcons(iconMessage);
-	        ChBoxMestrado.setHint("<nobr>Esse modulo possiblita que seu site tenha uma pagina</nobr> dedicada ao Mestrado");
+	        ChBoxMestrado.setHint("Esse modulo possiblita que seu site tenha uma pagina dedicada ao Mestrado");
 	        
-	        CheckboxItem ChBoxDoutorado = new CheckboxItem();  
+	        CheckboxItem ChBoxDoutorado = new CheckboxItem(); 
+	        ChBoxDoutorado.setWidth(115);
 	        ChBoxDoutorado.setName("ChBoxDoutorado");  
 	        ChBoxDoutorado.setTitle("Doutorado");
-	        ChBoxDoutorado.setIcons(iconMessage);
-	        ChBoxDoutorado.setHint("<nobr>Esse modulo possiblita que seu site tenha uma pagina</nobr> dedicada ao Doutorado");
+	        ChBoxDoutorado.setHint("Esse modulo possiblita que seu site tenha uma pagina dedicada ao Doutorado");
 	        
 	        CheckboxItem ChBoxArquivos = new CheckboxItem();  
-	        ChBoxArquivos.setName("ChBoxAraquivos");  
+	        ChBoxArquivos.setName("ChBoxAraquivos");
+	        ChBoxArquivos.setWidth(115);
 	        ChBoxArquivos.setTitle("Arquivos");
-	        ChBoxArquivos.setIcons(iconMessage);
-	        ChBoxArquivos.setHint("<nobr>Nesse modulo ficarao disponiveis para download os arquivos</nobr> relacionados ao seu Instituto, como por exemplo, teses e artigos");
+	        ChBoxArquivos.setHint("Nesse modulo ficarao disponiveis para download os arquivos relacionados ao seu Instituto, como por exemplo, teses e artigos");
 
-// other controls-> dialog	        
-	        
 	        //adicionando os itens no formulario
 	        dynFormMod.setFields(ChBoxGraduacao,ChBoxPos,ChBoxMestrado,ChBoxDoutorado,ChBoxArquivos);
 	        
@@ -198,71 +235,108 @@ public class CriadorTab {
 
 	        //nova tab
 	        Tab tabTemplate = new Tab("Template","icontemplate.png");  
-	        
-	        //criacao de dois VLayouts para comportar a parte de cima e a de baixo da aba
-	        VLayout vLayoutTemplate1 = new VLayout();
-	        vLayoutTemplate1.setWidth(590);
-	        
-	        //criando componentes do VlayoutTemplate1
-	        final DynamicForm dynFormTemplate = new DynamicForm();  
-	        dynFormTemplate.setID("dynFormTemplate");  
-	        dynFormTemplate.setValuesManager(vm);
-	        dynFormTemplate.setIsGroup(true);
-	        dynFormTemplate.setWidth(590);
-	        dynFormTemplate.setGroupTitle("Selecione um dos templates na lista abaixo ou crie seu proprio template");
-	        
-	        RadioGroupItem radioTemplate = new RadioGroupItem();  
-	        radioTemplate.setTitle("");
-	        radioTemplate.setValueMap("Template Personalizado", "Template Padrao");
-	        
-	        ComboBoxItem cbItemTemplate = new ComboBoxItem();  
-	        cbItemTemplate.setTitle("Template");    
-	        cbItemTemplate.setType("comboBox");  
-	        cbItemTemplate.setValueMap("Classico", "Moderno", "Dark"); 
-	        
-	        //add os itens no formulario1
-	        dynFormTemplate.setFields(radioTemplate,cbItemTemplate);    
-	        
-	        //criando o formulario2
-	        final DynamicForm dynFormTemplate2 = new DynamicForm();  
-	        dynFormTemplate2.setID("dynFormTemplate2");  
-	        dynFormTemplate2.setValuesManager(vm);
-	        dynFormTemplate2.setIsGroup(true);
-	        dynFormTemplate2.setHeight(240);
-	        dynFormTemplate2.setWidth(340);
-	        dynFormTemplate2.setGroupTitle("Pre-Visualizacao");
-	        
-	        Canvas canvas1 = new Canvas();
-	        
-	        String caminho1 = "Crysis.jpg";  
-	        Img imgPre = new Img(caminho1, 320, 240);  
-	        imgPre.setImageType(ImageStyle.STRETCH);  
-	        imgPre.setBorder("1px solid gray");  
-	        imgPre.setLeft(10);
-	        imgPre.setTop(10);
-	        
-	        canvas1.addChild(imgPre);
-	        
-	        //add img ao formulario2
-	        dynFormTemplate2.addChild(canvas1);
 
-	        //criando o formulario3
-	        final DynamicForm dynFormTemplate3 = new DynamicForm();  
-	        dynFormTemplate3.setID("dynFormTemplate3");  
-	        dynFormTemplate3.setValuesManager(vm);
-	        dynFormTemplate3.setIsGroup(true);
-	        dynFormTemplate3.setWidth(590);
-	        dynFormTemplate3.setGroupTitle("Cores");
+	        //layout principal da aba template 
+	        VLayout vLayoutTemplate = new VLayout();
+
+	        //label principal da aba template
+	        Label labelTemplate = new Label();  
+	        labelTemplate.setHeight(40);  
+	        labelTemplate.setPadding(10);  
+	        labelTemplate.setAlign(Alignment.CENTER);  
+	        labelTemplate.setValign(VerticalAlignment.CENTER);  
+	        labelTemplate.setWrap(false);  
+	        labelTemplate.setShowEdges(true);  
+	        labelTemplate.setContents("<b>Escolha um dos layouts abaixo</b>");  
 	        
-	        //criando itens do form3
-	        RadioGroupItem radioTemplateCores = new RadioGroupItem();  
-	        radioTemplateCores.setTitle("Escolha uma cor");
-	        radioTemplateCores.setValueMap("Preto","Branco","Cinza");
+	        //label preVisualizacao da aba template
+	        Label labelTemplatePre = new Label();  
+	        labelTemplatePre.setHeight(40);  
+	        labelTemplatePre.setPadding(10);  
+	        labelTemplatePre.setAlign(Alignment.CENTER);  
+	        labelTemplatePre.setValign(VerticalAlignment.CENTER);  
+	        labelTemplatePre.setWrap(false);  
+	        labelTemplatePre.setShowEdges(true);  
+	        labelTemplatePre.setContents("<b>Pre-Visualizacao</b>");
+	          
+	        //hlayout para acomodar os botoes para escolha dos layouts
+	        HLayout hLayoutOpcLayouts = new HLayout();
+	        hLayoutOpcLayouts.setAlign(Alignment.CENTER);
 	        
-	        //add itens ao form3
-	        dynFormTemplate3.setFields(radioTemplateCores);
+	        //vlayout responsavel pela pre-visualizacao do layout escolhido
+	        final HLayout hLayoutPreVisu = new HLayout();
+	        hLayoutPreVisu.setAlign(Alignment.CENTER);
+
+	        //imagens dos layouts
+	        String caminhoClassico = "layout01.jpg";  
+	        final Img imgClassico = new Img(caminhoClassico, 480, 300);  
+	        imgClassico.setImageType(ImageStyle.STRETCH);  
+	        imgClassico.setBorder("1px solid gray");  
+	        imgClassico.setLeft(10);
+	        imgClassico.setTop(30);
+	        imgClassico.setAlign(Alignment.CENTER);
+	        
+	        String caminhoModerno = "layout02.jpg";  
+	        final Img imgModerno = new Img(caminhoModerno, 480, 300);  
+	        imgModerno.setImageType(ImageStyle.STRETCH);  
+	        imgModerno.setBorder("1px solid gray");  
+	        imgModerno.setLeft(10);
+	        imgModerno.setTop(30);
+	        imgModerno.setAlign(Alignment.CENTER);
+	        
+	        String caminhoDark = "layout03.jpg";  
+	        final Img imgDark = new Img(caminhoDark, 480, 300);  
+	        imgDark.setImageType(ImageStyle.STRETCH);  
+	        imgDark.setBorder("1px solid gray");  
+	        imgDark.setLeft(10);
+	        imgDark.setTop(30);
+	        imgDark.setAlign(Alignment.CENTER);
+	        
+	        Button btnClassico = new Button("Classico");
+	        btnClassico.addClickHandler(new ClickHandler() {  
+	            public void onClick(ClickEvent event) {  
+	            	
+	            	hLayoutPreVisu.removeMember(imgClassico);
+	            	hLayoutPreVisu.removeMember(imgModerno);
+	            	hLayoutPreVisu.removeMember(imgDark);
+	            	hLayoutPreVisu.addMember(imgClassico);
+	            	
+	            	//TODO mudar na pagina cliente o atributo do layuot escolhido
+	            }  
+	        });
+	        
+	        Button btnModerno = new Button("Moderno");
+	        btnModerno.addClickHandler(new ClickHandler() {  
+	            public void onClick(ClickEvent event) {  
+	            	
+	            	hLayoutPreVisu.removeMember(imgClassico);
+	            	hLayoutPreVisu.removeMember(imgModerno);
+	            	hLayoutPreVisu.removeMember(imgDark);
+	            	hLayoutPreVisu.addMember(imgModerno);
+	            	
+	            	//TODO mudar na pagina cliente o atributo do layuot escolhido
+	            }  
+	        });
+	        
+	        Button btnDark = new Button("Dark");
+	        btnDark.addClickHandler(new ClickHandler() {  
+	            public void onClick(ClickEvent event) {  
+	            	
+	            	hLayoutPreVisu.removeMember(imgClassico);
+	            	hLayoutPreVisu.removeMember(imgModerno);
+	            	hLayoutPreVisu.removeMember(imgDark);
+	            	hLayoutPreVisu.addMember(imgDark);
+	            	
+	            	//TODO mudar na pagina cliente o atributo do layuot escolhido
+	            }  
+	        });
+	        
+	        //add botoes no hlayout
+	        hLayoutOpcLayouts.addMember(btnClassico);
+	        hLayoutOpcLayouts.addMember(btnModerno);
+	        hLayoutOpcLayouts.addMember(btnDark);
 	       
-	        //hlayout dos botoes
+	        //	hlayout dos botoes
 	        HLayout hLayoutBotoesTemplate = new HLayout();
 	        hLayoutBotoesTemplate.setAlign(Alignment.CENTER);
 	        
@@ -272,15 +346,19 @@ public class CriadorTab {
 	        //add botoes no hlayout
 	        hLayoutBotoesTemplate.addMember(ButtonSaveTemplate);
 	        hLayoutBotoesTemplate.addMember(ButtonResetTemplate);
-
-	        //add formulario, formulario2 e formulario3 e hLayout no VLayout
-	        vLayoutTemplate1.addMember(dynFormTemplate);
-	        vLayoutTemplate1.addMember(dynFormTemplate2);
-	        vLayoutTemplate1.addMember(dynFormTemplate3);
-	        vLayoutTemplate1.addMember(hLayoutBotoesTemplate);
+	        
+        	//colocando o layout classico como img inicial do preVisualizacao
+	        hLayoutPreVisu.addMember(imgClassico);
+	        
+	        //add itens no vlayoutTemplate
+	        vLayoutTemplate.addMember(labelTemplate);
+	        vLayoutTemplate.addMember(hLayoutOpcLayouts);
+	        vLayoutTemplate.addMember(labelTemplatePre);
+	        vLayoutTemplate.addMember(hLayoutPreVisu);
+	        vLayoutTemplate.addMember(hLayoutBotoesTemplate);
 	        
 	        //add o VLayoutTemplate na aba template
-	        tabTemplate.setPane(vLayoutTemplate1);
+	        tabTemplate.setPane(vLayoutTemplate);
 
 
 	        
@@ -308,8 +386,8 @@ public class CriadorTab {
 
 	        //criando as imagens que serao modificadas com o form3
 	        final Canvas canvasCT = new Canvas();
-	        String caminho2 = "Crysis.jpg";  
-	        Img imgCT = new Img(caminho2, 280, 210);  
+	        String caminho2 = "layout01.jpg";  
+	        Img imgCT = new Img(caminho2, 480, 300);  
 	        imgCT.setImageType(ImageStyle.STRETCH);  
 	        imgCT.setBorder("1px solid gray");  
 	        imgCT.setLeft(10);
@@ -317,8 +395,8 @@ public class CriadorTab {
 	        canvasCT.addChild(imgCT);
 	        
 	        final Canvas canvas2 = new Canvas();
-        	String caminho3 = "roxo.jpg";
-        	final Img imgCT1 = new Img(caminho3, 280, 210);  
+        	String caminho3 = "layout02.jpg";
+        	final Img imgCT1 = new Img(caminho3, 480, 300);  
 	        imgCT1.setImageType(ImageStyle.STRETCH);  
 	        imgCT1.setBorder("1px solid gray");  
 	        imgCT1.setLeft(10);
@@ -326,8 +404,8 @@ public class CriadorTab {
 	        canvas2.addChild(imgCT1);
 
 	        final Canvas canvas3 = new Canvas();
-        	String caminho4 = "Crysis.jpg";
-        	final Img imgCT2 = new Img(caminho4, 280, 210);  
+        	String caminho4 = "layout03.jpg";
+        	final Img imgCT2 = new Img(caminho4, 480, 300);  
 	        imgCT2.setImageType(ImageStyle.STRETCH);  
 	        imgCT2.setBorder("1px solid gray");  
 	        imgCT2.setLeft(10);
@@ -335,8 +413,8 @@ public class CriadorTab {
 	        canvas3.addChild(imgCT2);
 
 	        final Canvas canvas4 = new Canvas();
-        	String caminho5 = "roxo.jpg";
-        	final Img imgCT3 = new Img(caminho5, 280, 210);  
+        	String caminho5 = "layout03.jpg";
+        	final Img imgCT3 = new Img(caminho5, 480, 300);  
 	        imgCT3.setImageType(ImageStyle.STRETCH);  
 	        imgCT3.setBorder("1px solid gray");  
 	        imgCT3.setLeft(10);
@@ -593,7 +671,7 @@ public class CriadorTab {
 	        
 //____________________________________________________	        
 
-	        Button ButtonAddG = new Button("Adicionar Curso");
+	        Button ButtonAddG = new Button("Add Curso");
 	        ButtonAddG.setIcon("add.png");
 	        ButtonAddG.addClickHandler(new ClickHandler() {
 				public void onClick(ClickEvent event) {
@@ -672,7 +750,7 @@ public class CriadorTab {
 			});
 
 
-	        Button ButtonAddPG = new Button("Adicionar Curso");
+	        Button ButtonAddPG = new Button("Add Curso");
 	        ButtonAddPG.setIcon("add.png");
 	        ButtonAddPG.addClickHandler(new ClickHandler() {
 				public void onClick(ClickEvent event) {
@@ -712,7 +790,7 @@ public class CriadorTab {
 				}
 			});
 	        
-	        Button ButtonAddM = new Button("Adicionar Curso");
+	        Button ButtonAddM = new Button("Add Curso");
 	        ButtonAddM.setIcon("add.png");
 	        ButtonAddM.addClickHandler(new ClickHandler() {
 				public void onClick(ClickEvent event) {
@@ -752,8 +830,7 @@ public class CriadorTab {
 				}
 			});
 	        
-	        Button ButtonAddD = new Button("Adicionar Curso");
-	        ButtonAddD.setWidth(100);
+	        Button ButtonAddD = new Button("Add Curso");
 	        ButtonAddD.setIcon("add.png");
 	        ButtonAddD.addClickHandler(new ClickHandler() {
 				public void onClick(ClickEvent event) {
@@ -824,19 +901,34 @@ public class CriadorTab {
 	        //vlayout principal
 	        VLayout vLayoutFinal = new VLayout();
 	        
+	        //label da tabFinal
+	        Label labelFinal = new Label();  
+	        labelFinal.setHeight(40);  
+	        labelFinal.setPadding(10);  
+	        labelFinal.setAlign(Alignment.CENTER);  
+	        labelFinal.setValign(VerticalAlignment.CENTER);  
+	        labelFinal.setWrap(false);  
+	        labelFinal.setShowEdges(true);  
+	        labelFinal.setContents("<b>Finalizacao do Website</b>");  
+	        
 	        //hlayout dos botoes
 	        HLayout hLayoutBotoesFinal = new HLayout();
 	        hLayoutBotoesFinal.setAlign(Alignment.CENTER);  
 	        
 	        Button ButtonVisuFinal = new Button("Visualizar Site");
+	        ButtonVisuFinal.setIcon("visualizar.png");
+	        
 	        Button ButtonCriaFinal = new Button("Criar Site");
+	        ButtonCriaFinal.setIcon("exportar.png");
 	        
 	        //add botoes no hlayout
 	        hLayoutBotoesFinal.addMember(ButtonVisuFinal);
 	        hLayoutBotoesFinal.addMember(ButtonCriaFinal);
 	        
 	        //add botoes no vlayout
+	        vLayoutFinal.addMember(labelFinal);
 	        vLayoutFinal.addMember(hLayoutBotoesFinal);
+	        
 	        
 	        //add VLayout na aba CT
 	        tabFinal.setPane(vLayoutFinal);
