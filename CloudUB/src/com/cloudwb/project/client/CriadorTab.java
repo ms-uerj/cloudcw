@@ -1,30 +1,9 @@
 package com.cloudwb.project.client;
 
-import java.util.LinkedHashMap;
-
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.CheckBox;
-import com.google.gwt.user.client.ui.DecoratedTabPanel;
-import com.google.gwt.user.client.ui.FlexTable;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.RadioButton;
-import com.google.gwt.user.client.ui.TextArea;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.Tree;
-import com.google.gwt.user.client.ui.TreeItem;
-import com.google.gwt.user.client.ui.VerticalPanel;
-
-
-
-
-import com.google.gwt.user.client.ui.FileUpload;
 import com.smartgwt.client.types.Alignment;
 import com.smartgwt.client.types.ImageStyle;
-import com.smartgwt.client.types.MultipleAppearance;
 import com.smartgwt.client.types.Side;
+import com.smartgwt.client.types.VerticalAlignment;
 import com.smartgwt.client.util.BooleanCallback;
 import com.smartgwt.client.util.SC;
 import com.smartgwt.client.widgets.Button;
@@ -32,19 +11,25 @@ import com.smartgwt.client.widgets.Canvas;
 import com.smartgwt.client.widgets.IButton;
 import com.smartgwt.client.widgets.Img;
 import com.smartgwt.client.widgets.ImgButton;
+import com.smartgwt.client.widgets.Label;
 import com.smartgwt.client.widgets.events.ClickEvent;
 import com.smartgwt.client.widgets.events.ClickHandler;
+import com.smartgwt.client.widgets.form.fields.events.IconClickEvent;
 import com.smartgwt.client.widgets.form.DynamicForm;
 import com.smartgwt.client.widgets.form.ValuesManager;
 import com.smartgwt.client.widgets.form.fields.CheckboxItem;
 import com.smartgwt.client.widgets.form.fields.ComboBoxItem;
 import com.smartgwt.client.widgets.form.fields.DateItem;
+import com.smartgwt.client.widgets.form.fields.FormItem;
 import com.smartgwt.client.widgets.form.fields.FormItemIcon;
 import com.smartgwt.client.widgets.form.fields.RadioGroupItem;
 import com.smartgwt.client.widgets.form.fields.SectionItem;
 import com.smartgwt.client.widgets.form.fields.SelectItem;
+import com.smartgwt.client.widgets.form.fields.SelectOtherItem;
 import com.smartgwt.client.widgets.form.fields.TextAreaItem;
 import com.smartgwt.client.widgets.form.fields.TextItem;
+import com.smartgwt.client.widgets.form.fields.events.IconClickHandler;
+import com.smartgwt.client.widgets.grid.ListGrid;
 import com.smartgwt.client.widgets.layout.HLayout;
 import com.smartgwt.client.widgets.layout.VLayout;
 import com.smartgwt.client.widgets.tab.Tab;
@@ -75,7 +60,7 @@ public class CriadorTab {
 	        dynFormDP.setID("dynFormDP");  
 	        dynFormDP.setValuesManager(vm);
 	        dynFormDP.setIsGroup(true);
-	        //dynFormDP.setAlign();							
+	        dynFormDP.setAlign(Alignment.CENTER);							
 	        //TODO olhar esse metodo align   //nao eh prioridade
 	        dynFormDP.setGroupTitle("Caracteristicas Gerais do Website");
 	        
@@ -94,7 +79,7 @@ public class CriadorTab {
 	        txtItemTitulo.setTitle("Titulo do Website");
 	        txtItemTitulo.setIcons(iconDuvida);
 
-	        TextAreaItem txtAreaDescricao = new TextAreaItem();  
+	        TextAreaItem txtAreaDescricao = new TextAreaItem();
 	        txtAreaDescricao.setName("txtAreaDescricao");  
 	        txtAreaDescricao.setTitle("Descricao do Website");
 	        txtAreaDescricao.setHint("Escreva aqui uma visao geral do que seu Website oferece, para que os motores de busca como Google, Bing e Yahoo possam localizar melhor o seu site.");
@@ -115,6 +100,7 @@ public class CriadorTab {
 	        
 	        //hlayout dos botoes
 	        HLayout hLayoutBotoesDP = new HLayout();
+	        hLayoutBotoesDP.setAlign(Alignment.CENTER);
 	        
 	        Button ButtonSaveDP = new Button("Salvar Alteracoes");
 	        Button ButtonResetDP = new Button("Reset");
@@ -191,6 +177,7 @@ public class CriadorTab {
 	        
 	        //hlayout dos botoes
 	        HLayout hLayoutBotoesMod = new HLayout();
+	        hLayoutBotoesMod.setAlign(Alignment.CENTER);
 	        
 	        Button ButtonSaveMod = new Button("Salvar Alteracoes");
 	        Button ButtonResetMod = new Button("Reset");
@@ -207,9 +194,8 @@ public class CriadorTab {
 	        tabModulos.setPane(vLayoutMod);
           
 //TODO fazer um metodo que chame cada tab  //nao eh prioridade
-//TODO colocar um icone para cada aba      //nao eh prioridade
 	        
-	        
+
 	        //nova tab
 	        Tab tabTemplate = new Tab("Template","icontemplate.png");  
 	        
@@ -278,6 +264,7 @@ public class CriadorTab {
 	       
 	        //hlayout dos botoes
 	        HLayout hLayoutBotoesTemplate = new HLayout();
+	        hLayoutBotoesTemplate.setAlign(Alignment.CENTER);
 	        
 	        Button ButtonSaveTemplate = new Button("Salvar Alteracoes");
 	        Button ButtonResetTemplate = new Button("Reset");
@@ -421,6 +408,8 @@ public class CriadorTab {
 	        
 	        //criando HLayout para comportar os botoes
 	        HLayout HLayoutCTBotoes = new HLayout();
+	        HLayoutCTBotoes.setAlign(Alignment.CENTER);
+	        
 	        HLayoutCTBotoes.addMember(bHeader);
 	        HLayoutCTBotoes.addMember(bCenter);
 	        HLayoutCTBotoes.addMember(bCenterLeft);
@@ -431,6 +420,7 @@ public class CriadorTab {
 
 	        //hlayout dos botoes
 	        HLayout hLayoutBotoesCT2 = new HLayout();
+	        hLayoutBotoesCT2.setAlign(Alignment.CENTER);
 	        
 	        Button ButtonSaveCT = new Button("Salvar Alteracoes");
 	        Button ButtonResetCT = new Button("Reset");
@@ -452,34 +442,30 @@ public class CriadorTab {
 	        Tab tabConfigModulos = new Tab("Configuracao dos Modulos","iconcmod.png");  
 
 	        //vlayout principal
-	        VLayout vLayoutCMod = new VLayout();
+	        final VLayout vLayoutCMod = new VLayout();
 	        
 	        //formulario graduacao
 	        final DynamicForm dynFormCModG = new DynamicForm();    
 	        dynFormCModG.setID("dynFormCModG");  
 	        dynFormCModG.setValuesManager(vm);
-	        dynFormCModG.setIsGroup(true);
 	        dynFormCModG.setGroupTitle("Graduacao");
 	        
 	        //formulario pos-graduacao
 	        final DynamicForm dynFormCModPG = new DynamicForm();    
 	        dynFormCModPG.setID("dynFormCModPG");  
 	        dynFormCModPG.setValuesManager(vm);
-	        dynFormCModPG.setIsGroup(true);
 	        dynFormCModPG.setGroupTitle("Pos-Graduacao");
 	        
 	        //formulario mestrado
 	        final DynamicForm dynFormCModM = new DynamicForm();    
 	        dynFormCModM.setID("dynFormCModM");  
 	        dynFormCModM.setValuesManager(vm);
-	        dynFormCModM.setIsGroup(true);
 	        dynFormCModM.setGroupTitle("Mestrado");
 	        
 	        //formulario Doutorado
 	        final DynamicForm dynFormCModD = new DynamicForm();    
 	        dynFormCModD.setID("dynFormCModD");  
 	        dynFormCModD.setValuesManager(vm);
-	        dynFormCModD.setIsGroup(true);
 	        dynFormCModD.setGroupTitle("Doutorado");
 
 	        
@@ -541,10 +527,62 @@ public class CriadorTab {
 	        
 	        //add itens no formulario
 	        dynFormCModD.setFields(cbItemCursosD,txtAreaDescricaoCursoD);
+//opa	        
+	        //criando vlayouts de G,PG,Mestrado e Doutorado
+	        final VLayout vLayoutCModG = new VLayout();
+	        vLayoutCModG.addMember(dynFormCModG);
 	        
+	        final VLayout vLayoutCModPG = new VLayout();
+	        vLayoutCModPG.addMember(dynFormCModPG);
 	        
+	        final VLayout vLayoutCModM = new VLayout();
+	        vLayoutCModM.addMember(dynFormCModM);
+	        
+	        final VLayout vLayoutCModD = new VLayout();
+	        vLayoutCModD.addMember(dynFormCModD);
+	        
+	        //criando os labels para os niveis de escolaridade
+	        Label labelG = new Label();  
+	        labelG.setHeight(40);  
+	        labelG.setPadding(10);  
+	        labelG.setAlign(Alignment.CENTER);  
+	        labelG.setValign(VerticalAlignment.CENTER);  
+	        labelG.setWrap(false);  
+	        labelG.setShowEdges(true);  
+	        labelG.setContents("<b>Graduacao</b>");  
+	        
+	        Label labelPG = new Label();  
+	        labelPG.setHeight(40);  
+	        labelPG.setPadding(10);  
+	        labelPG.setAlign(Alignment.CENTER);  
+	        labelPG.setValign(VerticalAlignment.CENTER);  
+	        labelPG.setWrap(false);  
+	        labelPG.setShowEdges(true);  
+	        labelPG.setContents("<b>Pos-Graduacao</b>");  
+  
+	        Label labelM = new Label();  
+	        labelM.setHeight(40);  
+	        labelM.setPadding(10);  
+	        labelM.setAlign(Alignment.CENTER);  
+	        labelM.setValign(VerticalAlignment.CENTER);  
+	        labelM.setWrap(false);  
+	        labelM.setShowEdges(true);  
+	        labelM.setContents("<b>Mestrado</b>");  
+	        
+	        Label labelD = new Label();  
+	        labelD.setHeight(40);  
+	        labelD.setPadding(10);  
+	        labelD.setAlign(Alignment.CENTER);  
+	        labelD.setValign(VerticalAlignment.CENTER);  
+	        labelD.setWrap(false);  
+	        labelD.setShowEdges(true);  
+	        labelD.setContents("<b>Doutorado</b>");  
+          
+	        
+//opa
 	        //hlayout dos botoes
 	        HLayout hLayoutBotoesCMod = new HLayout();
+	        hLayoutBotoesCMod.setAlign(Alignment.CENTER);
 	        
 	        Button ButtonSaveCMod = new Button("Salvar Alteracoes");
 	        Button ButtonResetCMod = new Button("Reset");
@@ -553,14 +591,229 @@ public class CriadorTab {
 	        hLayoutBotoesCMod.addMember(ButtonSaveCMod);
 	        hLayoutBotoesCMod.addMember(ButtonResetCMod);
 	        
+//____________________________________________________	        
+
+	        Button ButtonAddG = new Button("Adicionar Curso");
+	        ButtonAddG.setIcon("add.png");
+	        ButtonAddG.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+				
+									final DynamicForm dfCursoNovo = new DynamicForm();
+									
+							        FormItemIcon iconRemoverCurso = new FormItemIcon();  
+							        iconRemoverCurso.setSrc("remove.png");  
+
+							        SelectOtherItem selectOtherItem = new SelectOtherItem();  
+							        selectOtherItem.setOtherTitle("Outros...");  
+							        selectOtherItem.setOtherValue("OtherVal");  
+							        selectOtherItem.setTitle("Selecione um curso");  
+							        selectOtherItem.setValueMap("Administracao","Ciencias Atuariais","Comunicacao Social","Desenho Industrial","Direito","Educacao Fisica","Enfermagem","Engenharia Civil","Informatica","Letras","Medicina","Nutricao","Pedagogia","Quimica","Turismo");    
+							        
+		                            TextAreaItem txtCursoNovo = new TextAreaItem();    
+		                            txtCursoNovo.setTitle("Descricao do Curso");
+		                            txtCursoNovo.setHint("Escreva aqui a descricao do seu curso.");
+		                            txtCursoNovo.setIcons(iconRemoverCurso);
+		                            txtCursoNovo.addIconClickHandler(new IconClickHandler() {
+
+										@Override
+										public void onIconClick(IconClickEvent event) {
+											
+											vLayoutCModG.removeMember(dfCursoNovo);
+											
+										}  
+		                                
+
+		                            });  
+
+
+		                            
+		                            dfCursoNovo.setFields(selectOtherItem,txtCursoNovo);
+		                            
+		                            vLayoutCModG.addMember(dfCursoNovo);
+		                            
+		                            /*Canvas[] forms = vLayoutCMod.getMembers();
+		                            for (int i = 0; i < forms.length; i++) {
+										
+		                            		Canvas canvas = forms[i];
+		                            	
+										Window.alert("CANVAS atual: /n/n" + canvas.toString() + "FOR numero: /n/n" + i);
+										
+		                            	if(canvas instanceof DynamicForm){
+		                            		
+		                            		 Window.alert("E uma instancia de DynForm:");
+		                            		 FormItem[] fields = ((DynamicForm) canvas).getFields();
+		                            		 
+		                            		 for (int j = 0; j < fields.length; j++) {
+		                            			
+		                            			FormItem formItem = fields[j];
+		                            			Window.alert("Foi 4 agora vai ver se eh check ou text");
+		                            			if(formItem instanceof TextAreaItem){
+		                            				Window.alert("Foi 5 eh text");
+		                            				Window.alert("Eh uma TextAreaItem: " + formItem.getValue());
+		                            			}else{
+		                            				Window.alert("in else");
+		                            				if(formItem instanceof ComboBoxItem){
+		                            					Window.alert("Eh uma ComboBoxItem: " + formItem.getValue());
+		                            					Window.alert("in if checkbox");
+		                            				}
+		                            			 } Window.alert("out else");	
+		                            		}Window.alert("out for2");
+		                            	}Window.alert("out if se eh dynform");
+		                            	
+									}
+		                            
+		                            /* 
+		                             * pegarei os cursos usando com um for:  Canvas[] a = vlayoutG.getMembers() e FormItem[] b = a.getfields()  
+		                            */
+					
+		                            
+		                            
+				}
+			});
+
+
+	        Button ButtonAddPG = new Button("Adicionar Curso");
+	        ButtonAddPG.setIcon("add.png");
+	        ButtonAddPG.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+				
+									final DynamicForm dfCursoNovo = new DynamicForm();
+									
+							        FormItemIcon iconRemoverCurso = new FormItemIcon();  
+							        iconRemoverCurso.setSrc("remove.png");  
+
+							        SelectOtherItem selectOtherItem = new SelectOtherItem();  
+							        selectOtherItem.setOtherTitle("Outros...");  
+							        selectOtherItem.setOtherValue("OtherVal");  
+							        selectOtherItem.setTitle("Selecione um curso");  
+							        selectOtherItem.setValueMap("Administracao","Ciencias Atuariais","Comunicacao Social","Desenho Industrial","Direito","Educacao Fisica","Enfermagem","Engenharia Civil","Informatica","Letras","Medicina","Nutricao","Pedagogia","Quimica","Turismo");    
+							        
+		                            TextAreaItem txtCursoNovo = new TextAreaItem();    
+		                            txtCursoNovo.setTitle("Descricao do Curso");
+		                            txtCursoNovo.setHint("Escreva aqui a descricao do seu curso.");
+		                            txtCursoNovo.setIcons(iconRemoverCurso);
+		                            txtCursoNovo.addIconClickHandler(new IconClickHandler() {
+
+										@Override
+										public void onIconClick(IconClickEvent event) {
+											
+											vLayoutCModPG.removeMember(dfCursoNovo);
+											
+										}  
+		                                
+
+		                            });  
+
+
+		                            
+		                            dfCursoNovo.setFields(selectOtherItem,txtCursoNovo);
+		                            
+		                            vLayoutCModPG.addMember(dfCursoNovo);
+				}
+			});
+	        
+	        Button ButtonAddM = new Button("Adicionar Curso");
+	        ButtonAddM.setIcon("add.png");
+	        ButtonAddM.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+				
+									final DynamicForm dfCursoNovo = new DynamicForm();
+									
+							        FormItemIcon iconRemoverCurso = new FormItemIcon();  
+							        iconRemoverCurso.setSrc("remove.png");  
+
+							        SelectOtherItem selectOtherItem = new SelectOtherItem();  
+							        selectOtherItem.setOtherTitle("Outros...");  
+							        selectOtherItem.setOtherValue("OtherVal");  
+							        selectOtherItem.setTitle("Selecione um curso");  
+							        selectOtherItem.setValueMap("Administracao","Ciencias Atuariais","Comunicacao Social","Desenho Industrial","Direito","Educacao Fisica","Enfermagem","Engenharia Civil","Informatica","Letras","Medicina","Nutricao","Pedagogia","Quimica","Turismo");    
+							        
+		                            TextAreaItem txtCursoNovo = new TextAreaItem();    
+		                            txtCursoNovo.setTitle("Descricao do Curso");
+		                            txtCursoNovo.setHint("Escreva aqui a descricao do seu curso.");
+		                            txtCursoNovo.setIcons(iconRemoverCurso);
+		                            txtCursoNovo.addIconClickHandler(new IconClickHandler() {
+
+										@Override
+										public void onIconClick(IconClickEvent event) {
+											
+											vLayoutCModM.removeMember(dfCursoNovo);
+											
+										}  
+		                                
+
+		                            });  
+
+
+		                            
+		                            dfCursoNovo.setFields(selectOtherItem,txtCursoNovo);
+		                            
+		                            vLayoutCModM.addMember(dfCursoNovo);
+				}
+			});
+	        
+	        Button ButtonAddD = new Button("Adicionar Curso");
+	        ButtonAddD.setWidth(100);
+	        ButtonAddD.setIcon("add.png");
+	        ButtonAddD.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event) {
+				
+									final DynamicForm dfCursoNovo = new DynamicForm();
+									
+							        FormItemIcon iconRemoverCurso = new FormItemIcon();  
+							        iconRemoverCurso.setSrc("remove.png");  
+
+							        SelectOtherItem selectOtherItem = new SelectOtherItem();  
+							        selectOtherItem.setOtherTitle("Outros...");  
+							        selectOtherItem.setOtherValue("OtherVal");  
+							        selectOtherItem.setTitle("Selecione um curso");  
+							        selectOtherItem.setValueMap("Administracao","Ciencias Atuariais","Comunicacao Social","Desenho Industrial","Direito","Educacao Fisica","Enfermagem","Engenharia Civil","Informatica","Letras","Medicina","Nutricao","Pedagogia","Quimica","Turismo");    
+							        
+		                            TextAreaItem txtCursoNovo = new TextAreaItem();    
+		                            txtCursoNovo.setTitle("Descricao do Curso");
+		                            txtCursoNovo.setHint("Escreva aqui a descricao do seu curso.");
+		                            txtCursoNovo.setIcons(iconRemoverCurso);
+		                            txtCursoNovo.addIconClickHandler(new IconClickHandler() {
+
+										@Override
+										public void onIconClick(IconClickEvent event) {
+											
+											vLayoutCModD.removeMember(dfCursoNovo);
+											
+										}  
+		                                
+
+		                            });  
+
+
+		                            
+		                            dfCursoNovo.setFields(selectOtherItem,txtCursoNovo);
+		                            
+		                            vLayoutCModD.addMember(dfCursoNovo);
+				}
+			});
+//____________________________________________________	        
+	        
 	        //add itens no vlayout
-	        vLayoutCMod.addMember(dynFormCModG);
-	        vLayoutCMod.addMember(dynFormCModPG);
-	        vLayoutCMod.addMember(dynFormCModM);
-	        vLayoutCMod.addMember(dynFormCModD);
+	        vLayoutCMod.addMember(labelG);
+	        vLayoutCMod.addMember(ButtonAddG);
+	        vLayoutCMod.addMember(vLayoutCModG);
+	        
+	        vLayoutCMod.addMember(labelPG);
+	        vLayoutCMod.addMember(ButtonAddPG);
+	        vLayoutCMod.addMember(vLayoutCModPG);
+	        
+	        vLayoutCMod.addMember(labelM);
+	        vLayoutCMod.addMember(ButtonAddM);
+	        vLayoutCMod.addMember(vLayoutCModM);
+	        
+	        vLayoutCMod.addMember(labelD);
+	        vLayoutCMod.addMember(ButtonAddD);
+	        vLayoutCMod.addMember(vLayoutCModD);
+	        
 	        vLayoutCMod.addMember(hLayoutBotoesCMod);
 	        
-	        //add VLayout na aba CT
+			//add VLayout na aba CT
 	        tabConfigModulos.setPane(vLayoutCMod);
 	        
 	        
@@ -573,6 +826,7 @@ public class CriadorTab {
 	        
 	        //hlayout dos botoes
 	        HLayout hLayoutBotoesFinal = new HLayout();
+	        hLayoutBotoesFinal.setAlign(Alignment.CENTER);  
 	        
 	        Button ButtonVisuFinal = new Button("Visualizar Site");
 	        Button ButtonCriaFinal = new Button("Criar Site");
@@ -591,24 +845,11 @@ public class CriadorTab {
 	        //adicionando as abas no TabSet
 	        tabSetPrincipal.setTabs(tabDP,tabTemplate,tabCustomTemplate,tabModulos,tabConfigModulos,tabFinal);  
 	        
-	        
-	        IButton submit = new IButton();  
-	        submit.setTitle("Submit");  
-	        submit.addClickHandler(new ClickHandler() {  
-	            public void onClick(ClickEvent event) {  
-	                vm.validate();  
-	                if (dynFormDP.hasErrors()) {  
-	                    tabSetPrincipal.selectTab(1);  
-	                } else {  
-	                    tabSetPrincipal.selectTab(0);  
-	                }  
-	            }  
-	        });  
-	          
+	        //criando vlayout principal que encapsulará a tabprincipal
 	        VLayout vLayout = new VLayout();  
 	        vLayout.setMembersMargin(10);  
 	        vLayout.addMember(tabSetPrincipal);  
-	        vLayout.addMember(submit);  
+	          
 	  
 	 
 	        //metodos que executam as acoes dos botoes
@@ -835,10 +1076,6 @@ public class CriadorTab {
 		return vLayout;
 	}
 }
-
-
-
-
 
 
 /*	
