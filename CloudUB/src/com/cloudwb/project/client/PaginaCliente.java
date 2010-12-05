@@ -1,15 +1,19 @@
 package com.cloudwb.project.client;
 
 public class PaginaCliente {
-	private String nomeSite;
+	private String nomeInstituicao;
 	private String tituloSite;
 	private String bannerSite;
 	private String descricaoSite;
+	private String notaFooterSite;
+	private String keywordsSite;
+	private String iconeSite;
 	private int graduacao;
 	private int posGraduacao;
 	private int mestrado;
 	private int doutorado;
-	private int layoutSite = 0;
+	private int arquivos;
+	private int layoutSite = 1;
 	private String tituloGraduacao;
 	private String tituloPosGraduacao;
 	private String tituloMestrado;
@@ -20,20 +24,22 @@ public class PaginaCliente {
 	private String descricaoDoutorado;
 	
 	PaginaCliente() {
-		nomeSite = new String("Nao");
+		nomeInstituicao = new String("Nao");
 		tituloSite = new String("Nao");
 		bannerSite = new String("Nao");
 		descricaoSite = new String("Nao");
+		keywordsSite = new String("Nao");
+		notaFooterSite = new String("Nao");
 	}
 
-	public String getNomeSite() {
-		return nomeSite;
+	public String getNomeInstituicao() {
+		return nomeInstituicao;
 	}
 
-	public void setNomeSite(String nome) {
-		nomeSite = nome;
+	public void setNomeInstituicao(String nome) {
+		nomeInstituicao = nome;
 	}
-
+	
 	public String getTituloSite() {
 		return tituloSite;
 	}
@@ -49,6 +55,14 @@ public class PaginaCliente {
 	public void setDescricaoSite(String descricao) {
 		descricaoSite = descricao;
 	}
+	
+	public String getKeywordsSite() {
+		return keywordsSite;
+	}
+
+	public void setKeywordsSite(String keywords) {
+		keywordsSite = keywords;
+	}
 
 	public String getBannerSite() {
 		return bannerSite;
@@ -57,7 +71,23 @@ public class PaginaCliente {
 	public void setBannerSite(String banner) {
 		bannerSite = banner;
 	}
+	
+	public String getNotaFooterSite() {
+		return notaFooterSite;
+	}
 
+	public void setNotaFooterSite(String nota) {
+		notaFooterSite = nota;
+	}
+
+	public String getIconeSite() {
+		return iconeSite;
+	}
+
+	public void setIconeSite(String nomeIcone) {
+		iconeSite = nomeIcone;
+	}
+	
 	public int getGraduacao() {
 		return graduacao;
 	}
@@ -88,6 +118,14 @@ public class PaginaCliente {
 
 	public void setDoutorado(int i) {
 		doutorado = i;
+	}
+	
+	public int getArquivos() {
+		return arquivos;
+	}
+
+	public void setArquivos(int i) {
+		arquivos = i;
 	}
 
 	public int getLayoutSite() {

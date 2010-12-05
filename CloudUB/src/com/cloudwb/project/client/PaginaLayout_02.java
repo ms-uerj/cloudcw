@@ -24,7 +24,7 @@ public class PaginaLayout_02 {
 		"<body>"+
 			"<div id='header'>"+
 				"<div id='logo'>"+
-					"<h1><a href='index.html'>" + CriadorTab.pagCliente.getNomeSite() + "</a></h1>"+
+					"<h1><a href='index.html'>" + CriadorTab.pagCliente.getNomeInstituicao() + "</a></h1>"+
 				"</div>"+
 			"</div>"+
 			"<!-- end #header -->"+
@@ -90,7 +90,7 @@ public class PaginaLayout_02 {
 		"<body>"+
 			"<div id='header'>"+
 				"<div id='logo'>"+
-					"<h1><a href='index.html'>" + CriadorTab.pagCliente.getNomeSite() + "</a></h1>"+
+					"<h1><a href='index.html'>" + CriadorTab.pagCliente.getNomeInstituicao() + "</a></h1>"+
 				"</div>"+
 			"</div>"+
 			"<!-- end #header -->"+
@@ -156,7 +156,7 @@ public class PaginaLayout_02 {
 		"<body>"+
 			"<div id='header'>"+
 				"<div id='logo'>"+
-					"<h1><a href='index.html'>" + CriadorTab.pagCliente.getNomeSite() + "</a></h1>"+
+					"<h1><a href='index.html'>" + CriadorTab.pagCliente.getNomeInstituicao() + "</a></h1>"+
 				"</div>"+
 			"</div>"+
 			"<!-- end #header -->"+
@@ -222,7 +222,7 @@ public class PaginaLayout_02 {
 		"<body>"+
 			"<div id='header'>"+
 				"<div id='logo'>"+
-					"<h1><a href='index.html'>" + CriadorTab.pagCliente.getNomeSite() + "</a></h1>"+
+					"<h1><a href='index.html'>" + CriadorTab.pagCliente.getNomeInstituicao() + "</a></h1>"+
 				"</div>"+
 			"</div>"+
 			"<!-- end #header -->"+
@@ -288,7 +288,7 @@ public class PaginaLayout_02 {
 		"<body>"+
 			"<div id='header'>"+
 				"<div id='logo'>"+
-					"<h1><a href='index.html'>" + CriadorTab.pagCliente.getNomeSite() + "</a></h1>"+
+					"<h1><a href='index.html'>" + CriadorTab.pagCliente.getNomeInstituicao() + "</a></h1>"+
 				"</div>"+
 			"</div>"+
 			"<!-- end #header -->"+
