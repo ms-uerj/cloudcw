@@ -1,6 +1,6 @@
 package com.cloudwb.project.client;
 
-import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.HTML;
 import com.smartgwt.client.types.Alignment;
 import com.smartgwt.client.types.ImageStyle;
 import com.smartgwt.client.types.Side;
@@ -9,33 +9,20 @@ import com.smartgwt.client.util.BooleanCallback;
 import com.smartgwt.client.util.SC;
 import com.smartgwt.client.widgets.Button;
 import com.smartgwt.client.widgets.Canvas;
-import com.smartgwt.client.widgets.IButton;
 import com.smartgwt.client.widgets.Img;
-import com.smartgwt.client.widgets.ImgButton;
 import com.smartgwt.client.widgets.Label;
 import com.smartgwt.client.widgets.events.ClickEvent;
 import com.smartgwt.client.widgets.events.ClickHandler;
-import com.smartgwt.client.widgets.form.fields.events.ChangeEvent;
-import com.smartgwt.client.widgets.form.fields.events.ChangeHandler;
-import com.smartgwt.client.widgets.form.fields.events.ChangedEvent;
-import com.smartgwt.client.widgets.form.fields.events.ChangedHandler;
-import com.smartgwt.client.widgets.form.fields.events.IconClickEvent;
 import com.smartgwt.client.widgets.form.DynamicForm;
 import com.smartgwt.client.widgets.form.ValuesManager;
 import com.smartgwt.client.widgets.form.fields.CheckboxItem;
 import com.smartgwt.client.widgets.form.fields.ComboBoxItem;
-import com.smartgwt.client.widgets.form.fields.DateItem;
-import com.smartgwt.client.widgets.form.fields.FormItem;
 import com.smartgwt.client.widgets.form.fields.FormItemIcon;
-import com.smartgwt.client.widgets.form.fields.RadioGroupItem;
-import com.smartgwt.client.widgets.form.fields.SectionItem;
-import com.smartgwt.client.widgets.form.fields.SelectItem;
 import com.smartgwt.client.widgets.form.fields.SelectOtherItem;
-import com.smartgwt.client.widgets.form.fields.StaticTextItem;
 import com.smartgwt.client.widgets.form.fields.TextAreaItem;
 import com.smartgwt.client.widgets.form.fields.TextItem;
+import com.smartgwt.client.widgets.form.fields.events.IconClickEvent;
 import com.smartgwt.client.widgets.form.fields.events.IconClickHandler;
-import com.smartgwt.client.widgets.grid.ListGrid;
 import com.smartgwt.client.widgets.layout.HLayout;
 import com.smartgwt.client.widgets.layout.VLayout;
 import com.smartgwt.client.widgets.tab.Tab;
@@ -46,6 +33,8 @@ public class CriadorTab {
 
 	public static PaginaCliente pagCliente = new PaginaCliente();
 	
+	
+
 	public VLayout criaTabForm(){
 			
 			final ValuesManager vm = new ValuesManager();  
@@ -67,7 +56,6 @@ public class CriadorTab {
 	        dynFormDP.setValuesManager(vm);
 	        dynFormDP.setIsGroup(true);
 	        dynFormDP.setAlign(Alignment.CENTER);							
-	        //TODO olhar esse metodo align   //nao eh prioridade
 	        dynFormDP.setGroupTitle("Caracteristicas Gerais do Website");
 	        
 	        //itens form
@@ -75,7 +63,7 @@ public class CriadorTab {
 	        FormItemIcon iconDuvida = new FormItemIcon();  
 	        iconDuvida.setSrc("help.png");  
 	          
-	        TextItem txtItemNomeInstituicao = new TextItem();  
+	        final TextItem txtItemNomeInstituicao = new TextItem();  
 	        txtItemNomeInstituicao.setName("txtItemNomeInstituicao");  
 	        txtItemNomeInstituicao.setTitle("<nobr>Nome da Instituicao</nobr>");
 	        txtItemNomeInstituicao.setIcons(iconDuvida);
@@ -92,7 +80,7 @@ public class CriadorTab {
             });  
 
 	        
-	        TextItem txtItemTitulo = new TextItem();  
+	        final TextItem txtItemTitulo = new TextItem();  
 	        txtItemTitulo.setName("txtItemTitulo");  
 	        txtItemTitulo.setTitle("Titulo do Website");
 	        txtItemTitulo.setIcons(iconDuvida);
@@ -108,18 +96,18 @@ public class CriadorTab {
 
             });  
 
-	        
-	        TextAreaItem txtAreaDescricao = new TextAreaItem();
+
+	        final TextAreaItem txtAreaDescricao = new TextAreaItem();
 	        txtAreaDescricao.setName("txtAreaDescricao");  
 	        txtAreaDescricao.setTitle("Descricao do Website");
 	        txtAreaDescricao.setHint("Escreva aqui uma visao geral do que seu Website oferece, para que os motores de busca como Google, Bing e Yahoo possam localizar melhor o seu site.");
 	          
-	        TextItem txtItemKeyWords = new TextItem();  
+	        final TextItem txtItemKeyWords = new TextItem();  
 	        txtItemKeyWords.setName("txtItemKeyWords");  
 	        txtItemKeyWords.setTitle("Palavras-Chave");
 	        txtItemKeyWords.setHint("Palavras relacionadas ao seu Instituto, utilizadas pelos motores de busca como Google, Bing e Yahoo para localizar seu site.");
 	        
-	        TextItem txtItemFooter = new TextItem();  
+	        final TextItem txtItemFooter = new TextItem();  
 	        txtItemFooter.setName("txtItemFooter");  
 	        txtItemFooter.setTitle("Nota do Footer");
 	        txtItemFooter.setIcons(iconDuvida);  
@@ -136,9 +124,14 @@ public class CriadorTab {
             });  
 
 	        
-	        TextItem txtItemFavicon = new TextItem();  
+	        final TextItem txtItemFavicon = new TextItem();  
 	        txtItemFavicon.setName("txtItemFavicon");  
 	        txtItemFavicon.setTitle("Icone do Website");
+
+	        final TextItem txtItemBanner = new TextItem();  
+	        txtItemBanner.setName("txtItemBanner");  
+	        txtItemBanner.setTitle("Banner do Website");
+	        
 	        
 	        //hlayout dos botoes
 	        HLayout hLayoutBotoesDP = new HLayout();
@@ -152,7 +145,7 @@ public class CriadorTab {
 	        hLayoutBotoesDP.addMember(ButtonResetDP);
 	        
 	        //colocando os itens no formulario
-	        dynFormDP.setItems(txtItemNomeInstituicao,txtItemTitulo,txtAreaDescricao,txtItemKeyWords,txtItemFooter,txtItemFavicon);
+	        dynFormDP.setItems(txtItemNomeInstituicao,txtItemTitulo,txtAreaDescricao,txtItemKeyWords,txtItemFooter,txtItemFavicon,txtItemBanner);
 
 	        //add formulario e botoes no Vlayout 
 			vLayoutDP.addMember(dynFormDP);
@@ -178,32 +171,32 @@ public class CriadorTab {
 	        	        
 	        //itens form Modulos
 	        
-	        CheckboxItem ChBoxGraduacao = new CheckboxItem();  
+	        final CheckboxItem ChBoxGraduacao = new CheckboxItem();  
 	        ChBoxGraduacao.setName("ChBoxGraduacao");
 	        ChBoxGraduacao.setWidth(115);
 	        ChBoxGraduacao.setTitle("Graduacao");
 	        ChBoxGraduacao.setHint("Esse modulo possiblita que seu site tenha uma pagina dedicada a Graduacao");
 	        
 
-	        CheckboxItem ChBoxPos = new CheckboxItem();  
+	        final CheckboxItem ChBoxPos = new CheckboxItem();  
 	        ChBoxPos.setName("ChBoxPos");  
 	        ChBoxPos.setWidth(115);
 	        ChBoxPos.setTitle("Pos-Graduacao");
 	        ChBoxPos.setHint("Esse modulo possiblita que seu site tenha uma pagina dedicada a Pos-Graduacao");
 
-	        CheckboxItem ChBoxMestrado = new CheckboxItem();  
+	        final CheckboxItem ChBoxMestrado = new CheckboxItem();  
 	        ChBoxMestrado.setName("ChBoxMestrado"); 
 	        ChBoxMestrado.setWidth(115);
 	        ChBoxMestrado.setTitle("Mestrado"); 
 	        ChBoxMestrado.setHint("Esse modulo possiblita que seu site tenha uma pagina dedicada ao Mestrado");
 	        
-	        CheckboxItem ChBoxDoutorado = new CheckboxItem(); 
+	        final CheckboxItem ChBoxDoutorado = new CheckboxItem(); 
 	        ChBoxDoutorado.setWidth(115);
 	        ChBoxDoutorado.setName("ChBoxDoutorado");  
 	        ChBoxDoutorado.setTitle("Doutorado");
 	        ChBoxDoutorado.setHint("Esse modulo possiblita que seu site tenha uma pagina dedicada ao Doutorado");
 	        
-	        CheckboxItem ChBoxArquivos = new CheckboxItem();  
+	        final CheckboxItem ChBoxArquivos = new CheckboxItem();  
 	        ChBoxArquivos.setName("ChBoxAraquivos");
 	        ChBoxArquivos.setWidth(115);
 	        ChBoxArquivos.setTitle("Arquivos");
@@ -258,15 +251,18 @@ public class CriadorTab {
 	        labelTemplatePre.setWrap(false);  
 	        labelTemplatePre.setShowEdges(true);  
 	        labelTemplatePre.setContents("<b>Pre-Visualizacao</b>");
-	          
+	        
+	        
 	        //hlayout para acomodar os botoes para escolha dos layouts
 	        HLayout hLayoutOpcLayouts = new HLayout();
 	        hLayoutOpcLayouts.setAlign(Alignment.CENTER);
+	        
 	        
 	        //vlayout responsavel pela pre-visualizacao do layout escolhido
 	        final HLayout hLayoutPreVisu = new HLayout();
 	        hLayoutPreVisu.setAlign(Alignment.CENTER);
 
+	        
 	        //imagens dos layouts
 	        String caminhoClassico = "layout01.jpg";  
 	        final Img imgClassico = new Img(caminhoClassico, 480, 300);  
@@ -301,7 +297,8 @@ public class CriadorTab {
 	            	hLayoutPreVisu.removeMember(imgDark);
 	            	hLayoutPreVisu.addMember(imgClassico);
 	            	
-	            	//TODO mudar na pagina cliente o atributo do layuot escolhido
+	            	pagCliente.setLayoutSite(1);
+
 	            }  
 	        });
 	        
@@ -314,7 +311,7 @@ public class CriadorTab {
 	            	hLayoutPreVisu.removeMember(imgDark);
 	            	hLayoutPreVisu.addMember(imgModerno);
 	            	
-	            	//TODO mudar na pagina cliente o atributo do layuot escolhido
+	            	pagCliente.setLayoutSite(2);
 	            }  
 	        });
 	        
@@ -327,7 +324,8 @@ public class CriadorTab {
 	            	hLayoutPreVisu.removeMember(imgDark);
 	            	hLayoutPreVisu.addMember(imgDark);
 	            	
-	            	//TODO mudar na pagina cliente o atributo do layuot escolhido
+	            	pagCliente.setLayoutSite(3);
+	            	
 	            }  
 	        });
 	        
@@ -953,10 +951,17 @@ public class CriadorTab {
 					 SC.ask("Deseja salvar as alteracoes?", new BooleanCallback() {  
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
-		                            SC.say("Sim");  
-		                            //TODO chamar metodo de salvar informacoes na PaginaCliente
-		                        } else {  
-		                        	SC.say("Nao");  
+
+		                        	pagCliente.setNomeInstituicao(txtItemNomeInstituicao.getValue().toString());
+		                    		pagCliente.setTituloSite(txtItemTitulo.getValue().toString());
+		                    		pagCliente.setDescricaoSite(txtAreaDescricao.getValue().toString());
+		                    		pagCliente.setKeywordsSite(txtItemKeyWords.getValue().toString());
+		                    		pagCliente.setNotaFooterSite(txtItemFooter.getValue().toString());
+		                    		pagCliente.setIconeSite(txtItemFavicon.getValue().toString());
+		                    		pagCliente.setBannerSite(txtItemBanner.getValue().toString());
+		                        	
+		                    		SC.say("Alteracoes salvas com sucesso.");
+		                    		 
 		                        }  
 		                    }  
 		                });  
@@ -971,10 +976,9 @@ public class CriadorTab {
 					 SC.ask("Deseja salvar as alteracoes?", new BooleanCallback() {  
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
-		                            SC.say("Sim");  
-		                            //TODO chamar metodo de salvar informacoes na PaginaCliente
-		                        } else {  
-		                        	SC.say("Nao");  
+		                           		                        	   
+		                            SC.say("Layout salvo com sucesso.");
+		                            
 		                        }  
 		                    }  
 		                });  
@@ -989,10 +993,7 @@ public class CriadorTab {
 					 SC.ask("Deseja salvar as alteracoes?", new BooleanCallback() {  
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
-		                            SC.say("Sim");  
-		                            //TODO chamar metodo de salvar informacoes na PaginaCliente
-		                        } else {  
-		                        	SC.say("Nao");  
+		                         //TODO		                        	
 		                        }  
 		                    }  
 		                });  
@@ -1007,10 +1008,24 @@ public class CriadorTab {
 					 SC.ask("Deseja salvar as alteracoes?", new BooleanCallback() {  
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
-		                            SC.say("Sim");  
-		                            //TODO chamar metodo de salvar informacoes na PaginaCliente
-		                        } else {  
-		                        	SC.say("Nao");  
+		                         
+		                        	if(ChBoxGraduacao.getValueAsBoolean())
+		                        		pagCliente.setGraduacao(1);
+		                        	
+		                        	if(ChBoxPos.getValueAsBoolean())
+		                        		pagCliente.setPosGraduacao(1);
+		                        	
+		                        	if(ChBoxMestrado.getValueAsBoolean())
+		                        		pagCliente.setMestrado(1);
+		                        	
+		                        	if(ChBoxDoutorado.getValueAsBoolean())
+		                        		pagCliente.setDoutorado(1);
+		                        	
+		                        	if(ChBoxArquivos.getValueAsBoolean())
+		                        		pagCliente.setArquivos(1);
+		                        	
+		                        	SC.say("Alteracoes salvas com sucesso.");
+		                        	
 		                        }  
 		                    }  
 		                });  
@@ -1025,10 +1040,8 @@ public class CriadorTab {
 					 SC.ask("Deseja salvar as alteracoes?", new BooleanCallback() {  
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
-		                            SC.say("Sim");  
+		                           
 		                            //TODO chamar metodo de salvar informacoes na PaginaCliente
-		                        } else {  
-		                        	SC.say("Nao");  
 		                        }  
 		                    }  
 		                });  
@@ -1043,10 +1056,8 @@ public class CriadorTab {
 					 SC.ask("Confirma a visualizacao do site?", new BooleanCallback() {  
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
-		                            SC.say("Sim");  
+		                           
 		                            //TODO chamar metodo de visualizar site
-		                        } else {  
-		                        	SC.say("Nao");  
 		                        }  
 		                    }  
 		                });  
@@ -1064,10 +1075,15 @@ public class CriadorTab {
 					 SC.ask("Deseja limpar os dados do formulario?", new BooleanCallback() {  
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
-		                            SC.say("Sim");  
-		                            //TODO chamar metodo de resetar o form
-		                        } else {  
-		                        	SC.say("Nao");  
+		                              
+		                            txtItemNomeInstituicao.setValue("");
+		                            txtItemTitulo.setValue("");
+		                            txtAreaDescricao.setValue("");
+		                            txtItemKeyWords.setValue("");
+		                            txtItemFooter.setValue("");
+		                            txtItemFavicon.setValue("");
+		                            txtItemBanner.setValue("");
+		                            
 		                        }  
 		                    }  
 		                });  
@@ -1082,11 +1098,13 @@ public class CriadorTab {
 					 SC.ask("Deseja limpar os dados do formulario?", new BooleanCallback() {  
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
-		                            SC.say("Sim");  
-		                            //TODO chamar metodo de resetar o form
-		                        } else {  
-		                        	SC.say("Nao");  
-		                        }  
+
+		                            hLayoutPreVisu.removeMember(imgClassico);
+		        	            	hLayoutPreVisu.removeMember(imgModerno);
+		        	            	hLayoutPreVisu.removeMember(imgDark);
+		        	            	hLayoutPreVisu.addMember(imgClassico);
+		        	            	
+		                        }
 		                    }  
 		                });  
 					 
@@ -1100,10 +1118,8 @@ public class CriadorTab {
 					 SC.ask("Deseja limpar os dados do formulario?", new BooleanCallback() {  
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
-		                            SC.say("Sim");  
+		                            
 		                            //TODO chamar metodo de resetar o form
-		                        } else {  
-		                        	SC.say("Nao");  
 		                        }  
 		                    }  
 		                });  
@@ -1118,10 +1134,13 @@ public class CriadorTab {
 					 SC.ask("Deseja limpar os dados do formulario?", new BooleanCallback() {  
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
-		                            SC.say("Sim");  
-		                            //TODO chamar metodo de resetar o form
-		                        } else {  
-		                        	SC.say("Nao");  
+		                         
+		                        	ChBoxGraduacao.setValue(false);
+		                        	ChBoxPos.setValue(false);
+		                        	ChBoxMestrado.setValue(false);
+		                        	ChBoxDoutorado.setValue(false);
+		                        	ChBoxArquivos.setValue(false);
+		                        	
 		                        }  
 		                    }  
 		                });  
@@ -1136,10 +1155,9 @@ public class CriadorTab {
 					 SC.ask("Deseja limpar os dados do formulario?", new BooleanCallback() {  
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
-		                            SC.say("Sim");  
-		                            //TODO chamar metodo de resetar o form
-		                        } else {  
-		                        	SC.say("Nao");  
+		                            
+		                        	//TODO chamar metodo de resetar o form
+		                        	
 		                        }  
 		                    }  
 		                });  
@@ -1154,17 +1172,19 @@ public class CriadorTab {
 					 SC.ask("Confirma a criacao do site?", new BooleanCallback() {  
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
-		                            SC.say("Sim");  
-		                            //TODO chamar metodo de criar site
-		                        } else {  
-		                        	SC.say("Nao");  
+		                        	
+		                        	Diretorio.criaPaginas();
+		                        	//Diretorio dir = new Diretorio(pagCliente);
+		                        	//dir.cria_Diretorio();
+		                        	
+		                        	
+		                    		//TODO chamar metodo de criar site
 		                        }  
 		                    }  
 		                });  
 					 
 				}
 			});
-			
 		return vLayout;
 	}
 }
@@ -1197,7 +1217,9 @@ public class CriadorTab {
 	private TreeItem treeItemDoutorado = new TreeItem("Doutorado");
 
 	private TextBox txtBoxTituloGraduacao = new TextBox();
-	private TextBox txtBoxTituloPosGraduacao = new TextBox();
+	private TextBox txtBoxTituloPosGradu
+	
+	acao = new TextBox();
 	private TextBox txtBoxTituloMestrado = new TextBox();
 	private TextBox txtBoxTituloDoutorado = new TextBox();
 

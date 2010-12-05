@@ -36,7 +36,7 @@ public class PaginaLayout_01 {
 	                  "&nbsp; <img src='images/logo.gif' width='50' height='50' align='absmiddle'> "+
 	                   CriadorTab.pagCliente.getTituloSite() + "</font></b></font></td>"+
 	                "<td width='50%'> "+
-	                  "<div align='right'></font>" + CriadorTab.pagCliente.getNomeSite()+ 
+	                  "<div align='right'></font>" + CriadorTab.pagCliente.getNomeInstituicao()+ 
 	                    "</div>"+
 	                "</td>"+
 	              "</tr>"+
@@ -171,7 +171,7 @@ public class PaginaLayout_01 {
 		                  "&nbsp; <img src='images/logo.gif' width='50' height='50' align='absmiddle'> "+
 		                  CriadorTab.pagCliente.getTituloGraduacao() + "</font></b></font></td>"+
 		                "<td width='50%'> "+
-		                  "<div align='right'></font>" + CriadorTab.pagCliente.getNomeSite()+ 
+		                  "<div align='right'></font>" + CriadorTab.pagCliente.getNomeInstituicao()+ 
 		                    "</div>"+
 		                "</td>"+
 		              "</tr>"+
@@ -305,7 +305,7 @@ public class PaginaLayout_01 {
 		                  "&nbsp; <img src='images/logo.gif' width='50' height='50' align='absmiddle'> "+
 		                  CriadorTab.pagCliente.getTituloPosGraduacao() + "</font></b></font></td>"+
 		                "<td width='50%'> "+
-		                  "<div align='right'></font>" + CriadorTab.pagCliente.getNomeSite()+ 
+		                  "<div align='right'></font>" + CriadorTab.pagCliente.getNomeInstituicao()+ 
 		                    "</div>"+
 		                "</td>"+
 		              "</tr>"+
@@ -439,7 +439,7 @@ public class PaginaLayout_01 {
 	                  "&nbsp; <img src='images/logo.gif' width='50' height='50' align='absmiddle'> "+
 	                  CriadorTab.pagCliente.getTituloMestrado() + "</font></b></font></td>"+
 	                "<td width='50%'> "+
-	                  "<div align='right'></font>" + CriadorTab.pagCliente.getNomeSite()+ 
+	                  "<div align='right'></font>" + CriadorTab.pagCliente.getNomeInstituicao()+ 
 	                    "</div>"+
 	                "</td>"+
 	              "</tr>"+
@@ -573,7 +573,7 @@ public static void escreveHTML_Doutorado(){
 		                  "&nbsp; <img src='images/logo.gif' width='50' height='50' align='absmiddle'> "+
 		                  CriadorTab.pagCliente.getTituloDoutorado() + "</font></b></font></td>"+
 		                "<td width='50%'> "+
-		                  "<div align='right'></font>" + CriadorTab.pagCliente.getNomeSite()+ 
+		                  "<div align='right'></font>" + CriadorTab.pagCliente.getNomeInstituicao()+ 
 		                    "</div>"+
 		                "</td>"+
 		              "</tr>"+
