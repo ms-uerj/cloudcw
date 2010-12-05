@@ -11,55 +11,11 @@ import com.smartgwt.client.widgets.layout.VLayout;
 
 public class CloudWB implements EntryPoint {
 
-
-/*
-	private VerticalPanel mainPanel = new VerticalPanel();
-	private FlexTable stocksFlexTable = new FlexTable();
-	private HorizontalPanel addPanel = new HorizontalPanel();
-	private Label lastUpdatedLabel = new Label();
-
-	// Create a tab panel
-	private DecoratedTabPanel tabPanel = new DecoratedTabPanel();
-
-	@SuppressWarnings("deprecation")
-*/
 	public void onModuleLoad() {
-
 
 		CriadorTab criadorTab = new CriadorTab();
 		VLayout tabPrincipal = criadorTab.criaTabForm();
 		RootPanel.get("form").add(tabPrincipal);
-
-/*
-		// Assemble Main panel.
-		mainPanel.add(stocksFlexTable);
-		mainPanel.add(addPanel);
-		mainPanel.add(lastUpdatedLabel);
-
-		// Instância de CriadorTab
-		CriadorTab montadorTab = new CriadorTab(tabPanel, addPanel);
 		
-		// Associate the Main panel with the HTML host page.
-		RootPanel.get("form").add(mainPanel);
-
-		// Set the width to 600 pixels
-		tabPanel.setWidth("800px");
-
-		// Add TabPrincipal
-		tabPanel.add(montadorTab.criaTabPrincipal(), "Dados Principais");
-
-		// Add TabModulo
-		tabPanel.add(montadorTab.criaTabModulo(), "Modulos");
-
-		// Add TabLayout
-		tabPanel.add(montadorTab.criaTabLayout(), "Layout");
-
-		// Add TabFinal
-		tabPanel.add(montadorTab.criaTabFinal(), "Final");
-
-		// Atribui visibilidade para as tabs e adiciona ao painel da página
-		tabPanel.selectTab(0);
-		addPanel.add(tabPanel);
-*/
 	}
 }
