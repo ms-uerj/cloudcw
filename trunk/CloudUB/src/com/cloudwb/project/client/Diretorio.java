@@ -17,30 +17,30 @@ public class Diretorio {
 		
 	public void cria_Diretorio(){
 	
-		//int a = pag_cliente.getGraduacao();
+		int a = pag_cliente.getGraduacao();
 		int b = pag_cliente.getPosGraduacao();
 		int c = pag_cliente.getMestrado();
 		int d = pag_cliente.getDoutorado();
 		
 		// cria a pagina principal do site
-		//File file0 = new File("pag_cliente");
-		//file0.mkdirs();
+		File file0 = new File("pag_cliente");
+		file0.mkdirs();
 		
-		File file0 = new File("home.html");
+		File file01 = new File("home.html");
 				
 		try {
-			file0.createNewFile();
+			file01.createNewFile();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 		//cria as páginas dos módulos, se assim escolhido pelo usuário
-		//if(a == 1){
-			//File file1 = new File("pag_cliente/graduacao");	
-			//file1.mkdirs();
+		if(a == 1){
+			File file1 = new File("pag_cliente/graduacao");	
+			file1.mkdirs();
 			
 			try {    
-		        BufferedWriter bw = new BufferedWriter( new FileWriter( "Home.html" ));
+		        BufferedWriter bw = new BufferedWriter( new FileWriter( "pag_cliente/graduacao/Home.html" ));
 		        
 		        String linha = "<html><head><title></title></head><body><h1>Hello World</h1><div class='mainnav'><ul><li><a href='#'>Home</a></li><li><a href='#'>News</a></li><li><a href='#'>Photos</a></li><li><a href='#'>Videos</a></li><li><a href='#'>Downloads</a></li><li><a href='#'>Contact</a></li></ul></div><!--mainnav--></body></html>";	        		
 
@@ -52,7 +52,7 @@ public class Diretorio {
 		    }catch (IOException exc){
 		          exc.printStackTrace();  
 		    }
-		//}
+		}
 
 		if(b == 1){
 			File file2 = new File("pag_cliente/pos-graduacao");	
@@ -67,8 +67,9 @@ public class Diretorio {
 		if(d == 1){
 			File file4 = new File("pag_cliente/doutorado");	
 			file4.mkdirs();
-		}		
+		}
 	}
+	
 	
 	public static void criaPaginas(){
 		
@@ -79,8 +80,9 @@ public class Diretorio {
 		String textoHTML_Doutorado = "";
 		String folderLayout = "";
 		
+		//cria a pasta raiz do site 
 		File folderCliente = new File("pagina_cliente");
-		folderCliente.mkdir();
+		folderCliente.mkdirs();
 		
 		try {    
 	        
@@ -88,11 +90,16 @@ public class Diretorio {
 				
 				folderLayout = "layout_01";
 				
-				BufferedWriter bw_Home = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +  "/index.html" ));
-								
-				folderCliente = new File("pagina_cliente/" + folderLayout);
-				folderCliente.mkdir();
+				//criando a pasta Layout01
+				File folderLayout01 = new File("pagina_cliente/layout_01");	
+				folderLayout01.mkdir();
 				
+				
+				//criando a variavel para escrever em index.html
+				BufferedWriter bw_Home = new BufferedWriter( new FileWriter( "pagina_cliente/layout_01/index.html" ));
+				
+				
+				//obtendo os codigos html do layout01
 	        	PaginaLayout_01.escreveHTML_Home();
 	        	textoHTML_Home = PaginaLayout_01.geraCodigoHTML_Home();
 	        	
@@ -108,6 +115,7 @@ public class Diretorio {
 	        	PaginaLayout_01.escreveHTML_Doutorado();	        		
 	        	textoHTML_Doutorado = PaginaLayout_01.geraCodigoHTML_Doutorado();
 	        	
+	        	//escrevendo o codigo da pagina index.html
 	        	bw_Home.write( textoHTML_Home, 0,textoHTML_Home.length() ); 
 		        bw_Home.close();		        
 			}
@@ -115,12 +123,18 @@ public class Diretorio {
 			if (CriadorTab.pagCliente.getLayoutSite() == 2){
 				
 				folderLayout = "layout_02";
+
 				
+				//criando a pasta Layout02
+				File folderLayout02 = new File("pagina_cliente/layout_02");	
+				folderLayout02.mkdir();
+
+				
+				//criando a variavel para escrever em index.html
 				BufferedWriter bw_Home = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +  "/index.html" ));
-								
-				folderCliente = new File("pagina_cliente/" + folderLayout);
-				folderCliente.mkdir();			
+
 				
+				//obtendo os codigos html do layout02
 				PaginaLayout_02.escreveHTML_Home();
 	        	textoHTML_Home = PaginaLayout_02.geraCodigoHTML_Home();
 	        	
@@ -136,6 +150,7 @@ public class Diretorio {
 	        	PaginaLayout_02.escreveHTML_Doutorado();	        		
 	        	textoHTML_Doutorado = PaginaLayout_02.geraCodigoHTML_Doutorado();
 	        	
+	        	//escrevendo o codigo da pagina index.html
 	        	bw_Home.write( textoHTML_Home, 0,textoHTML_Home.length() ); 
 		        bw_Home.close();		        
 			}
@@ -144,12 +159,16 @@ public class Diretorio {
 				
 				folderLayout = "layout_03";
 				
+				
+				//criando a pasta Layout03
+				File folderLayout03 = new File("pagina_cliente/layout_03");	
+				folderLayout03.mkdir();
+
+				
 				BufferedWriter bw_Home = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +  "/index.html" ));
 								
-				folderCliente = new File("pagina_cliente/" + folderLayout);
-				folderCliente.mkdir();
-				
-	        	PaginaLayout_01.escreveHTML_Home();
+
+				PaginaLayout_01.escreveHTML_Home();
 	        	textoHTML_Home = PaginaLayout_01.geraCodigoHTML_Home();
 	        	
 	        	bw_Home.write( textoHTML_Home, 0,textoHTML_Home.length() ); 
@@ -160,10 +179,13 @@ public class Diretorio {
 				
 				folderLayout = "layout_04";
 				
+				//criando a pasta Layout04
+				File folderLayout04 = new File("pagina_cliente/layout_04");	
+				folderLayout04.mkdir();
+
+
 				BufferedWriter bw_Home = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +  "/index.html" ));
-								
-				folderCliente = new File("pagina_cliente/" + folderLayout);
-				folderCliente.mkdir();
+				
 				
 	        	PaginaLayout_01.escreveHTML_Home();
 	        	textoHTML_Home = PaginaLayout_01.geraCodigoHTML_Home();
@@ -174,6 +196,7 @@ public class Diretorio {
 	         
 	        	
 	        	if (CriadorTab.pagCliente.getGraduacao() == 1){
+
 	        		BufferedWriter bw_Graducao = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +   "/graduacao.html" ));
 	        				        	
 		        	bw_Graducao.write(textoHTML_Graduacao, 0,textoHTML_Graduacao.length() );
@@ -181,6 +204,7 @@ public class Diretorio {
 	        	}
 	        	
 	        	if (CriadorTab.pagCliente.getPosGraduacao() == 1){
+	        		
 	        		BufferedWriter bw_posGraducao = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +  "/pos_graduacao.html" ));	        		
 		        	
 		        	bw_posGraducao.write(textoHTML_posGraduaco, 0,textoHTML_posGraduaco.length() );
@@ -188,6 +212,7 @@ public class Diretorio {
 	        	}
 	        	
 	        	if (CriadorTab.pagCliente.getMestrado() == 1){
+	        		
 	        		BufferedWriter bw_Mestrado = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +   "/mestrado.html" ));
 	        				        	
 		        	bw_Mestrado.write(textoHTML_Mestrado, 0,textoHTML_Mestrado.length() );
@@ -195,6 +220,7 @@ public class Diretorio {
 	        	}
 	        	
 	        	if (CriadorTab.pagCliente.getDoutorado() == 1){
+	        		
 	        		BufferedWriter bw_Doutorado = new BufferedWriter( new FileWriter( "pagina_cliente/" + folderLayout +   "/doutorado.html" ));
 	        				        	
 		        	bw_Doutorado.write(textoHTML_Doutorado, 0,textoHTML_Doutorado.length() );

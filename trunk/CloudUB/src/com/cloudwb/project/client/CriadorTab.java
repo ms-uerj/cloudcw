@@ -223,9 +223,7 @@ public class CriadorTab {
 			//add VLayout na aba Modulos
 	        tabModulos.setPane(vLayoutMod);
           
-//TODO fazer um metodo que chame cada tab  //nao eh prioridade
 	        
-
 	        //nova tab
 	        Tab tabTemplate = new Tab("Template","icontemplate.png");  
 
@@ -1057,7 +1055,7 @@ public class CriadorTab {
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
 		                           
-		                            //TODO chamar metodo de visualizar site
+		                        	Diretorio.criaPaginas();
 		                        }  
 		                    }  
 		                });  
@@ -1173,12 +1171,10 @@ public class CriadorTab {
 		                    public void execute(Boolean value) {  
 		                        if (value != null && value) {  
 		                        	
+		                        	//Diretorio d = new Diretorio(pagCliente);
+		                        	//d.cria_Diretorio();
 		                        	Diretorio.criaPaginas();
-		                        	//Diretorio dir = new Diretorio(pagCliente);
-		                        	//dir.cria_Diretorio();
-		                        	
-		                        	
-		                    		//TODO chamar metodo de criar site
+
 		                        }  
 		                    }  
 		                });  
