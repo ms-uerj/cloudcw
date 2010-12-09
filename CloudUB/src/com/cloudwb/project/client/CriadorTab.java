@@ -1,6 +1,5 @@
 package com.cloudwb.project.client;
 
-import com.google.gwt.user.client.ui.HTML;
 import com.smartgwt.client.types.Alignment;
 import com.smartgwt.client.types.ImageStyle;
 import com.smartgwt.client.types.Side;
