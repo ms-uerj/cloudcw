@@ -14,15 +14,17 @@ public class PaginaLayout_01 {
 	codigoHTML_Home = ""+
 	"<html>"+
 	"<head>"+
-	"<title>Web Site</title>"+
-	"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"+
-	    "<style type='text/css'>"+
-	        ".style1"+
-	        "{"+
-	            "width: 70%;"+
-	        "}"+
-	    "</style>"+
-	"</head>"+
+	 "<title>Web Site</title>"+
+	 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"+
+	 "<meta name='description' content='" + CriadorTab.pagCliente.getDescricaoSite() + "'/> "+
+	 "<meta name='keywords' content='" + CriadorTab.pagCliente.getKeywordsSite() + "'/> "+
+	     "<style type='text/css'>"+
+	         ".style1"+
+	         "{"+
+	             "width: 70%;"+
+	         "}"+
+	     "</style>"+
+	 "</head>"+
 	"<body bgcolor='#CCCCCC' topmargin='0' leftmargin='0' text='#FFFFFF' background='images/back.gif' link='#FFFFCC' vlink='#CCCCCC'>"+
 	"<table width='677' border='1' cellspacing='0' cellpadding='3' align='center' bordercolor='#313131'>"+
 	  "<tr>"+
@@ -131,7 +133,7 @@ public class PaginaLayout_01 {
 	        "<tr> "+
 	          "<td> "+
 	            "<div align='center'><font face='Arial, Helvetica, sans-serif' size='2'>"+
-	              "Desenvolvido por Web Solutions 4 U - Copyright 2010</font></div>"+
+	              CriadorTab.pagCliente.getNotaFooterSite() + "</font></div>"+
 	          "</td>"+
 	        "</tr>"+
 	      "</table>"+
@@ -149,15 +151,17 @@ public class PaginaLayout_01 {
 		codigoHTML_Graduacao = ""+
 		"<html>"+
 		"<head>"+
-		"<title>Web Site</title>"+
-		"<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>"+
-		    "<style type='text/css'>"+
-		        ".style1"+
-		        "{"+
-		            "width: 70%;"+
-		        "}"+
-		    "</style>"+
-		"</head>"+
+		 "<title>Web Site</title>"+
+		 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"+
+		 "<meta name='description' content='" + CriadorTab.pagCliente.getDescricaoSite() + "'/> "+
+		 "<meta name='keywords' content='" + CriadorTab.pagCliente.getKeywordsSite() + "'/> "+
+		     "<style type='text/css'>"+
+		         ".style1"+
+		         "{"+
+		             "width: 70%;"+
+		         "}"+
+		     "</style>"+
+		 "</head>"+
 		"<body bgcolor='#CCCCCC' topmargin='0' leftmargin='0' text='#FFFFFF' background='images/back.gif' link='#FFFFCC' vlink='#CCCCCC'>"+
 		"<table width='677' border='1' cellspacing='0' cellpadding='3' align='center' bordercolor='#313131'>"+
 		  "<tr>"+
@@ -266,7 +270,7 @@ public class PaginaLayout_01 {
 		        "<tr> "+
 		          "<td> "+
 		            "<div align='center'><font face='Arial, Helvetica, sans-serif' size='2'>"+
-		              "Desenvolvido por Web Solutions 4 U - Copyright 2010</font></div>"+
+		              CriadorTab.pagCliente.getNotaFooterSite() + "</font></div>"+
 		          "</td>"+
 		        "</tr>"+
 		      "</table>"+
@@ -284,14 +288,18 @@ public class PaginaLayout_01 {
 		"<html>"+
 		"<head>"+
 		"<title>Web Site</title>"+
-		"<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>"+
-		    "<style type='text/css'>"+
-		        ".style1"+
-		        "{"+
-		            "width: 70%;"+
-		        "}"+
-		    "</style>"+
-		"</head>"+
+		"<head>"+
+		 "<title>Web Site</title>"+
+		 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"+
+		 "<meta name='description' content='" + CriadorTab.pagCliente.getDescricaoSite() + "'/> "+
+		 "<meta name='keywords' content='" + CriadorTab.pagCliente.getKeywordsSite() + "'/> "+
+		     "<style type='text/css'>"+
+		         ".style1"+
+		         "{"+
+		             "width: 70%;"+
+		         "}"+
+		     "</style>"+
+		 "</head>"+
 		"<body bgcolor='#CCCCCC' topmargin='0' leftmargin='0' text='#FFFFFF' background='images/back.gif' link='#FFFFCC' vlink='#CCCCCC'>"+
 		"<table width='677' border='1' cellspacing='0' cellpadding='3' align='center' bordercolor='#313131'>"+
 		  "<tr>"+
@@ -400,7 +408,7 @@ public class PaginaLayout_01 {
 		        "<tr> "+
 		          "<td> "+
 		            "<div align='center'><font face='Arial, Helvetica, sans-serif' size='2'>"+
-		              "Desenvolvido por Web Solutions 4 U - Copyright 2010</font></div>"+
+		              CriadorTab.pagCliente.getNotaFooterSite() + "</font></div>"+
 		          "</td>"+
 		        "</tr>"+
 		      "</table>"+
@@ -418,14 +426,18 @@ public class PaginaLayout_01 {
 	"<html>"+
 	"<head>"+
 	"<title>Web Site</title>"+
-	"<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>"+
-	    "<style type='text/css'>"+
-	        ".style1"+
-	        "{"+
-	            "width: 70%;"+
-	        "}"+
-	    "</style>"+
-	"</head>"+
+	"<head>"+
+	 "<title>Web Site</title>"+
+	 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"+
+	 "<meta name='description' content='" + CriadorTab.pagCliente.getDescricaoSite() + "'/> "+
+	 "<meta name='keywords' content='" + CriadorTab.pagCliente.getKeywordsSite() + "'/> "+
+	     "<style type='text/css'>"+
+	         ".style1"+
+	         "{"+
+	             "width: 70%;"+
+	         "}"+
+	     "</style>"+
+	 "</head>"+
 	"<body bgcolor='#CCCCCC' topmargin='0' leftmargin='0' text='#FFFFFF' background='images/back.gif' link='#FFFFCC' vlink='#CCCCCC'>"+
 	"<table width='677' border='1' cellspacing='0' cellpadding='3' align='center' bordercolor='#313131'>"+
 	  "<tr>"+
@@ -534,7 +546,7 @@ public class PaginaLayout_01 {
 	        "<tr> "+
 	          "<td> "+
 	            "<div align='center'><font face='Arial, Helvetica, sans-serif' size='2'>"+
-	              "Desenvolvido por Web Solutions 4 U - Copyright 2010</font></div>"+
+	              CriadorTab.pagCliente.getNotaFooterSite() + "</font></div>"+
 	          "</td>"+
 	        "</tr>"+
 	      "</table>"+
@@ -552,14 +564,18 @@ public static void escreveHTML_Doutorado(){
 		"<html>"+
 		"<head>"+
 		"<title>Web Site</title>"+
-		"<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>"+
-		    "<style type='text/css'>"+
-		        ".style1"+
-		        "{"+
-		            "width: 70%;"+
-		        "}"+
-		    "</style>"+
-		"</head>"+
+		"<head>"+
+		 "<title>Web Site</title>"+
+		 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"+
+		 "<meta name='description' content='" + CriadorTab.pagCliente.getDescricaoSite() + "'/> "+
+		 "<meta name='keywords' content='" + CriadorTab.pagCliente.getKeywordsSite() + "'/> "+
+		     "<style type='text/css'>"+
+		         ".style1"+
+		         "{"+
+		             "width: 70%;"+
+		         "}"+
+		     "</style>"+
+		 "</head>"+
 		"<body bgcolor='#CCCCCC' topmargin='0' leftmargin='0' text='#FFFFFF' background='images/back.gif' link='#FFFFCC' vlink='#CCCCCC'>"+
 		"<table width='677' border='1' cellspacing='0' cellpadding='3' align='center' bordercolor='#313131'>"+
 		  "<tr>"+
@@ -668,7 +684,7 @@ public static void escreveHTML_Doutorado(){
 		        "<tr> "+
 		          "<td> "+
 		            "<div align='center'><font face='Arial, Helvetica, sans-serif' size='2'>"+
-		              "Desenvolvido por Web Solutions 4 U - Copyright 2010</font></div>"+
+		              CriadorTab.pagCliente.getNotaFooterSite() + "</font></div>"+
 		          "</td>"+
 		        "</tr>"+
 		      "</table>"+

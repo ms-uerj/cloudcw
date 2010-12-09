@@ -18,6 +18,8 @@ public class PaginaLayout_02 {
 		"<meta name='keywords' content='' />"+
 		"<meta name='description' content='' />"+
 		"<meta http-equiv='content-type' content='text/html; charset=utf-8' />"+
+		"<meta name='description' content='" + CriadorTab.pagCliente.getDescricaoSite() + "'/> "+
+		"<meta name='keywords' content='" + CriadorTab.pagCliente.getKeywordsSite() + "'/> "+
 		"<title>Web Site</title>"+
 		"<link href='style.css' rel='stylesheet' type='text/css' media='screen' />"+
 		"</head>"+
@@ -70,7 +72,7 @@ public class PaginaLayout_02 {
 			"</div>"+	
 		    "<!-- footer -->"+
 			"<div id='footer'>"+
-				"<p>Copyright (c) 2010 - Criado por Web Solutions 4 U</p>"+
+				"<p>" + CriadorTab.pagCliente.getNotaFooterSite() +"</p>"+
 			"</div>"+
 			"<!-- end #footer -->"+
 		"</body>"+
@@ -84,6 +86,8 @@ public class PaginaLayout_02 {
 		"<meta name='keywords' content='' />"+
 		"<meta name='description' content='' />"+
 		"<meta http-equiv='content-type' content='text/html; charset=utf-8' />"+
+		"<meta name='description' content='" + CriadorTab.pagCliente.getDescricaoSite() + "'/> "+
+		"<meta name='keywords' content='" + CriadorTab.pagCliente.getKeywordsSite() + "'/> "+
 		"<title>Web Site</title>"+
 		"<link href='style.css' rel='stylesheet' type='text/css' media='screen' />"+
 		"</head>"+
@@ -136,7 +140,7 @@ public class PaginaLayout_02 {
 			"</div>"+	
 		    "<!-- footer -->"+
 			"<div id='footer'>"+
-				"<p>Copyright (c) 2010 - Criado por Web Solutions 4 U</p>"+
+				"<p>" + CriadorTab.pagCliente.getNotaFooterSite() +"</p>"+
 			"</div>"+
 			"<!-- end #footer -->"+
 		"</body>"+
@@ -150,6 +154,8 @@ public class PaginaLayout_02 {
 		"<meta name='keywords' content='' />"+
 		"<meta name='description' content='' />"+
 		"<meta http-equiv='content-type' content='text/html; charset=utf-8' />"+
+		"<meta name='description' content='" + CriadorTab.pagCliente.getDescricaoSite() + "'/> "+
+		"<meta name='keywords' content='" + CriadorTab.pagCliente.getKeywordsSite() + "'/> "+
 		"<title>Web Site</title>"+
 		"<link href='style.css' rel='stylesheet' type='text/css' media='screen' />"+
 		"</head>"+
@@ -202,7 +208,7 @@ public class PaginaLayout_02 {
 			"</div>"+	
 		    "<!-- footer -->"+
 			"<div id='footer'>"+
-				"<p>Copyright (c) 2010 - Criado por Web Solutions 4 U</p>"+
+				"<p>" + CriadorTab.pagCliente.getNotaFooterSite() +"</p>"+
 			"</div>"+
 			"<!-- end #footer -->"+
 		"</body>"+
@@ -216,6 +222,8 @@ public class PaginaLayout_02 {
 		"<meta name='keywords' content='' />"+
 		"<meta name='description' content='' />"+
 		"<meta http-equiv='content-type' content='text/html; charset=utf-8' />"+
+		"<meta name='description' content='" + CriadorTab.pagCliente.getDescricaoSite() + "'/> "+
+		"<meta name='keywords' content='" + CriadorTab.pagCliente.getKeywordsSite() + "'/> "+
 		"<title>Web Site</title>"+
 		"<link href='style.css' rel='stylesheet' type='text/css' media='screen' />"+
 		"</head>"+
@@ -268,7 +276,7 @@ public class PaginaLayout_02 {
 			"</div>"+	
 		    "<!-- footer -->"+
 			"<div id='footer'>"+
-				"<p>Copyright (c) 2010 - Criado por Web Solutions 4 U</p>"+
+				"<p>" + CriadorTab.pagCliente.getNotaFooterSite() +"</p>"+
 			"</div>"+
 			"<!-- end #footer -->"+
 		"</body>"+
@@ -282,6 +290,8 @@ public class PaginaLayout_02 {
 		"<meta name='keywords' content='' />"+
 		"<meta name='description' content='' />"+
 		"<meta http-equiv='content-type' content='text/html; charset=utf-8' />"+
+		"<meta name='description' content='" + CriadorTab.pagCliente.getDescricaoSite() + "'/> "+
+		"<meta name='keywords' content='" + CriadorTab.pagCliente.getKeywordsSite() + "'/> "+
 		"<title>Web Site</title>"+
 		"<link href='style.css' rel='stylesheet' type='text/css' media='screen' />"+
 		"</head>"+
@@ -334,7 +344,7 @@ public class PaginaLayout_02 {
 			"</div>"+	
 		    "<!-- footer -->"+
 			"<div id='footer'>"+
-				"<p>Copyright (c) 2010 - Criado por Web Solutions 4 U</p>"+
+				"<p>" + CriadorTab.pagCliente.getNotaFooterSite() +"</p>"+
 			"</div>"+
 			"<!-- end #footer -->"+
 		"</body>"+
